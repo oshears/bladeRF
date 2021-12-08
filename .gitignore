@@ -54,3 +54,5 @@ host/misc/windows/scripts/work
 **/modelsim/*.wlf
 **/modelsim/work/
 **/modelsim/nuand/
+
+hdl/fpga/platforms/common/bladerf/software/bladeRF_nios_bsp
