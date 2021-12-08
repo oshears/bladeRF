@@ -16,7 +16,7 @@
 
 // SystemVerilog created from bb_dfr_B4
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -47,13 +47,13 @@ module dfr_bb_B4 (
     input wire [0:0] in_unnamed_dfr13_dfr_avm_writeack,
     input wire [0:0] in_valid_in_0,
     input wire [0:0] in_valid_in_1,
-    output wire [0:0] out_c0_exe167,
-    output wire [0:0] out_c0_exe268,
+    output wire [0:0] out_c0_exe166,
+    output wire [0:0] out_c0_exe267,
     output wire [25:0] out_c1_exe1,
     output wire [0:0] out_exiting_stall_out,
     output wire [0:0] out_exiting_valid_out,
     output wire [25:0] out_intel_reserved_ffwd_2_0,
-    output wire [0:0] out_memdep_phi7_pop18,
+    output wire [0:0] out_memdep_phi6_pop18,
     output wire [0:0] out_memdep_phi_pop17,
     output wire [0:0] out_stall_out_0,
     output wire [0:0] out_stall_out_1,
@@ -87,15 +87,15 @@ module dfr_bb_B4 (
     input wire resetn
     );
 
-    wire [0:0] bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_stall_out;
-    wire [0:0] bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_valid_out;
-    wire [0:0] bb_dfr_B4_stall_region_out_c0_exe167;
-    wire [0:0] bb_dfr_B4_stall_region_out_c0_exe268;
+    wire [0:0] bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_stall_out;
+    wire [0:0] bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_valid_out;
+    wire [0:0] bb_dfr_B4_stall_region_out_c0_exe166;
+    wire [0:0] bb_dfr_B4_stall_region_out_c0_exe267;
     wire [25:0] bb_dfr_B4_stall_region_out_c1_exe1;
     wire [0:0] bb_dfr_B4_stall_region_out_feedback_stall_out_17;
     wire [0:0] bb_dfr_B4_stall_region_out_feedback_stall_out_18;
     wire [25:0] bb_dfr_B4_stall_region_out_intel_reserved_ffwd_2_0;
-    wire [0:0] bb_dfr_B4_stall_region_out_memdep_phi7_pop18;
+    wire [0:0] bb_dfr_B4_stall_region_out_memdep_phi6_pop18;
     wire [0:0] bb_dfr_B4_stall_region_out_memdep_phi_pop17;
     wire [0:0] bb_dfr_B4_stall_region_out_pipeline_valid_out;
     wire [0:0] bb_dfr_B4_stall_region_out_stall_out;
@@ -121,10 +121,10 @@ module dfr_bb_B4 (
     wire [0:0] bb_dfr_B4_stall_region_out_unnamed_dfr13_dfr_avm_write;
     wire [2047:0] bb_dfr_B4_stall_region_out_unnamed_dfr13_dfr_avm_writedata;
     wire [0:0] bb_dfr_B4_stall_region_out_valid_out;
-    wire [0:0] dfr_B4_branch_out_c0_exe167;
-    wire [0:0] dfr_B4_branch_out_c0_exe268;
+    wire [0:0] dfr_B4_branch_out_c0_exe166;
+    wire [0:0] dfr_B4_branch_out_c0_exe267;
     wire [25:0] dfr_B4_branch_out_c1_exe1;
-    wire [0:0] dfr_B4_branch_out_memdep_phi7_pop18;
+    wire [0:0] dfr_B4_branch_out_memdep_phi6_pop18;
     wire [0:0] dfr_B4_branch_out_memdep_phi_pop17;
     wire [0:0] dfr_B4_branch_out_stall_out;
     wire [0:0] dfr_B4_branch_out_valid_out_0;
@@ -136,17 +136,17 @@ module dfr_bb_B4 (
 
     // dfr_B4_branch(BLACKBOX,3)
     dfr_B4_branch thedfr_B4_branch (
-        .in_c0_exe167(bb_dfr_B4_stall_region_out_c0_exe167),
-        .in_c0_exe268(bb_dfr_B4_stall_region_out_c0_exe268),
+        .in_c0_exe166(bb_dfr_B4_stall_region_out_c0_exe166),
+        .in_c0_exe267(bb_dfr_B4_stall_region_out_c0_exe267),
         .in_c1_exe1(bb_dfr_B4_stall_region_out_c1_exe1),
-        .in_memdep_phi7_pop18(bb_dfr_B4_stall_region_out_memdep_phi7_pop18),
+        .in_memdep_phi6_pop18(bb_dfr_B4_stall_region_out_memdep_phi6_pop18),
         .in_memdep_phi_pop17(bb_dfr_B4_stall_region_out_memdep_phi_pop17),
         .in_stall_in_0(in_stall_in_0),
         .in_valid_in(bb_dfr_B4_stall_region_out_valid_out),
-        .out_c0_exe167(dfr_B4_branch_out_c0_exe167),
-        .out_c0_exe268(dfr_B4_branch_out_c0_exe268),
+        .out_c0_exe166(dfr_B4_branch_out_c0_exe166),
+        .out_c0_exe267(dfr_B4_branch_out_c0_exe267),
         .out_c1_exe1(dfr_B4_branch_out_c1_exe1),
-        .out_memdep_phi7_pop18(dfr_B4_branch_out_memdep_phi7_pop18),
+        .out_memdep_phi6_pop18(dfr_B4_branch_out_memdep_phi6_pop18),
         .out_memdep_phi_pop17(dfr_B4_branch_out_memdep_phi_pop17),
         .out_stall_out(dfr_B4_branch_out_stall_out),
         .out_valid_out_0(dfr_B4_branch_out_valid_out_0),
@@ -194,15 +194,15 @@ module dfr_bb_B4 (
         .in_unnamed_dfr13_dfr_avm_waitrequest(in_unnamed_dfr13_dfr_avm_waitrequest),
         .in_unnamed_dfr13_dfr_avm_writeack(in_unnamed_dfr13_dfr_avm_writeack),
         .in_valid_in(dfr_B4_merge_out_valid_out),
-        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_stall_out(bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_stall_out),
-        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_valid_out(bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_valid_out),
-        .out_c0_exe167(bb_dfr_B4_stall_region_out_c0_exe167),
-        .out_c0_exe268(bb_dfr_B4_stall_region_out_c0_exe268),
+        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_stall_out(bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_stall_out),
+        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_valid_out(bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_valid_out),
+        .out_c0_exe166(bb_dfr_B4_stall_region_out_c0_exe166),
+        .out_c0_exe267(bb_dfr_B4_stall_region_out_c0_exe267),
         .out_c1_exe1(bb_dfr_B4_stall_region_out_c1_exe1),
         .out_feedback_stall_out_17(bb_dfr_B4_stall_region_out_feedback_stall_out_17),
         .out_feedback_stall_out_18(bb_dfr_B4_stall_region_out_feedback_stall_out_18),
         .out_intel_reserved_ffwd_2_0(bb_dfr_B4_stall_region_out_intel_reserved_ffwd_2_0),
-        .out_memdep_phi7_pop18(bb_dfr_B4_stall_region_out_memdep_phi7_pop18),
+        .out_memdep_phi6_pop18(bb_dfr_B4_stall_region_out_memdep_phi6_pop18),
         .out_memdep_phi_pop17(bb_dfr_B4_stall_region_out_memdep_phi_pop17),
         .out_pipeline_valid_out(bb_dfr_B4_stall_region_out_pipeline_valid_out),
         .out_stall_out(bb_dfr_B4_stall_region_out_stall_out),
@@ -238,26 +238,26 @@ module dfr_bb_B4 (
     // feedback_stall_out_18_sync(GPOUT,8)
     assign out_feedback_stall_out_18 = bb_dfr_B4_stall_region_out_feedback_stall_out_18;
 
-    // out_c0_exe167(GPOUT,31)
-    assign out_c0_exe167 = dfr_B4_branch_out_c0_exe167;
+    // out_c0_exe166(GPOUT,31)
+    assign out_c0_exe166 = dfr_B4_branch_out_c0_exe166;
 
-    // out_c0_exe268(GPOUT,32)
-    assign out_c0_exe268 = dfr_B4_branch_out_c0_exe268;
+    // out_c0_exe267(GPOUT,32)
+    assign out_c0_exe267 = dfr_B4_branch_out_c0_exe267;
 
     // out_c1_exe1(GPOUT,33)
     assign out_c1_exe1 = dfr_B4_branch_out_c1_exe1;
 
     // out_exiting_stall_out(GPOUT,34)
-    assign out_exiting_stall_out = bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_stall_out;
+    assign out_exiting_stall_out = bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_stall_out;
 
     // out_exiting_valid_out(GPOUT,35)
-    assign out_exiting_valid_out = bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going18_dfr2_exiting_valid_out;
+    assign out_exiting_valid_out = bb_dfr_B4_stall_region_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going17_dfr2_exiting_valid_out;
 
     // out_intel_reserved_ffwd_2_0(GPOUT,36)
     assign out_intel_reserved_ffwd_2_0 = bb_dfr_B4_stall_region_out_intel_reserved_ffwd_2_0;
 
-    // out_memdep_phi7_pop18(GPOUT,37)
-    assign out_memdep_phi7_pop18 = dfr_B4_branch_out_memdep_phi7_pop18;
+    // out_memdep_phi6_pop18(GPOUT,37)
+    assign out_memdep_phi6_pop18 = dfr_B4_branch_out_memdep_phi6_pop18;
 
     // out_memdep_phi_pop17(GPOUT,38)
     assign out_memdep_phi_pop17 = dfr_B4_branch_out_memdep_phi_pop17;

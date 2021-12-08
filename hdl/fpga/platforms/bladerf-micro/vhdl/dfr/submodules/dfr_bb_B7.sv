@@ -16,7 +16,7 @@
 
 // SystemVerilog created from bb_dfr_B7
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -28,7 +28,7 @@ module dfr_bb_B7 (
     input wire [0:0] in_iowr_bl_return_dfr_i_fifoready,
     input wire [0:0] in_stall_in_0,
     input wire [0:0] in_valid_in_0,
-    output wire [25:0] out_iowr_bl_return_dfr_o_fifodata,
+    output wire [0:0] out_iowr_bl_return_dfr_o_fifodata,
     output wire [0:0] out_iowr_bl_return_dfr_o_fifovalid,
     output wire [0:0] out_stall_in_0,
     output wire [0:0] out_stall_out_0,
@@ -39,7 +39,7 @@ module dfr_bb_B7 (
 
     wire [0:0] bb_dfr_B7_stall_region_out_feedback_out_1;
     wire [0:0] bb_dfr_B7_stall_region_out_feedback_valid_out_1;
-    wire [25:0] bb_dfr_B7_stall_region_out_iowr_bl_return_dfr_o_fifodata;
+    wire [0:0] bb_dfr_B7_stall_region_out_iowr_bl_return_dfr_o_fifodata;
     wire [0:0] bb_dfr_B7_stall_region_out_iowr_bl_return_dfr_o_fifovalid;
     wire [0:0] bb_dfr_B7_stall_region_out_stall_out;
     wire [0:0] bb_dfr_B7_stall_region_out_valid_out;

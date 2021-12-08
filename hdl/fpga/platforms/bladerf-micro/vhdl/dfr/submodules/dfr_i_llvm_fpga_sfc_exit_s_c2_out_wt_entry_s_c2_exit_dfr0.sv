@@ -16,7 +16,7 @@
 
 // SystemVerilog created from i_llvm_fpga_sfc_exit_s_c2_out_wt_entry_dfrs_c2_exit_dfr0
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -90,7 +90,7 @@ module dfr_i_llvm_fpga_sfc_exit_s_c2_out_wt_entry_s_c2_exit_dfr0 (
     // sync_out(GPOUT,9)@20000000
     assign out_stall_entry = stall_out_or_q;
 
-    // dupName_0_sync_out_aunroll_x(GPOUT,13)@44
+    // dupName_0_sync_out_aunroll_x(GPOUT,13)@96
     assign out_data_out_0_tpl = i_llvm_fpga_sfc_exit_s_c2_out_wt_entry_dfrs_c2_exit_dfr1_data_fifo_aunroll_x_out_o_data_0_tpl;
     assign out_valid_out = i_llvm_fpga_sfc_exit_s_c2_out_wt_entry_dfrs_c2_exit_dfr1_data_fifo_aunroll_x_out_o_valid;
 

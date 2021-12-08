@@ -16,20 +16,20 @@
 
 // SystemVerilog created from dfr_B6_branch
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
 module dfr_B6_branch (
-    input wire [0:0] in_c0_exe281,
-    input wire [0:0] in_c0_exe382,
+    input wire [0:0] in_c0_exe280,
+    input wire [0:0] in_c0_exe381,
     input wire [25:0] in_c0_exe4,
     input wire [0:0] in_c0_exe5,
     input wire [0:0] in_c0_exe6,
     input wire [0:0] in_stall_in_0,
     input wire [0:0] in_stall_in_1,
     input wire [0:0] in_valid_in,
-    output wire [0:0] out_c0_exe281,
+    output wire [0:0] out_c0_exe280,
     output wire [25:0] out_c0_exe4,
     output wire [0:0] out_c0_exe5,
     output wire [0:0] out_c0_exe6,
@@ -41,8 +41,8 @@ module dfr_B6_branch (
     );
 
     wire [0:0] VCC_q;
-    reg [0:0] c0_exe281_reg_q;
-    wire [0:0] c0_exe382_cmp_q;
+    reg [0:0] c0_exe280_reg_q;
+    wire [0:0] c0_exe381_cmp_q;
     reg [25:0] c0_exe4_reg_q;
     reg [0:0] c0_exe5_reg_q;
     reg [0:0] c0_exe6_reg_q;
@@ -66,11 +66,11 @@ module dfr_B6_branch (
     // not_stall_in_1(LOGICAL,18)
     assign not_stall_in_1_q = ~ (in_stall_in_1);
 
-    // c0_exe382_cmp(LOGICAL,3)
-    assign c0_exe382_cmp_q = ~ (in_c0_exe382);
+    // c0_exe381_cmp(LOGICAL,3)
+    assign c0_exe381_cmp_q = ~ (in_c0_exe381);
 
     // valid_out_1_and(LOGICAL,33)
-    assign valid_out_1_and_q = in_valid_in & c0_exe382_cmp_q;
+    assign valid_out_1_and_q = in_valid_in & c0_exe381_cmp_q;
 
     // valid_1_reg(REG,31)
     always @ (posedge clock or negedge resetn)
@@ -95,7 +95,7 @@ module dfr_B6_branch (
     assign not_stall_in_0_q = ~ (in_stall_in_0);
 
     // valid_out_0_and(LOGICAL,32)
-    assign valid_out_0_and_q = in_valid_in & in_c0_exe382;
+    assign valid_out_0_and_q = in_valid_in & in_c0_exe381;
 
     // valid_0_reg(REG,30)
     always @ (posedge clock or negedge resetn)
@@ -119,21 +119,21 @@ module dfr_B6_branch (
     // dfr_B6_branch_enable(LOGICAL,7)
     assign dfr_B6_branch_enable_q = not_valid_or_not_stall_0_q & not_valid_or_not_stall_1_q;
 
-    // c0_exe281_reg(REG,2)
+    // c0_exe280_reg(REG,2)
     always @ (posedge clock or negedge resetn)
     begin
         if (!resetn)
         begin
-            c0_exe281_reg_q <= $unsigned(1'b0);
+            c0_exe280_reg_q <= $unsigned(1'b0);
         end
         else if (dfr_B6_branch_enable_q == 1'b1)
         begin
-            c0_exe281_reg_q <= in_c0_exe281;
+            c0_exe280_reg_q <= in_c0_exe280;
         end
     end
 
-    // out_c0_exe281(GPOUT,23)
-    assign out_c0_exe281 = c0_exe281_reg_q;
+    // out_c0_exe280(GPOUT,23)
+    assign out_c0_exe280 = c0_exe280_reg_q;
 
     // c0_exe4_reg(REG,4)
     always @ (posedge clock or negedge resetn)

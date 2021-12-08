@@ -16,12 +16,12 @@
 
 // SystemVerilog created from i_iord_bl_call_dfr_unnamed_dfr7_dfr0
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:13 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
 module dfr_i_iord_bl_call_unnamed_dfr7_dfr0 (
-    input wire [63:0] in_iord_bl_call_dfr_i_fifodata,
+    input wire [31:0] in_iord_bl_call_dfr_i_fifodata,
     input wire [0:0] in_iord_bl_call_dfr_i_fifovalid,
     output wire [0:0] out_iord_bl_call_dfr_o_fifoalmost_full,
     input wire [0:0] in_i_stall,
@@ -29,8 +29,8 @@ module dfr_i_iord_bl_call_unnamed_dfr7_dfr0 (
     input wire [0:0] in_i_dependence,
     input wire [0:0] in_i_valid,
     output wire [0:0] out_iord_bl_call_dfr_o_fifoready,
-    output wire [31:0] out_o_data_0_tpl,
-    output wire [31:0] out_o_data_1_tpl,
+    output wire [15:0] out_o_data_0_tpl,
+    output wire [15:0] out_o_data_1_tpl,
     output wire [0:0] out_o_valid,
     input wire clock,
     input wire resetn
@@ -38,7 +38,7 @@ module dfr_i_iord_bl_call_unnamed_dfr7_dfr0 (
 
     wire [0:0] GND_q;
     wire [31:0] c32_0_q;
-    wire [63:0] iord_i_fifodata;
+    wire [31:0] iord_i_fifodata;
     wire [0:0] iord_i_fifoempty;
     wire iord_i_fifoempty_bitsignaltemp;
     wire [0:0] iord_i_fifoendofpacket;
@@ -54,7 +54,7 @@ module dfr_i_iord_bl_call_unnamed_dfr7_dfr0 (
     wire iord_i_stall_bitsignaltemp;
     wire [0:0] iord_i_valid;
     wire iord_i_valid_bitsignaltemp;
-    wire [63:0] iord_o_data;
+    wire [31:0] iord_o_data;
     wire [0:0] iord_o_fifoalmost_full;
     wire iord_o_fifoalmost_full_bitsignaltemp;
     wire [0:0] iord_o_fifoready;
@@ -64,8 +64,8 @@ module dfr_i_iord_bl_call_unnamed_dfr7_dfr0 (
     wire [0:0] iord_o_valid;
     wire iord_o_valid_bitsignaltemp;
     wire [31:0] iord_profile_total_fifo_size_incr;
-    wire [31:0] ip_dsdk_adapt_bitselect2_b;
-    wire [31:0] ip_dsdk_adapt_bitselect4_b;
+    wire [15:0] ip_dsdk_adapt_bitselect2_b;
+    wire [15:0] ip_dsdk_adapt_bitselect4_b;
 
 
     // c32_0(CONSTANT,3)
@@ -106,7 +106,7 @@ module dfr_i_iord_bl_call_unnamed_dfr7_dfr0 (
         .ALLOW_HIGH_SPEED_FIFO_USAGE(0),
         .ASYNC_RESET(1),
         .CUTPATHS(0),
-        .DATA_WIDTH(64),
+        .DATA_WIDTH(32),
         .EMPTY_WIDTH(0),
         .NON_BLOCKING(0),
         .NO_PREDICATION(1),
@@ -141,10 +141,10 @@ module dfr_i_iord_bl_call_unnamed_dfr7_dfr0 (
     assign out_iord_bl_call_dfr_o_fifoready = iord_o_fifoready;
 
     // ip_dsdk_adapt_bitselect4(BITSELECT,7)
-    assign ip_dsdk_adapt_bitselect4_b = iord_o_data[63:32];
+    assign ip_dsdk_adapt_bitselect4_b = iord_o_data[31:16];
 
     // ip_dsdk_adapt_bitselect2(BITSELECT,6)
-    assign ip_dsdk_adapt_bitselect2_b = iord_o_data[31:0];
+    assign ip_dsdk_adapt_bitselect2_b = iord_o_data[15:0];
 
     // dupName_0_sync_out_aunroll_x(GPOUT,17)@2
     assign out_o_data_0_tpl = ip_dsdk_adapt_bitselect2_b;

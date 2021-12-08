@@ -16,7 +16,7 @@
 
 // SystemVerilog created from bb_dfr_B5_stall_region
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -41,7 +41,7 @@ module dfr_bb_B5_stall_region (
     input wire [0:0] in_flush,
     input wire [0:0] in_stall_in,
     output wire [0:0] out_stall_out,
-    input wire [0:0] in_c0_exe2811,
+    input wire [0:0] in_c0_exe2801,
     input wire [25:0] in_c0_exe42,
     input wire [0:0] in_c0_exe53,
     input wire [0:0] in_c0_exe64,
@@ -64,18 +64,18 @@ module dfr_bb_B5_stall_region (
     wire [0:0] i_llvm_fpga_mem_memdep_dfr2_out_o_stall;
     wire [0:0] i_llvm_fpga_mem_memdep_dfr2_out_o_valid;
     wire [0:0] i_llvm_fpga_mem_memdep_dfr2_out_o_writeack;
-    wire [0:0] i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_feedback_out_18;
-    wire [0:0] i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_feedback_valid_out_18;
-    wire [0:0] i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_stall_out;
-    wire [0:0] i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_valid_out;
+    wire [0:0] i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_feedback_out_18;
+    wire [0:0] i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_feedback_valid_out_18;
+    wire [0:0] i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_stall_out;
+    wire [0:0] i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_valid_out;
     wire [0:0] i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_out_feedback_out_17;
     wire [0:0] i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_out_feedback_valid_out_17;
     wire [0:0] i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_out_stall_out;
     wire [0:0] i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_out_valid_out;
-    wire [5:0] i_pms_cs1375_dfr0_vt_const_31_q;
-    wire [31:0] i_pms_cs1375_dfr0_vt_join_q;
-    wire [25:0] i_pms_cs1375_dfr0_vt_select_25_b;
-    wire [31:0] i_pms_cs1375_dfr0_sel_x_b;
+    wire [5:0] i_pms_cs1465_dfr0_vt_const_31_q;
+    wire [31:0] i_pms_cs1465_dfr0_vt_join_q;
+    wire [25:0] i_pms_cs1465_dfr0_vt_select_25_b;
+    wire [31:0] i_pms_cs1465_dfr0_sel_x_b;
     wire [1:0] join_for_coalesced_delay_0_q;
     wire [0:0] sel_for_coalesced_delay_0_b;
     wire [0:0] sel_for_coalesced_delay_0_c;
@@ -87,8 +87,8 @@ module dfr_bb_B5_stall_region (
     wire [25:0] bubble_select_stall_entry_c;
     wire [0:0] bubble_select_stall_entry_d;
     wire [0:0] bubble_select_stall_entry_e;
-    wire [0:0] SE_out_i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_wireValid;
-    wire [0:0] SE_out_i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_backStall;
+    wire [0:0] SE_out_i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_wireValid;
+    wire [0:0] SE_out_i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_backStall;
     wire [0:0] SE_out_i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_wireValid;
     wire [0:0] SE_out_i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_backStall;
     wire [0:0] SE_stall_entry_wireValid;
@@ -141,11 +141,11 @@ module dfr_bb_B5_stall_region (
     wire [0:0] SR_SE_sel_for_coalesced_delay_0_D2;
 
 
-    // i_pms_cs1375_dfr0_vt_const_31(CONSTANT,18)
-    assign i_pms_cs1375_dfr0_vt_const_31_q = $unsigned(6'b000000);
+    // i_pms_cs1465_dfr0_vt_const_31(CONSTANT,18)
+    assign i_pms_cs1465_dfr0_vt_const_31_q = $unsigned(6'b000000);
 
     // bubble_join_stall_entry(BITJOIN,47)
-    assign bubble_join_stall_entry_q = {in_c0_exe64, in_c0_exe53, in_c0_exe42, in_c0_exe2811};
+    assign bubble_join_stall_entry_q = {in_c0_exe64, in_c0_exe53, in_c0_exe42, in_c0_exe2801};
 
     // bubble_select_stall_entry(BITSELECT,48)
     assign bubble_select_stall_entry_b = $unsigned(bubble_join_stall_entry_q[0:0]);
@@ -153,14 +153,14 @@ module dfr_bb_B5_stall_region (
     assign bubble_select_stall_entry_d = $unsigned(bubble_join_stall_entry_q[27:27]);
     assign bubble_select_stall_entry_e = $unsigned(bubble_join_stall_entry_q[28:28]);
 
-    // i_pms_cs1375_dfr0_sel_x(BITSELECT,34)@0
-    assign i_pms_cs1375_dfr0_sel_x_b = {6'b000000, bubble_select_stall_entry_c[25:0]};
+    // i_pms_cs1465_dfr0_sel_x(BITSELECT,34)@0
+    assign i_pms_cs1465_dfr0_sel_x_b = {6'b000000, bubble_select_stall_entry_c[25:0]};
 
-    // i_pms_cs1375_dfr0_vt_select_25(BITSELECT,20)@0
-    assign i_pms_cs1375_dfr0_vt_select_25_b = i_pms_cs1375_dfr0_sel_x_b[25:0];
+    // i_pms_cs1465_dfr0_vt_select_25(BITSELECT,20)@0
+    assign i_pms_cs1465_dfr0_vt_select_25_b = i_pms_cs1465_dfr0_sel_x_b[25:0];
 
-    // i_pms_cs1375_dfr0_vt_join(BITJOIN,19)@0
-    assign i_pms_cs1375_dfr0_vt_join_q = {i_pms_cs1375_dfr0_vt_const_31_q, i_pms_cs1375_dfr0_vt_select_25_b};
+    // i_pms_cs1465_dfr0_vt_join(BITJOIN,19)@0
+    assign i_pms_cs1465_dfr0_vt_join_q = {i_pms_cs1465_dfr0_vt_const_31_q, i_pms_cs1465_dfr0_vt_select_25_b};
 
     // SE_coalesced_delay_0_0(STALLENABLE,64)
     // Valid signal propagation
@@ -193,30 +193,30 @@ module dfr_bb_B5_stall_region (
         end
     end
 
-    // SE_out_i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1(STALLENABLE,54)
+    // SE_out_i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1(STALLENABLE,54)
     // Backward Stall generation
-    assign SE_out_i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_backStall = $unsigned(1'b0);
+    assign SE_out_i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_backStall = $unsigned(1'b0);
     // Computing multiple Valid(s)
-    assign SE_out_i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_wireValid = i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_valid_out;
+    assign SE_out_i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_wireValid = i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_valid_out;
 
-    // i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1(BLACKBOX,15)@0
+    // i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1(BLACKBOX,15)@0
     // in in_stall_in@20000000
     // out out_data_out@1
     // out out_feedback_out_18@20000000
     // out out_feedback_valid_out_18@20000000
     // out out_stall_out@20000000
     // out out_valid_out@1
-    dfr_i_llvm_fpga_push_i1_memdep_phi7_push18_0 thei_llvm_fpga_push_i1_memdep_phi7_push18_dfr1 (
+    dfr_i_llvm_fpga_push_i1_memdep_phi6_push18_0 thei_llvm_fpga_push_i1_memdep_phi6_push18_dfr1 (
         .in_c0_exe53(bubble_select_stall_entry_d),
         .in_data_in(bubble_select_stall_entry_b),
         .in_feedback_stall_in_18(in_feedback_stall_in_18),
-        .in_stall_in(SE_out_i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_backStall),
+        .in_stall_in(SE_out_i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_backStall),
         .in_valid_in(SE_stall_entry_V0),
         .out_data_out(),
-        .out_feedback_out_18(i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_feedback_out_18),
-        .out_feedback_valid_out_18(i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_feedback_valid_out_18),
-        .out_stall_out(i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_stall_out),
-        .out_valid_out(i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_valid_out),
+        .out_feedback_out_18(i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_feedback_out_18),
+        .out_feedback_valid_out_18(i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_feedback_valid_out_18),
+        .out_stall_out(i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_stall_out),
+        .out_valid_out(i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_valid_out),
         .clock(clock),
         .resetn(resetn)
     );
@@ -241,7 +241,7 @@ module dfr_bb_B5_stall_region (
         end
     end
     // Input Stall processing
-    assign SE_stall_entry_consumed0 = (~ (i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_stall_out) & SE_stall_entry_wireValid) | SE_stall_entry_fromReg0;
+    assign SE_stall_entry_consumed0 = (~ (i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_stall_out) & SE_stall_entry_wireValid) | SE_stall_entry_fromReg0;
     assign SE_stall_entry_consumed1 = (~ (SE_coalesced_delay_0_0_backStall) & SE_stall_entry_wireValid) | SE_stall_entry_fromReg1;
     assign SE_stall_entry_consumed2 = (~ (i_llvm_fpga_mem_memdep_dfr2_out_o_stall) & SE_stall_entry_wireValid) | SE_stall_entry_fromReg2;
     // Consuming
@@ -413,7 +413,7 @@ module dfr_bb_B5_stall_region (
         .in_i_predicate(GND_q),
         .in_i_stall(SR_SE_sel_for_coalesced_delay_0_backStall),
         .in_i_valid(SE_stall_entry_V2),
-        .in_i_writedata(i_pms_cs1375_dfr0_vt_join_q),
+        .in_i_writedata(i_pms_cs1465_dfr0_vt_join_q),
         .in_memdep_dfr_avm_readdata(in_memdep_dfr_avm_readdata),
         .in_memdep_dfr_avm_readdatavalid(in_memdep_dfr_avm_readdatavalid),
         .in_memdep_dfr_avm_waitrequest(in_memdep_dfr_avm_waitrequest),
@@ -445,13 +445,13 @@ module dfr_bb_B5_stall_region (
     assign out_feedback_out_17 = i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_out_feedback_out_17;
 
     // feedback_out_18_sync(GPOUT,9)
-    assign out_feedback_out_18 = i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_feedback_out_18;
+    assign out_feedback_out_18 = i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_feedback_out_18;
 
     // feedback_valid_out_17_sync(GPOUT,12)
     assign out_feedback_valid_out_17 = i_llvm_fpga_push_i1_memdep_phi_push17_dfr3_out_feedback_valid_out_17;
 
     // feedback_valid_out_18_sync(GPOUT,13)
-    assign out_feedback_valid_out_18 = i_llvm_fpga_push_i1_memdep_phi7_push18_dfr1_out_feedback_valid_out_18;
+    assign out_feedback_valid_out_18 = i_llvm_fpga_push_i1_memdep_phi6_push18_dfr1_out_feedback_valid_out_18;
 
     // sync_out(GPOUT,31)@0
     assign out_stall_out = SE_stall_entry_backStall;

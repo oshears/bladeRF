@@ -16,7 +16,7 @@
 
 // SystemVerilog created from i_llvm_fpga_push_token_i1_throttle_push_dfr0
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -150,7 +150,7 @@ module dfr_i_llvm_fpga_push_token_i1_throttle_push_0 (
     // sync_out(GPOUT,12)@20000000
     assign out_stall_out = i_llvm_fpga_push_token_i1_throttle_push_dfr1_stall_out;
 
-    // dupName_0_sync_out_x(GPOUT,14)@2
+    // dupName_0_sync_out_x(GPOUT,14)@14
     assign out_data_out = i_llvm_fpga_push_token_i1_throttle_push_dfr3_reg_out_data_out;
     assign out_valid_out = i_llvm_fpga_push_token_i1_throttle_push_dfr3_reg_out_valid_out;
 

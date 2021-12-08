@@ -16,34 +16,29 @@
 
 // SystemVerilog created from i_iowr_bl_return_dfr_unnamed_dfr17_dfr0
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
 module dfr_i_iowr_bl_return_unnamed_dfr17_dfr0 (
     input wire [0:0] in_iowr_bl_return_dfr_i_fifoready,
-    output wire [25:0] out_iowr_bl_return_dfr_o_fifodata,
+    output wire [0:0] out_iowr_bl_return_dfr_o_fifodata,
     input wire [0:0] in_i_stall,
     output wire [0:0] out_o_stall,
+    input wire [0:0] in_i_data,
+    input wire [0:0] in_i_valid,
     output wire [0:0] out_iowr_bl_return_dfr_o_fifovalid,
     output wire [0:0] out_o_ack,
     output wire [0:0] out_o_valid,
-    input wire [25:0] in_i_data_0_tpl,
-    input wire [0:0] in_i_valid,
     input wire clock,
     input wire resetn
     );
 
     wire [0:0] GND_q;
-    wire [25:0] bit_select_in_b;
     wire [31:0] c32_0_q;
-    wire [5:0] c_i6_010_q;
-    wire [31:0] dsdk_ip_adapt_bitjoin1_q;
-    wire [31:0] dsdk_ip_adapt_bitjoin3_q;
-    wire [31:0] dsdk_ip_adapt_bitjoin5_q;
-    wire [31:0] dsdk_ip_adapt_bitjoin7_q;
-    wire [31:0] element_extension9_q;
-    wire [25:0] iowr_i_data;
+    wire [6:0] c_i7_02_q;
+    wire [7:0] element_extension1_q;
+    wire [0:0] iowr_i_data;
     wire [0:0] iowr_i_endofpacket;
     wire iowr_i_endofpacket_bitsignaltemp;
     wire [0:0] iowr_i_fifoready;
@@ -60,7 +55,7 @@ module dfr_i_iowr_bl_return_unnamed_dfr17_dfr0 (
     wire iowr_i_valid_bitsignaltemp;
     wire [0:0] iowr_o_ack;
     wire iowr_o_ack_bitsignaltemp;
-    wire [25:0] iowr_o_fifodata;
+    wire [0:0] iowr_o_fifodata;
     wire [0:0] iowr_o_fifoempty;
     wire [0:0] iowr_o_fifovalid;
     wire iowr_o_fifovalid_bitsignaltemp;
@@ -71,35 +66,20 @@ module dfr_i_iowr_bl_return_unnamed_dfr17_dfr0 (
     wire [31:0] iowr_profile_total_fifo_size_incr;
 
 
-    // c32_0(CONSTANT,6)
+    // c32_0(CONSTANT,2)
     assign c32_0_q = $unsigned(32'b00000000000000000000000000000000);
 
     // GND(CONSTANT,0)
     assign GND_q = $unsigned(1'b0);
 
-    // c_i6_010(CONSTANT,8)
-    assign c_i6_010_q = $unsigned(6'b000000);
+    // c_i7_02(CONSTANT,4)
+    assign c_i7_02_q = $unsigned(7'b0000000);
 
-    // element_extension9(BITJOIN,14)
-    assign element_extension9_q = {c_i6_010_q, in_i_data_0_tpl};
+    // element_extension1(BITJOIN,6)
+    assign element_extension1_q = {c_i7_02_q, in_i_data};
 
-    // dsdk_ip_adapt_bitjoin7(BITJOIN,13)
-    assign dsdk_ip_adapt_bitjoin7_q = element_extension9_q;
-
-    // dsdk_ip_adapt_bitjoin5(BITJOIN,12)
-    assign dsdk_ip_adapt_bitjoin5_q = dsdk_ip_adapt_bitjoin7_q;
-
-    // dsdk_ip_adapt_bitjoin3(BITJOIN,11)
-    assign dsdk_ip_adapt_bitjoin3_q = dsdk_ip_adapt_bitjoin5_q;
-
-    // dsdk_ip_adapt_bitjoin1(BITJOIN,10)
-    assign dsdk_ip_adapt_bitjoin1_q = dsdk_ip_adapt_bitjoin3_q;
-
-    // bit_select_in(BITSELECT,5)
-    assign bit_select_in_b = dsdk_ip_adapt_bitjoin1_q[25:0];
-
-    // iowr(EXTIFACE,15)
-    assign iowr_i_data = bit_select_in_b;
+    // iowr(EXTIFACE,7)
+    assign iowr_i_data = element_extension1_q[0:0];
     assign iowr_i_endofpacket = GND_q;
     assign iowr_i_fifoready = in_iowr_bl_return_dfr_i_fifoready;
     assign iowr_i_fifosize = c32_0_q;
@@ -127,14 +107,14 @@ module dfr_i_iowr_bl_return_unnamed_dfr17_dfr0 (
         .ALLOW_HIGH_SPEED_FIFO_USAGE(0),
         .ASYNC_RESET(1),
         .CUTPATHS(0),
-        .DATA_WIDTH(26),
+        .DATA_WIDTH(1),
         .EMPTY_WIDTH(0),
         .ENABLED(0),
         .NON_BLOCKING(0),
         .NO_PREDICATION(1),
         .SYNCHRONIZE_RESET(0)
     ) theiowr (
-        .i_data(bit_select_in_b),
+        .i_data(element_extension1_q[0:0]),
         .i_endofpacket(iowr_i_endofpacket_bitsignaltemp),
         .i_fifoready(iowr_i_fifoready_bitsignaltemp),
         .i_fifosize(c32_0_q),
@@ -154,16 +134,16 @@ module dfr_i_iowr_bl_return_unnamed_dfr17_dfr0 (
         .resetn(resetn)
     );
 
-    // regfree_osync(GPOUT,17)
+    // regfree_osync(GPOUT,9)
     assign out_iowr_bl_return_dfr_o_fifodata = iowr_o_fifodata;
 
-    // sync_out(GPOUT,19)@20000000
+    // sync_out(GPOUT,11)@20000000
     assign out_o_stall = iowr_o_stall;
 
-    // dupName_0_regfree_osync_x(GPOUT,21)
+    // dupName_0_regfree_osync_x(GPOUT,14)
     assign out_iowr_bl_return_dfr_o_fifovalid = iowr_o_fifovalid;
 
-    // dupName_0_sync_out_x(GPOUT,22)@1
+    // dupName_0_sync_out_x(GPOUT,15)@13
     assign out_o_ack = iowr_o_ack;
     assign out_o_valid = iowr_o_valid;
 

@@ -16,7 +16,7 @@
 
 // SystemVerilog created from bb_dfr_B1_runOnce_stall_region
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:13 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -25,14 +25,14 @@ module dfr_bb_B1_runOnce_stall_region (
     input wire [0:0] in_unnamed_dfr1_dfr_avm_writeack,
     input wire [0:0] in_unnamed_dfr1_dfr_avm_waitrequest,
     input wire [0:0] in_unnamed_dfr1_dfr_avm_readdatavalid,
-    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out,
-    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out,
+    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out,
+    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out,
     input wire [0:0] in_pipeline_stall_in,
     output wire [0:0] out_pipeline_valid_out,
     input wire [0:0] in_flush,
     input wire [0:0] in_stall_in,
     output wire [0:0] out_stall_out,
-    input wire [0:0] in_forked25,
+    input wire [0:0] in_forked24,
     input wire [0:0] in_valid_in,
     output wire [31:0] out_unnamed_dfr1_dfr_avm_address,
     output wire [0:0] out_unnamed_dfr1_dfr_avm_enable,
@@ -51,8 +51,8 @@ module dfr_bb_B1_runOnce_stall_region (
     wire [0:0] dfr_B1_runOnce_merge_reg_aunroll_x_out_stall_out;
     wire [0:0] dfr_B1_runOnce_merge_reg_aunroll_x_out_valid_out;
     wire [0:0] dfr_B1_runOnce_merge_reg_aunroll_x_out_data_out_0_tpl;
-    wire [0:0] i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out;
-    wire [0:0] i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out;
+    wire [0:0] i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out;
+    wire [0:0] i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out;
     wire [0:0] i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_o_stall;
     wire [0:0] i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_o_valid;
     wire [0:0] i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_pipeline_valid_out;
@@ -82,7 +82,7 @@ module dfr_bb_B1_runOnce_stall_region (
 
 
     // bubble_join_stall_entry(BITJOIN,24)
-    assign bubble_join_stall_entry_q = in_forked25;
+    assign bubble_join_stall_entry_q = in_forked24;
 
     // bubble_select_stall_entry(BITSELECT,25)
     assign bubble_select_stall_entry_b = $unsigned(bubble_join_stall_entry_q[0:0]);
@@ -138,8 +138,8 @@ module dfr_bb_B1_runOnce_stall_region (
 
     // i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x(BLACKBOX,22)@1
     // in in_i_stall@20000000
-    // out out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out@20000000
-    // out out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out@20000000
+    // out out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out@20000000
+    // out out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out@20000000
     // out out_o_stall@20000000
     // out out_o_valid@7
     // out out_pipeline_valid_out@20000000
@@ -164,8 +164,8 @@ module dfr_bb_B1_runOnce_stall_region (
         .in_unnamed_dfr1_dfr_avm_writeack(in_unnamed_dfr1_dfr_avm_writeack),
         .in_c0_eni1_0_tpl(GND_q),
         .in_c0_eni1_1_tpl(bubble_select_dfr_B1_runOnce_merge_reg_aunroll_x_b),
-        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out(i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out),
-        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out(i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out),
+        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out(i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out),
+        .out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out(i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out),
         .out_o_stall(i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_o_stall),
         .out_o_valid(i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_o_valid),
         .out_pipeline_valid_out(i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_pipeline_valid_out),
@@ -184,8 +184,8 @@ module dfr_bb_B1_runOnce_stall_region (
     );
 
     // ext_sig_sync_out(GPOUT,6)
-    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out = i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out;
-    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out = i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out;
+    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out = i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out;
+    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out = i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out;
 
     // pipeline_valid_out_sync(GPOUT,12)
     assign out_pipeline_valid_out = i_sfc_s_c0_in_lp_init_dfrs_c0_enter6_dfr1_aunroll_x_out_pipeline_valid_out;

@@ -16,7 +16,7 @@
 
 // SystemVerilog created from bb_dfr_B5
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -27,7 +27,7 @@ module dfr_bb_B5 (
     input wire [0:0] in_feedback_stall_in_18,
     output wire [0:0] out_feedback_valid_out_17,
     output wire [0:0] out_feedback_valid_out_18,
-    input wire [0:0] in_c0_exe2811_0,
+    input wire [0:0] in_c0_exe2801_0,
     input wire [25:0] in_c0_exe42_0,
     input wire [0:0] in_c0_exe53_0,
     input wire [0:0] in_c0_exe64_0,
@@ -71,7 +71,7 @@ module dfr_bb_B5 (
     wire [0:0] dfr_B5_branch_out_stall_out;
     wire [0:0] dfr_B5_branch_out_valid_out_0;
     wire [0:0] dfr_B5_branch_out_valid_out_1;
-    wire [0:0] dfr_B5_merge_out_c0_exe2811;
+    wire [0:0] dfr_B5_merge_out_c0_exe2801;
     wire [25:0] dfr_B5_merge_out_c0_exe42;
     wire [0:0] dfr_B5_merge_out_c0_exe53;
     wire [0:0] dfr_B5_merge_out_c0_exe64;
@@ -94,13 +94,13 @@ module dfr_bb_B5 (
 
     // dfr_B5_merge(BLACKBOX,4)
     dfr_B5_merge thedfr_B5_merge (
-        .in_c0_exe2811_0(in_c0_exe2811_0),
+        .in_c0_exe2801_0(in_c0_exe2801_0),
         .in_c0_exe42_0(in_c0_exe42_0),
         .in_c0_exe53_0(in_c0_exe53_0),
         .in_c0_exe64_0(in_c0_exe64_0),
         .in_stall_in(bb_dfr_B5_stall_region_out_stall_out),
         .in_valid_in_0(in_valid_in_0),
-        .out_c0_exe2811(dfr_B5_merge_out_c0_exe2811),
+        .out_c0_exe2801(dfr_B5_merge_out_c0_exe2801),
         .out_c0_exe42(dfr_B5_merge_out_c0_exe42),
         .out_c0_exe53(dfr_B5_merge_out_c0_exe53),
         .out_c0_exe64(dfr_B5_merge_out_c0_exe64),
@@ -112,7 +112,7 @@ module dfr_bb_B5 (
 
     // bb_dfr_B5_stall_region(BLACKBOX,2)
     dfr_bb_B5_stall_region thebb_dfr_B5_stall_region (
-        .in_c0_exe2811(dfr_B5_merge_out_c0_exe2811),
+        .in_c0_exe2801(dfr_B5_merge_out_c0_exe2801),
         .in_c0_exe42(dfr_B5_merge_out_c0_exe42),
         .in_c0_exe53(dfr_B5_merge_out_c0_exe53),
         .in_c0_exe64(dfr_B5_merge_out_c0_exe64),

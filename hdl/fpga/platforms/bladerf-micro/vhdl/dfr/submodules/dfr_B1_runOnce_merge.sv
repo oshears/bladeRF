@@ -16,17 +16,17 @@
 
 // SystemVerilog created from dfr_B1_runOnce_merge
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:13 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
 module dfr_B1_runOnce_merge (
-    input wire [0:0] in_forked25_0,
-    input wire [0:0] in_forked25_1,
+    input wire [0:0] in_forked24_0,
+    input wire [0:0] in_forked24_1,
     input wire [0:0] in_stall_in,
     input wire [0:0] in_valid_in_0,
     input wire [0:0] in_valid_in_1,
-    output wire [0:0] out_forked25,
+    output wire [0:0] out_forked24,
     output wire [0:0] out_stall_out_0,
     output wire [0:0] out_stall_out_1,
     output wire [0:0] out_valid_out,
@@ -35,8 +35,8 @@ module dfr_B1_runOnce_merge (
     );
 
     wire [0:0] VCC_q;
-    wire [0:0] forked25_mux_s;
-    reg [0:0] forked25_mux_q;
+    wire [0:0] forked24_mux_s;
+    reg [0:0] forked24_mux_q;
     wire [0:0] stall_out_q;
     wire [0:0] stall_out_1_specific_q;
     wire [0:0] valid_or_q;
@@ -45,19 +45,19 @@ module dfr_B1_runOnce_merge (
     // VCC(CONSTANT,1)
     assign VCC_q = $unsigned(1'b1);
 
-    // forked25_mux(MUX,2)
-    assign forked25_mux_s = in_valid_in_0;
-    always @(forked25_mux_s or in_forked25_1 or in_forked25_0)
+    // forked24_mux(MUX,2)
+    assign forked24_mux_s = in_valid_in_0;
+    always @(forked24_mux_s or in_forked24_1 or in_forked24_0)
     begin
-        unique case (forked25_mux_s)
-            1'b0 : forked25_mux_q = in_forked25_1;
-            1'b1 : forked25_mux_q = in_forked25_0;
-            default : forked25_mux_q = 1'b0;
+        unique case (forked24_mux_s)
+            1'b0 : forked24_mux_q = in_forked24_1;
+            1'b1 : forked24_mux_q = in_forked24_0;
+            default : forked24_mux_q = 1'b0;
         endcase
     end
 
-    // out_forked25(GPOUT,8)
-    assign out_forked25 = forked25_mux_q;
+    // out_forked24(GPOUT,8)
+    assign out_forked24 = forked24_mux_q;
 
     // valid_or(LOGICAL,14)
     assign valid_or_q = in_valid_in_0 | in_valid_in_1;

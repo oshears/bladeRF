@@ -75,6 +75,7 @@ fi
 export WORKDIR=$1
 
 cp $1/settings.bsp $1/nios_system.sopcinfo ../fpga/platforms/common/bladerf/software/bladeRF_nios_bsp/
-sed -i 's/# CMAKE generated file: DO NOT EDIT!/unexport LD_LIBRARY_PATH/g' $1/libad936x/Makefile
+# sed -i 's/# CMAKE generated file: DO NOT EDIT!/unexport LD_LIBRARY_PATH/g' $1/libad936x/Makefile
+sed -i 's/# CMAKE generated file: DO NOT EDIT!/unexport LD_LIBRARY_PATH/g' $1/bladeRF_nios_bsp/Makefile
 
 eclipse-nios2

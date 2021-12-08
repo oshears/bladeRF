@@ -16,7 +16,7 @@
 
 // SystemVerilog created from i_llvm_fpga_push_i5_index_push11_dfr0
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:13 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -27,7 +27,7 @@ module dfr_i_llvm_fpga_push_i5_index_push11_0 (
     input wire [0:0] in_stall_in,
     output wire [0:0] out_stall_out,
     input wire [4:0] in_data_in,
-    input wire [0:0] in_keep_going28,
+    input wire [0:0] in_keep_going27,
     input wire [0:0] in_valid_in,
     output wire [4:0] out_data_out,
     output wire [0:0] out_valid_out,
@@ -71,7 +71,7 @@ module dfr_i_llvm_fpga_push_i5_index_push11_0 (
 
     // i_llvm_fpga_push_i5_index_push11_dfr1(EXTIFACE,8)@3
     assign i_llvm_fpga_push_i5_index_push11_dfr1_data_in = element_extension2_q;
-    assign i_llvm_fpga_push_i5_index_push11_dfr1_dir = in_keep_going28;
+    assign i_llvm_fpga_push_i5_index_push11_dfr1_dir = in_keep_going27;
     assign i_llvm_fpga_push_i5_index_push11_dfr1_feedback_stall_in = in_feedback_stall_in_11;
     assign i_llvm_fpga_push_i5_index_push11_dfr1_predicate = GND_q;
     assign i_llvm_fpga_push_i5_index_push11_dfr1_stall_in = in_stall_in;

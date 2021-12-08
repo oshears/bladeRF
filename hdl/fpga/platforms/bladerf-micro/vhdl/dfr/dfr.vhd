@@ -12,12 +12,12 @@ entity dfr is
 		busy       : out std_logic;                                        --           .stall
 		clock      : in  std_logic                     := '0';             --      clock.clk
 		clock2x    : in  std_logic                     := '0';             --    clock2x.clk
-		i_data     : in  std_logic_vector(31 downto 0) := (others => '0'); --     i_data.data
-		q_data     : in  std_logic_vector(31 downto 0) := (others => '0'); --     q_data.data
+		i_data     : in  std_logic_vector(15 downto 0) := (others => '0'); --     i_data.data
+		q_data     : in  std_logic_vector(15 downto 0) := (others => '0'); --     q_data.data
 		resetn     : in  std_logic                     := '0';             --      reset.reset_n
 		done       : out std_logic;                                        --     return.valid
 		stall      : in  std_logic                     := '0';             --           .stall
-		returndata : out std_logic_vector(25 downto 0)                     -- returndata.data
+		returndata : out std_logic                                         -- returndata.data
 	);
 end entity dfr;
 
@@ -31,9 +31,9 @@ architecture rtl of dfr is
 			busy       : out std_logic;                                        -- stall
 			done       : out std_logic;                                        -- valid
 			stall      : in  std_logic                     := 'X';             -- stall
-			returndata : out std_logic_vector(25 downto 0);                    -- data
-			i_data     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
-			q_data     : in  std_logic_vector(31 downto 0) := (others => 'X')  -- data
+			returndata : out std_logic;                                        -- data
+			i_data     : in  std_logic_vector(15 downto 0) := (others => 'X'); -- data
+			q_data     : in  std_logic_vector(15 downto 0) := (others => 'X')  -- data
 		);
 	end component dfr_internal;
 

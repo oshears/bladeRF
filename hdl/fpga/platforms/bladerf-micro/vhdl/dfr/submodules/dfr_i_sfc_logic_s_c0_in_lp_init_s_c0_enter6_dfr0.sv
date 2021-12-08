@@ -16,7 +16,7 @@
 
 // SystemVerilog created from i_sfc_logic_s_c0_in_lp_init_dfrs_c0_enter6_dfr0
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:13 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -25,8 +25,8 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     input wire [0:0] in_unnamed_dfr1_dfr_avm_writeack,
     input wire [0:0] in_unnamed_dfr1_dfr_avm_waitrequest,
     input wire [0:0] in_unnamed_dfr1_dfr_avm_readdatavalid,
-    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out,
-    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out,
+    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out,
+    output wire [0:0] out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out,
     input wire [0:0] in_pipeline_stall_in,
     output wire [0:0] out_pipeline_valid_out,
     input wire [0:0] in_flush,
@@ -62,47 +62,47 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     wire [5:0] i_adder_dfr26_b;
     logic [5:0] i_adder_dfr26_o;
     wire [5:0] i_adder_dfr26_q;
-    wire [3:0] i_cleanups_shl32_dfr5_vt_join_q;
-    wire [2:0] i_cleanups_shl32_dfr5_vt_select_3_b;
-    wire [0:0] i_first_cleanup_xor34_dfr4_q;
-    wire [6:0] i_fpga_indvars_iv_next12_dfr24_a;
-    wire [6:0] i_fpga_indvars_iv_next12_dfr24_b;
-    logic [6:0] i_fpga_indvars_iv_next12_dfr24_o;
-    wire [6:0] i_fpga_indvars_iv_next12_dfr24_q;
-    wire [0:0] i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out;
-    wire [0:0] i_llvm_fpga_pipeline_keep_going28_dfr6_out_exiting_stall_out;
-    wire [0:0] i_llvm_fpga_pipeline_keep_going28_dfr6_out_exiting_valid_out;
-    wire [0:0] i_llvm_fpga_pipeline_keep_going28_dfr6_out_initeration_stall_out;
-    wire [0:0] i_llvm_fpga_pipeline_keep_going28_dfr6_out_not_exitcond_stall_out;
-    wire [0:0] i_llvm_fpga_pipeline_keep_going28_dfr6_out_pipeline_valid_out;
-    wire [3:0] i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out;
-    wire [0:0] i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_feedback_stall_out_13;
-    wire [3:0] i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_data_out;
-    wire [0:0] i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_feedback_stall_out_12;
+    wire [3:0] i_cleanups_shl31_dfr5_vt_join_q;
+    wire [2:0] i_cleanups_shl31_dfr5_vt_select_3_b;
+    wire [0:0] i_first_cleanup_xor33_dfr4_q;
+    wire [6:0] i_fpga_indvars_iv_next11_dfr24_a;
+    wire [6:0] i_fpga_indvars_iv_next11_dfr24_b;
+    logic [6:0] i_fpga_indvars_iv_next11_dfr24_o;
+    wire [6:0] i_fpga_indvars_iv_next11_dfr24_q;
+    wire [0:0] i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out;
+    wire [0:0] i_llvm_fpga_pipeline_keep_going27_dfr6_out_exiting_stall_out;
+    wire [0:0] i_llvm_fpga_pipeline_keep_going27_dfr6_out_exiting_valid_out;
+    wire [0:0] i_llvm_fpga_pipeline_keep_going27_dfr6_out_initeration_stall_out;
+    wire [0:0] i_llvm_fpga_pipeline_keep_going27_dfr6_out_not_exitcond_stall_out;
+    wire [0:0] i_llvm_fpga_pipeline_keep_going27_dfr6_out_pipeline_valid_out;
+    wire [3:0] i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out;
+    wire [0:0] i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_feedback_stall_out_13;
+    wire [3:0] i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_data_out;
+    wire [0:0] i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_feedback_stall_out_12;
     wire [4:0] i_llvm_fpga_pop_i5_index_pop11_dfr12_out_data_out;
     wire [0:0] i_llvm_fpga_pop_i5_index_pop11_dfr12_out_feedback_stall_out_11;
-    wire [5:0] i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16_out_data_out;
-    wire [0:0] i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16_out_feedback_stall_out_10;
-    wire [0:0] i_llvm_fpga_push_i1_lastiniteration30_dfr11_out_feedback_out_8;
-    wire [0:0] i_llvm_fpga_push_i1_lastiniteration30_dfr11_out_feedback_valid_out_8;
-    wire [0:0] i_llvm_fpga_push_i1_notexitcond38_dfr20_out_feedback_out_9;
-    wire [0:0] i_llvm_fpga_push_i1_notexitcond38_dfr20_out_feedback_valid_out_9;
-    wire [7:0] i_llvm_fpga_push_i4_cleanups31_push13_dfr23_out_feedback_out_13;
-    wire [0:0] i_llvm_fpga_push_i4_cleanups31_push13_dfr23_out_feedback_valid_out_13;
-    wire [7:0] i_llvm_fpga_push_i4_initerations26_push12_dfr9_out_feedback_out_12;
-    wire [0:0] i_llvm_fpga_push_i4_initerations26_push12_dfr9_out_feedback_valid_out_12;
+    wire [5:0] i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16_out_data_out;
+    wire [0:0] i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16_out_feedback_stall_out_10;
+    wire [0:0] i_llvm_fpga_push_i1_lastiniteration29_dfr11_out_feedback_out_8;
+    wire [0:0] i_llvm_fpga_push_i1_lastiniteration29_dfr11_out_feedback_valid_out_8;
+    wire [0:0] i_llvm_fpga_push_i1_notexitcond37_dfr20_out_feedback_out_9;
+    wire [0:0] i_llvm_fpga_push_i1_notexitcond37_dfr20_out_feedback_valid_out_9;
+    wire [7:0] i_llvm_fpga_push_i4_cleanups30_push13_dfr23_out_feedback_out_13;
+    wire [0:0] i_llvm_fpga_push_i4_cleanups30_push13_dfr23_out_feedback_valid_out_13;
+    wire [7:0] i_llvm_fpga_push_i4_initerations25_push12_dfr9_out_feedback_out_12;
+    wire [0:0] i_llvm_fpga_push_i4_initerations25_push12_dfr9_out_feedback_valid_out_12;
     wire [7:0] i_llvm_fpga_push_i5_index_push11_dfr27_out_feedback_out_11;
     wire [0:0] i_llvm_fpga_push_i5_index_push11_dfr27_out_feedback_valid_out_11;
-    wire [7:0] i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25_out_feedback_out_10;
-    wire [0:0] i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25_out_feedback_valid_out_10;
-    wire [0:0] i_masked37_dfr28_qi;
-    reg [0:0] i_masked37_dfr28_q;
-    wire [0:0] i_next_cleanups36_dfr22_s;
-    reg [3:0] i_next_cleanups36_dfr22_q;
-    wire [3:0] i_next_initerations27_dfr8_vt_join_q;
-    wire [2:0] i_next_initerations27_dfr8_vt_select_2_b;
-    wire [0:0] i_notcmp24_dfr19_q;
-    wire [0:0] i_or35_dfr21_q;
+    wire [7:0] i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25_out_feedback_out_10;
+    wire [0:0] i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25_out_feedback_valid_out_10;
+    wire [0:0] i_masked36_dfr28_qi;
+    reg [0:0] i_masked36_dfr28_q;
+    wire [0:0] i_next_cleanups35_dfr22_s;
+    reg [3:0] i_next_cleanups35_dfr22_q;
+    wire [3:0] i_next_initerations26_dfr8_vt_join_q;
+    wire [2:0] i_next_initerations26_dfr8_vt_select_2_b;
+    wire [0:0] i_notcmp23_dfr19_q;
+    wire [0:0] i_or34_dfr21_q;
     wire [2:0] i_unnamed_dfr14_vt_const_2_q;
     wire [63:0] i_unnamed_dfr14_vt_join_q;
     wire [60:0] i_unnamed_dfr14_vt_select_63_b;
@@ -110,9 +110,9 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     wire [31:0] i_zext_dfr13_vt_join_q;
     wire [4:0] i_zext_dfr13_vt_select_4_b;
     wire [4:0] bgTrunc_i_adder_dfr26_sel_x_b;
-    wire [5:0] bgTrunc_i_fpga_indvars_iv_next12_dfr24_sel_x_b;
-    wire [0:0] i_first_cleanup33_dfr3_sel_x_b;
-    wire [0:0] i_last_initeration29_dfr10_sel_x_b;
+    wire [5:0] bgTrunc_i_fpga_indvars_iv_next11_dfr24_sel_x_b;
+    wire [0:0] i_first_cleanup32_dfr3_sel_x_b;
+    wire [0:0] i_last_initeration28_dfr10_sel_x_b;
     wire [31:0] i_llvm_fpga_mem_unnamed_dfr1_dfr15_aunroll_x_out_unnamed_dfr1_dfr_avm_address;
     wire [0:0] i_llvm_fpga_mem_unnamed_dfr1_dfr15_aunroll_x_out_unnamed_dfr1_dfr_avm_burstcount;
     wire [7:0] i_llvm_fpga_mem_unnamed_dfr1_dfr15_aunroll_x_out_unnamed_dfr1_dfr_avm_byteenable;
@@ -137,16 +137,16 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     (* dont_merge *) reg [0:0] valid_fanout_reg4_q;
     (* dont_merge *) reg [0:0] valid_fanout_reg5_q;
     (* dont_merge *) reg [0:0] valid_fanout_reg6_q;
-    wire [0:0] i_exitcond13_dfr17_cmp_nsign_q;
-    wire [2:0] leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl32_dfr0_shift_x_in;
-    wire [2:0] leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl32_dfr0_shift_x_b;
-    wire [3:0] leftShiftStage0Idx1_uid117_i_cleanups_shl32_dfr0_shift_x_q;
-    wire [0:0] leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_s;
-    reg [3:0] leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_q;
-    wire [2:0] rightShiftStage0Idx1Rng1_uid123_i_next_initerations27_dfr0_shift_x_b;
-    wire [3:0] rightShiftStage0Idx1_uid125_i_next_initerations27_dfr0_shift_x_q;
-    wire [0:0] rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_s;
-    reg [3:0] rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_q;
+    wire [0:0] i_exitcond12_dfr17_cmp_nsign_q;
+    wire [2:0] leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl31_dfr0_shift_x_in;
+    wire [2:0] leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl31_dfr0_shift_x_b;
+    wire [3:0] leftShiftStage0Idx1_uid117_i_cleanups_shl31_dfr0_shift_x_q;
+    wire [0:0] leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_s;
+    reg [3:0] leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_q;
+    wire [2:0] rightShiftStage0Idx1Rng1_uid123_i_next_initerations26_dfr0_shift_x_b;
+    wire [3:0] rightShiftStage0Idx1_uid125_i_next_initerations26_dfr0_shift_x_q;
+    wire [0:0] rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_s;
+    reg [3:0] rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_q;
     wire [55:0] i_unnamed_dfr0_upper_bits_x_merged_bit_select_b;
     wire [7:0] i_unnamed_dfr0_upper_bits_x_merged_bit_select_c;
     reg [0:0] redist0_sync_together67_aunroll_x_in_c0_eni1_1_tpl_1_q;
@@ -154,9 +154,9 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     reg [0:0] redist2_sync_together67_aunroll_x_in_i_valid_1_q;
     reg [0:0] redist3_sync_together67_aunroll_x_in_i_valid_2_q;
     reg [4:0] redist4_i_llvm_fpga_pop_i5_index_pop11_dfr12_out_data_out_1_q;
-    reg [0:0] redist5_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_1_q;
-    reg [0:0] redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2_q;
-    reg [0:0] redist7_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_3_q;
+    reg [0:0] redist5_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_1_q;
+    reg [0:0] redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2_q;
+    reg [0:0] redist7_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_3_q;
 
 
     // GND(CONSTANT,0)
@@ -191,88 +191,88 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
         end
     end
 
-    // redist5_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_1(DELAY,134)
+    // redist5_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_1(DELAY,134)
     always @ (posedge clock or negedge resetn)
     begin
         if (!resetn)
         begin
-            redist5_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_1_q <= '0;
+            redist5_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_1_q <= '0;
         end
         else
         begin
-            redist5_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_1_q <= $unsigned(i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out);
+            redist5_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_1_q <= $unsigned(i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out);
         end
     end
 
-    // redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2(DELAY,135)
+    // redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2(DELAY,135)
     always @ (posedge clock or negedge resetn)
     begin
         if (!resetn)
         begin
-            redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2_q <= '0;
+            redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2_q <= '0;
         end
         else
         begin
-            redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2_q <= $unsigned(redist5_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_1_q);
+            redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2_q <= $unsigned(redist5_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_1_q);
         end
     end
 
-    // leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl32_dfr0_shift_x(BITSELECT,115)@3
-    assign leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl32_dfr0_shift_x_in = i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out[2:0];
-    assign leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl32_dfr0_shift_x_b = leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl32_dfr0_shift_x_in[2:0];
+    // leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl31_dfr0_shift_x(BITSELECT,115)@3
+    assign leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl31_dfr0_shift_x_in = i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out[2:0];
+    assign leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl31_dfr0_shift_x_b = leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl31_dfr0_shift_x_in[2:0];
 
-    // leftShiftStage0Idx1_uid117_i_cleanups_shl32_dfr0_shift_x(BITJOIN,116)@3
-    assign leftShiftStage0Idx1_uid117_i_cleanups_shl32_dfr0_shift_x_q = {leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl32_dfr0_shift_x_b, GND_q};
+    // leftShiftStage0Idx1_uid117_i_cleanups_shl31_dfr0_shift_x(BITJOIN,116)@3
+    assign leftShiftStage0Idx1_uid117_i_cleanups_shl31_dfr0_shift_x_q = {leftShiftStage0Idx1Rng1_uid116_i_cleanups_shl31_dfr0_shift_x_b, GND_q};
 
-    // leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x(MUX,118)@3
-    assign leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_s = VCC_q;
-    always @(leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_s or i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out or leftShiftStage0Idx1_uid117_i_cleanups_shl32_dfr0_shift_x_q)
+    // leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x(MUX,118)@3
+    assign leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_s = VCC_q;
+    always @(leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_s or i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out or leftShiftStage0Idx1_uid117_i_cleanups_shl31_dfr0_shift_x_q)
     begin
-        unique case (leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_s)
-            1'b0 : leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_q = i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out;
-            1'b1 : leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_q = leftShiftStage0Idx1_uid117_i_cleanups_shl32_dfr0_shift_x_q;
-            default : leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_q = 4'b0;
+        unique case (leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_s)
+            1'b0 : leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_q = i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out;
+            1'b1 : leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_q = leftShiftStage0Idx1_uid117_i_cleanups_shl31_dfr0_shift_x_q;
+            default : leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_q = 4'b0;
         endcase
     end
 
-    // i_cleanups_shl32_dfr5_vt_select_3(BITSELECT,30)@3
-    assign i_cleanups_shl32_dfr5_vt_select_3_b = leftShiftStage0_uid119_i_cleanups_shl32_dfr0_shift_x_q[3:1];
+    // i_cleanups_shl31_dfr5_vt_select_3(BITSELECT,30)@3
+    assign i_cleanups_shl31_dfr5_vt_select_3_b = leftShiftStage0_uid119_i_cleanups_shl31_dfr0_shift_x_q[3:1];
 
-    // i_cleanups_shl32_dfr5_vt_join(BITJOIN,29)@3
-    assign i_cleanups_shl32_dfr5_vt_join_q = {i_cleanups_shl32_dfr5_vt_select_3_b, GND_q};
+    // i_cleanups_shl31_dfr5_vt_join(BITJOIN,29)@3
+    assign i_cleanups_shl31_dfr5_vt_join_q = {i_cleanups_shl31_dfr5_vt_select_3_b, GND_q};
 
-    // i_first_cleanup_xor34_dfr4(LOGICAL,33)@3
-    assign i_first_cleanup_xor34_dfr4_q = i_first_cleanup33_dfr3_sel_x_b ^ VCC_q;
+    // i_first_cleanup_xor33_dfr4(LOGICAL,33)@3
+    assign i_first_cleanup_xor33_dfr4_q = i_first_cleanup32_dfr3_sel_x_b ^ VCC_q;
 
-    // i_notcmp24_dfr19(LOGICAL,52)@3
-    assign i_notcmp24_dfr19_q = i_exitcond13_dfr17_cmp_nsign_q ^ VCC_q;
+    // i_notcmp23_dfr19(LOGICAL,52)@3
+    assign i_notcmp23_dfr19_q = i_exitcond12_dfr17_cmp_nsign_q ^ VCC_q;
 
-    // i_or35_dfr21(LOGICAL,53)@3
-    assign i_or35_dfr21_q = i_notcmp24_dfr19_q | i_first_cleanup_xor34_dfr4_q;
+    // i_or34_dfr21(LOGICAL,53)@3
+    assign i_or34_dfr21_q = i_notcmp23_dfr19_q | i_first_cleanup_xor33_dfr4_q;
 
-    // i_next_cleanups36_dfr22(MUX,48)@3
-    assign i_next_cleanups36_dfr22_s = i_or35_dfr21_q;
-    always @(i_next_cleanups36_dfr22_s or i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out or i_cleanups_shl32_dfr5_vt_join_q)
+    // i_next_cleanups35_dfr22(MUX,48)@3
+    assign i_next_cleanups35_dfr22_s = i_or34_dfr21_q;
+    always @(i_next_cleanups35_dfr22_s or i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out or i_cleanups_shl31_dfr5_vt_join_q)
     begin
-        unique case (i_next_cleanups36_dfr22_s)
-            1'b0 : i_next_cleanups36_dfr22_q = i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out;
-            1'b1 : i_next_cleanups36_dfr22_q = i_cleanups_shl32_dfr5_vt_join_q;
-            default : i_next_cleanups36_dfr22_q = 4'b0;
+        unique case (i_next_cleanups35_dfr22_s)
+            1'b0 : i_next_cleanups35_dfr22_q = i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out;
+            1'b1 : i_next_cleanups35_dfr22_q = i_cleanups_shl31_dfr5_vt_join_q;
+            default : i_next_cleanups35_dfr22_q = 4'b0;
         endcase
     end
 
-    // i_llvm_fpga_push_i4_cleanups31_push13_dfr23(BLACKBOX,43)@3
+    // i_llvm_fpga_push_i4_cleanups30_push13_dfr23(BLACKBOX,43)@3
     // out out_feedback_out_13@20000000
     // out out_feedback_valid_out_13@20000000
-    dfr_i_llvm_fpga_push_i4_cleanups31_push13_0 thei_llvm_fpga_push_i4_cleanups31_push13_dfr23 (
-        .in_data_in(i_next_cleanups36_dfr22_q),
-        .in_feedback_stall_in_13(i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_feedback_stall_out_13),
-        .in_keep_going28(redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2_q),
+    dfr_i_llvm_fpga_push_i4_cleanups30_push13_0 thei_llvm_fpga_push_i4_cleanups30_push13_dfr23 (
+        .in_data_in(i_next_cleanups35_dfr22_q),
+        .in_feedback_stall_in_13(i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_feedback_stall_out_13),
+        .in_keep_going27(redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2_q),
         .in_stall_in(GND_q),
         .in_valid_in(redist3_sync_together67_aunroll_x_in_i_valid_2_q),
         .out_data_out(),
-        .out_feedback_out_13(i_llvm_fpga_push_i4_cleanups31_push13_dfr23_out_feedback_out_13),
-        .out_feedback_valid_out_13(i_llvm_fpga_push_i4_cleanups31_push13_dfr23_out_feedback_valid_out_13),
+        .out_feedback_out_13(i_llvm_fpga_push_i4_cleanups30_push13_dfr23_out_feedback_out_13),
+        .out_feedback_valid_out_13(i_llvm_fpga_push_i4_cleanups30_push13_dfr23_out_feedback_valid_out_13),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
@@ -308,51 +308,51 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     // c_i4_742(CONSTANT,18)
     assign c_i4_742_q = $unsigned(4'b0111);
 
-    // i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2(BLACKBOX,37)@3
+    // i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2(BLACKBOX,37)@3
     // out out_feedback_stall_out_13@20000000
-    dfr_i_llvm_fpga_pop_i4_cleanups31_pop13_0 thei_llvm_fpga_pop_i4_cleanups31_pop13_dfr2 (
+    dfr_i_llvm_fpga_pop_i4_cleanups30_pop13_0 thei_llvm_fpga_pop_i4_cleanups30_pop13_dfr2 (
         .in_data_in(c_i4_742_q),
         .in_dir(redist1_sync_together67_aunroll_x_in_c0_eni1_1_tpl_2_q),
-        .in_feedback_in_13(i_llvm_fpga_push_i4_cleanups31_push13_dfr23_out_feedback_out_13),
-        .in_feedback_valid_in_13(i_llvm_fpga_push_i4_cleanups31_push13_dfr23_out_feedback_valid_out_13),
+        .in_feedback_in_13(i_llvm_fpga_push_i4_cleanups30_push13_dfr23_out_feedback_out_13),
+        .in_feedback_valid_in_13(i_llvm_fpga_push_i4_cleanups30_push13_dfr23_out_feedback_valid_out_13),
         .in_predicate(GND_q),
         .in_stall_in(GND_q),
         .in_valid_in(redist3_sync_together67_aunroll_x_in_i_valid_2_q),
-        .out_data_out(i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out),
-        .out_feedback_stall_out_13(i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_feedback_stall_out_13),
+        .out_data_out(i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out),
+        .out_feedback_stall_out_13(i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_feedback_stall_out_13),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
         .resetn(resetn)
     );
 
-    // i_first_cleanup33_dfr3_sel_x(BITSELECT,74)@3
-    assign i_first_cleanup33_dfr3_sel_x_b = i_llvm_fpga_pop_i4_cleanups31_pop13_dfr2_out_data_out[0:0];
+    // i_first_cleanup32_dfr3_sel_x(BITSELECT,74)@3
+    assign i_first_cleanup32_dfr3_sel_x_b = i_llvm_fpga_pop_i4_cleanups30_pop13_dfr2_out_data_out[0:0];
 
     // c_i6_151(CONSTANT,22)
     assign c_i6_151_q = $unsigned(6'b111111);
 
-    // i_fpga_indvars_iv_next12_dfr24(ADD,34)@3
-    assign i_fpga_indvars_iv_next12_dfr24_a = {1'b0, i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16_out_data_out};
-    assign i_fpga_indvars_iv_next12_dfr24_b = {1'b0, c_i6_151_q};
-    assign i_fpga_indvars_iv_next12_dfr24_o = $unsigned(i_fpga_indvars_iv_next12_dfr24_a) + $unsigned(i_fpga_indvars_iv_next12_dfr24_b);
-    assign i_fpga_indvars_iv_next12_dfr24_q = i_fpga_indvars_iv_next12_dfr24_o[6:0];
+    // i_fpga_indvars_iv_next11_dfr24(ADD,34)@3
+    assign i_fpga_indvars_iv_next11_dfr24_a = {1'b0, i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16_out_data_out};
+    assign i_fpga_indvars_iv_next11_dfr24_b = {1'b0, c_i6_151_q};
+    assign i_fpga_indvars_iv_next11_dfr24_o = $unsigned(i_fpga_indvars_iv_next11_dfr24_a) + $unsigned(i_fpga_indvars_iv_next11_dfr24_b);
+    assign i_fpga_indvars_iv_next11_dfr24_q = i_fpga_indvars_iv_next11_dfr24_o[6:0];
 
-    // bgTrunc_i_fpga_indvars_iv_next12_dfr24_sel_x(BITSELECT,67)@3
-    assign bgTrunc_i_fpga_indvars_iv_next12_dfr24_sel_x_b = i_fpga_indvars_iv_next12_dfr24_q[5:0];
+    // bgTrunc_i_fpga_indvars_iv_next11_dfr24_sel_x(BITSELECT,67)@3
+    assign bgTrunc_i_fpga_indvars_iv_next11_dfr24_sel_x_b = i_fpga_indvars_iv_next11_dfr24_q[5:0];
 
-    // i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25(BLACKBOX,46)@3
+    // i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25(BLACKBOX,46)@3
     // out out_feedback_out_10@20000000
     // out out_feedback_valid_out_10@20000000
-    dfr_i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_0 thei_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25 (
-        .in_data_in(bgTrunc_i_fpga_indvars_iv_next12_dfr24_sel_x_b),
-        .in_feedback_stall_in_10(i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16_out_feedback_stall_out_10),
-        .in_keep_going28(redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2_q),
+    dfr_i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_0 thei_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25 (
+        .in_data_in(bgTrunc_i_fpga_indvars_iv_next11_dfr24_sel_x_b),
+        .in_feedback_stall_in_10(i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16_out_feedback_stall_out_10),
+        .in_keep_going27(redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2_q),
         .in_stall_in(GND_q),
         .in_valid_in(redist3_sync_together67_aunroll_x_in_i_valid_2_q),
         .out_data_out(),
-        .out_feedback_out_10(i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25_out_feedback_out_10),
-        .out_feedback_valid_out_10(i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25_out_feedback_valid_out_10),
+        .out_feedback_out_10(i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25_out_feedback_out_10),
+        .out_feedback_valid_out_10(i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25_out_feedback_valid_out_10),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
@@ -362,39 +362,39 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     // c_i6_2349(CONSTANT,23)
     assign c_i6_2349_q = $unsigned(6'b010111);
 
-    // i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16(BLACKBOX,40)@3
+    // i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16(BLACKBOX,40)@3
     // out out_feedback_stall_out_10@20000000
-    dfr_i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_0 thei_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16 (
+    dfr_i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_0 thei_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16 (
         .in_data_in(c_i6_2349_q),
         .in_dir(redist1_sync_together67_aunroll_x_in_c0_eni1_1_tpl_2_q),
-        .in_feedback_in_10(i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25_out_feedback_out_10),
-        .in_feedback_valid_in_10(i_llvm_fpga_push_i6_fpga_indvars_iv11_push10_dfr25_out_feedback_valid_out_10),
+        .in_feedback_in_10(i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25_out_feedback_out_10),
+        .in_feedback_valid_in_10(i_llvm_fpga_push_i6_fpga_indvars_iv10_push10_dfr25_out_feedback_valid_out_10),
         .in_predicate(GND_q),
         .in_stall_in(GND_q),
         .in_valid_in(redist3_sync_together67_aunroll_x_in_i_valid_2_q),
-        .out_data_out(i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16_out_data_out),
-        .out_feedback_stall_out_10(i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16_out_feedback_stall_out_10),
+        .out_data_out(i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16_out_data_out),
+        .out_feedback_stall_out_10(i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16_out_feedback_stall_out_10),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
         .resetn(resetn)
     );
 
-    // i_exitcond13_dfr17_cmp_nsign(LOGICAL,111)@3
-    assign i_exitcond13_dfr17_cmp_nsign_q = $unsigned(~ (i_llvm_fpga_pop_i6_fpga_indvars_iv11_pop10_dfr16_out_data_out[5:5]));
+    // i_exitcond12_dfr17_cmp_nsign(LOGICAL,111)@3
+    assign i_exitcond12_dfr17_cmp_nsign_q = $unsigned(~ (i_llvm_fpga_pop_i6_fpga_indvars_iv10_pop10_dfr16_out_data_out[5:5]));
 
-    // i_llvm_fpga_push_i1_notexitcond38_dfr20(BLACKBOX,42)@3
+    // i_llvm_fpga_push_i1_notexitcond37_dfr20(BLACKBOX,42)@3
     // out out_feedback_out_9@20000000
     // out out_feedback_valid_out_9@20000000
-    dfr_i_llvm_fpga_push_i1_notexitcond38_0 thei_llvm_fpga_push_i1_notexitcond38_dfr20 (
-        .in_data_in(i_exitcond13_dfr17_cmp_nsign_q),
-        .in_feedback_stall_in_9(i_llvm_fpga_pipeline_keep_going28_dfr6_out_not_exitcond_stall_out),
-        .in_first_cleanup33(i_first_cleanup33_dfr3_sel_x_b),
+    dfr_i_llvm_fpga_push_i1_notexitcond37_0 thei_llvm_fpga_push_i1_notexitcond37_dfr20 (
+        .in_data_in(i_exitcond12_dfr17_cmp_nsign_q),
+        .in_feedback_stall_in_9(i_llvm_fpga_pipeline_keep_going27_dfr6_out_not_exitcond_stall_out),
+        .in_first_cleanup32(i_first_cleanup32_dfr3_sel_x_b),
         .in_stall_in(GND_q),
         .in_valid_in(redist3_sync_together67_aunroll_x_in_i_valid_2_q),
         .out_data_out(),
-        .out_feedback_out_9(i_llvm_fpga_push_i1_notexitcond38_dfr20_out_feedback_out_9),
-        .out_feedback_valid_out_9(i_llvm_fpga_push_i1_notexitcond38_dfr20_out_feedback_valid_out_9),
+        .out_feedback_out_9(i_llvm_fpga_push_i1_notexitcond37_dfr20_out_feedback_out_9),
+        .out_feedback_valid_out_9(i_llvm_fpga_push_i1_notexitcond37_dfr20_out_feedback_valid_out_9),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
@@ -414,11 +414,11 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
         end
     end
 
-    // rightShiftStage0Idx1Rng1_uid123_i_next_initerations27_dfr0_shift_x(BITSELECT,122)@2
-    assign rightShiftStage0Idx1Rng1_uid123_i_next_initerations27_dfr0_shift_x_b = i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_data_out[3:1];
+    // rightShiftStage0Idx1Rng1_uid123_i_next_initerations26_dfr0_shift_x(BITSELECT,122)@2
+    assign rightShiftStage0Idx1Rng1_uid123_i_next_initerations26_dfr0_shift_x_b = i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_data_out[3:1];
 
-    // rightShiftStage0Idx1_uid125_i_next_initerations27_dfr0_shift_x(BITJOIN,124)@2
-    assign rightShiftStage0Idx1_uid125_i_next_initerations27_dfr0_shift_x_q = {GND_q, rightShiftStage0Idx1Rng1_uid123_i_next_initerations27_dfr0_shift_x_b};
+    // rightShiftStage0Idx1_uid125_i_next_initerations26_dfr0_shift_x(BITJOIN,124)@2
+    assign rightShiftStage0Idx1_uid125_i_next_initerations26_dfr0_shift_x_q = {GND_q, rightShiftStage0Idx1Rng1_uid123_i_next_initerations26_dfr0_shift_x_b};
 
     // valid_fanout_reg1(REG,97)@1 + 1
     always @ (posedge clock or negedge resetn)
@@ -446,101 +446,101 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
         end
     end
 
-    // i_llvm_fpga_push_i4_initerations26_push12_dfr9(BLACKBOX,44)@2
+    // i_llvm_fpga_push_i4_initerations25_push12_dfr9(BLACKBOX,44)@2
     // out out_feedback_out_12@20000000
     // out out_feedback_valid_out_12@20000000
-    dfr_i_llvm_fpga_push_i4_initerations26_push12_0 thei_llvm_fpga_push_i4_initerations26_push12_dfr9 (
-        .in_data_in(i_next_initerations27_dfr8_vt_join_q),
-        .in_feedback_stall_in_12(i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_feedback_stall_out_12),
-        .in_keep_going28(redist5_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_1_q),
+    dfr_i_llvm_fpga_push_i4_initerations25_push12_0 thei_llvm_fpga_push_i4_initerations25_push12_dfr9 (
+        .in_data_in(i_next_initerations26_dfr8_vt_join_q),
+        .in_feedback_stall_in_12(i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_feedback_stall_out_12),
+        .in_keep_going27(redist5_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_1_q),
         .in_stall_in(GND_q),
         .in_valid_in(valid_fanout_reg2_q),
         .out_data_out(),
-        .out_feedback_out_12(i_llvm_fpga_push_i4_initerations26_push12_dfr9_out_feedback_out_12),
-        .out_feedback_valid_out_12(i_llvm_fpga_push_i4_initerations26_push12_dfr9_out_feedback_valid_out_12),
+        .out_feedback_out_12(i_llvm_fpga_push_i4_initerations25_push12_dfr9_out_feedback_out_12),
+        .out_feedback_valid_out_12(i_llvm_fpga_push_i4_initerations25_push12_dfr9_out_feedback_valid_out_12),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
         .resetn(resetn)
     );
 
-    // i_llvm_fpga_pop_i4_initerations26_pop12_dfr7(BLACKBOX,38)@2
+    // i_llvm_fpga_pop_i4_initerations25_pop12_dfr7(BLACKBOX,38)@2
     // out out_feedback_stall_out_12@20000000
-    dfr_i_llvm_fpga_pop_i4_initerations26_pop12_0 thei_llvm_fpga_pop_i4_initerations26_pop12_dfr7 (
+    dfr_i_llvm_fpga_pop_i4_initerations25_pop12_0 thei_llvm_fpga_pop_i4_initerations25_pop12_dfr7 (
         .in_data_in(c_i4_742_q),
         .in_dir(redist0_sync_together67_aunroll_x_in_c0_eni1_1_tpl_1_q),
-        .in_feedback_in_12(i_llvm_fpga_push_i4_initerations26_push12_dfr9_out_feedback_out_12),
-        .in_feedback_valid_in_12(i_llvm_fpga_push_i4_initerations26_push12_dfr9_out_feedback_valid_out_12),
+        .in_feedback_in_12(i_llvm_fpga_push_i4_initerations25_push12_dfr9_out_feedback_out_12),
+        .in_feedback_valid_in_12(i_llvm_fpga_push_i4_initerations25_push12_dfr9_out_feedback_valid_out_12),
         .in_predicate(GND_q),
         .in_stall_in(GND_q),
         .in_valid_in(valid_fanout_reg1_q),
-        .out_data_out(i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_data_out),
-        .out_feedback_stall_out_12(i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_feedback_stall_out_12),
+        .out_data_out(i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_data_out),
+        .out_feedback_stall_out_12(i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_feedback_stall_out_12),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
         .resetn(resetn)
     );
 
-    // rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x(MUX,126)@2
-    assign rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_s = VCC_q;
-    always @(rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_s or i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_data_out or rightShiftStage0Idx1_uid125_i_next_initerations27_dfr0_shift_x_q)
+    // rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x(MUX,126)@2
+    assign rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_s = VCC_q;
+    always @(rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_s or i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_data_out or rightShiftStage0Idx1_uid125_i_next_initerations26_dfr0_shift_x_q)
     begin
-        unique case (rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_s)
-            1'b0 : rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_q = i_llvm_fpga_pop_i4_initerations26_pop12_dfr7_out_data_out;
-            1'b1 : rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_q = rightShiftStage0Idx1_uid125_i_next_initerations27_dfr0_shift_x_q;
-            default : rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_q = 4'b0;
+        unique case (rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_s)
+            1'b0 : rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_q = i_llvm_fpga_pop_i4_initerations25_pop12_dfr7_out_data_out;
+            1'b1 : rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_q = rightShiftStage0Idx1_uid125_i_next_initerations26_dfr0_shift_x_q;
+            default : rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_q = 4'b0;
         endcase
     end
 
-    // i_next_initerations27_dfr8_vt_select_2(BITSELECT,51)@2
-    assign i_next_initerations27_dfr8_vt_select_2_b = rightShiftStage0_uid127_i_next_initerations27_dfr0_shift_x_q[2:0];
+    // i_next_initerations26_dfr8_vt_select_2(BITSELECT,51)@2
+    assign i_next_initerations26_dfr8_vt_select_2_b = rightShiftStage0_uid127_i_next_initerations26_dfr0_shift_x_q[2:0];
 
-    // i_next_initerations27_dfr8_vt_join(BITJOIN,50)@2
-    assign i_next_initerations27_dfr8_vt_join_q = {GND_q, i_next_initerations27_dfr8_vt_select_2_b};
+    // i_next_initerations26_dfr8_vt_join(BITJOIN,50)@2
+    assign i_next_initerations26_dfr8_vt_join_q = {GND_q, i_next_initerations26_dfr8_vt_select_2_b};
 
-    // i_last_initeration29_dfr10_sel_x(BITSELECT,75)@2
-    assign i_last_initeration29_dfr10_sel_x_b = i_next_initerations27_dfr8_vt_join_q[0:0];
+    // i_last_initeration28_dfr10_sel_x(BITSELECT,75)@2
+    assign i_last_initeration28_dfr10_sel_x_b = i_next_initerations26_dfr8_vt_join_q[0:0];
 
-    // i_llvm_fpga_push_i1_lastiniteration30_dfr11(BLACKBOX,41)@2
+    // i_llvm_fpga_push_i1_lastiniteration29_dfr11(BLACKBOX,41)@2
     // out out_feedback_out_8@20000000
     // out out_feedback_valid_out_8@20000000
-    dfr_i_llvm_fpga_push_i1_lastiniteration30_0 thei_llvm_fpga_push_i1_lastiniteration30_dfr11 (
-        .in_data_in(i_last_initeration29_dfr10_sel_x_b),
-        .in_feedback_stall_in_8(i_llvm_fpga_pipeline_keep_going28_dfr6_out_initeration_stall_out),
-        .in_keep_going28(redist5_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_1_q),
+    dfr_i_llvm_fpga_push_i1_lastiniteration29_0 thei_llvm_fpga_push_i1_lastiniteration29_dfr11 (
+        .in_data_in(i_last_initeration28_dfr10_sel_x_b),
+        .in_feedback_stall_in_8(i_llvm_fpga_pipeline_keep_going27_dfr6_out_initeration_stall_out),
+        .in_keep_going27(redist5_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_1_q),
         .in_stall_in(GND_q),
         .in_valid_in(valid_fanout_reg3_q),
         .out_data_out(),
-        .out_feedback_out_8(i_llvm_fpga_push_i1_lastiniteration30_dfr11_out_feedback_out_8),
-        .out_feedback_valid_out_8(i_llvm_fpga_push_i1_lastiniteration30_dfr11_out_feedback_valid_out_8),
+        .out_feedback_out_8(i_llvm_fpga_push_i1_lastiniteration29_dfr11_out_feedback_out_8),
+        .out_feedback_valid_out_8(i_llvm_fpga_push_i1_lastiniteration29_dfr11_out_feedback_valid_out_8),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
         .resetn(resetn)
     );
 
-    // i_llvm_fpga_pipeline_keep_going28_dfr6(BLACKBOX,36)@1
+    // i_llvm_fpga_pipeline_keep_going27_dfr6(BLACKBOX,36)@1
     // out out_exiting_stall_out@20000000
     // out out_exiting_valid_out@20000000
     // out out_initeration_stall_out@20000000
     // out out_not_exitcond_stall_out@20000000
     // out out_pipeline_valid_out@20000000
-    dfr_i_llvm_fpga_pipeline_keep_going28_0 thei_llvm_fpga_pipeline_keep_going28_dfr6 (
+    dfr_i_llvm_fpga_pipeline_keep_going27_0 thei_llvm_fpga_pipeline_keep_going27_dfr6 (
         .in_data_in(in_c0_eni1_1_tpl),
-        .in_initeration_in(i_llvm_fpga_push_i1_lastiniteration30_dfr11_out_feedback_out_8),
-        .in_initeration_valid_in(i_llvm_fpga_push_i1_lastiniteration30_dfr11_out_feedback_valid_out_8),
-        .in_not_exitcond_in(i_llvm_fpga_push_i1_notexitcond38_dfr20_out_feedback_out_9),
-        .in_not_exitcond_valid_in(i_llvm_fpga_push_i1_notexitcond38_dfr20_out_feedback_valid_out_9),
+        .in_initeration_in(i_llvm_fpga_push_i1_lastiniteration29_dfr11_out_feedback_out_8),
+        .in_initeration_valid_in(i_llvm_fpga_push_i1_lastiniteration29_dfr11_out_feedback_valid_out_8),
+        .in_not_exitcond_in(i_llvm_fpga_push_i1_notexitcond37_dfr20_out_feedback_out_9),
+        .in_not_exitcond_valid_in(i_llvm_fpga_push_i1_notexitcond37_dfr20_out_feedback_valid_out_9),
         .in_pipeline_stall_in(in_pipeline_stall_in),
         .in_stall_in(GND_q),
         .in_valid_in(in_i_valid),
-        .out_data_out(i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out),
-        .out_exiting_stall_out(i_llvm_fpga_pipeline_keep_going28_dfr6_out_exiting_stall_out),
-        .out_exiting_valid_out(i_llvm_fpga_pipeline_keep_going28_dfr6_out_exiting_valid_out),
-        .out_initeration_stall_out(i_llvm_fpga_pipeline_keep_going28_dfr6_out_initeration_stall_out),
-        .out_not_exitcond_stall_out(i_llvm_fpga_pipeline_keep_going28_dfr6_out_not_exitcond_stall_out),
-        .out_pipeline_valid_out(i_llvm_fpga_pipeline_keep_going28_dfr6_out_pipeline_valid_out),
+        .out_data_out(i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out),
+        .out_exiting_stall_out(i_llvm_fpga_pipeline_keep_going27_dfr6_out_exiting_stall_out),
+        .out_exiting_valid_out(i_llvm_fpga_pipeline_keep_going27_dfr6_out_exiting_valid_out),
+        .out_initeration_stall_out(i_llvm_fpga_pipeline_keep_going27_dfr6_out_initeration_stall_out),
+        .out_not_exitcond_stall_out(i_llvm_fpga_pipeline_keep_going27_dfr6_out_not_exitcond_stall_out),
+        .out_pipeline_valid_out(i_llvm_fpga_pipeline_keep_going27_dfr6_out_pipeline_valid_out),
         .out_stall_out(),
         .out_valid_out(),
         .clock(clock),
@@ -548,11 +548,11 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     );
 
     // ext_sig_sync_out(GPOUT,26)
-    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_valid_out = i_llvm_fpga_pipeline_keep_going28_dfr6_out_exiting_valid_out;
-    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going28_dfr6_exiting_stall_out = i_llvm_fpga_pipeline_keep_going28_dfr6_out_exiting_stall_out;
+    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_valid_out = i_llvm_fpga_pipeline_keep_going27_dfr6_out_exiting_valid_out;
+    assign out_aclp_to_limiter_i_llvm_fpga_pipeline_keep_going27_dfr6_exiting_stall_out = i_llvm_fpga_pipeline_keep_going27_dfr6_out_exiting_stall_out;
 
     // pipeline_valid_out_sync(GPOUT,63)
-    assign out_pipeline_valid_out = i_llvm_fpga_pipeline_keep_going28_dfr6_out_pipeline_valid_out;
+    assign out_pipeline_valid_out = i_llvm_fpga_pipeline_keep_going27_dfr6_out_pipeline_valid_out;
 
     // c_i8_048(CONSTANT,24)
     assign c_i8_048_q = $unsigned(8'b00000000);
@@ -624,7 +624,7 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     dfr_i_llvm_fpga_push_i5_index_push11_0 thei_llvm_fpga_push_i5_index_push11_dfr27 (
         .in_data_in(bgTrunc_i_adder_dfr26_sel_x_b),
         .in_feedback_stall_in_11(i_llvm_fpga_pop_i5_index_pop11_dfr12_out_feedback_stall_out_11),
-        .in_keep_going28(redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2_q),
+        .in_keep_going27(redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2_q),
         .in_stall_in(GND_q),
         .in_valid_in(valid_fanout_reg6_q),
         .out_data_out(),
@@ -722,7 +722,7 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
     dfr_i_llvm_fpga_mem_unnamed_1_dfr0 thei_llvm_fpga_mem_unnamed_dfr1_dfr15_aunroll_x (
         .in_flush(in_flush),
         .in_i_address(i_unnamed_dfr14_vt_join_q),
-        .in_i_predicate(i_first_cleanup_xor34_dfr4_q),
+        .in_i_predicate(i_first_cleanup_xor33_dfr4_q),
         .in_i_stall(GND_q),
         .in_i_valid(valid_fanout_reg5_q),
         .in_unnamed_dfr1_dfr_avm_readdata(in_unnamed_dfr1_dfr_avm_readdata),
@@ -772,28 +772,28 @@ module dfr_i_sfc_logic_s_c0_in_lp_init_s_c0_enter6_dfr0 (
         end
     end
 
-    // i_masked37_dfr28(LOGICAL,47)@3 + 1
-    assign i_masked37_dfr28_qi = i_notcmp24_dfr19_q & i_first_cleanup33_dfr3_sel_x_b;
+    // i_masked36_dfr28(LOGICAL,47)@3 + 1
+    assign i_masked36_dfr28_qi = i_notcmp23_dfr19_q & i_first_cleanup32_dfr3_sel_x_b;
     dspba_delay_ver #( .width(1), .depth(1), .reset_kind("ASYNC"), .phase(0), .modulus(1), .reset_high(1'b0) )
-    i_masked37_dfr28_delay ( .xin(i_masked37_dfr28_qi), .xout(i_masked37_dfr28_q), .clk(clock), .aclr(resetn), .ena(1'b1) );
+    i_masked36_dfr28_delay ( .xin(i_masked36_dfr28_qi), .xout(i_masked36_dfr28_q), .clk(clock), .aclr(resetn), .ena(1'b1) );
 
-    // redist7_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_3(DELAY,136)
+    // redist7_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_3(DELAY,136)
     always @ (posedge clock or negedge resetn)
     begin
         if (!resetn)
         begin
-            redist7_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_3_q <= '0;
+            redist7_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_3_q <= '0;
         end
         else
         begin
-            redist7_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_3_q <= $unsigned(redist6_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_2_q);
+            redist7_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_3_q <= $unsigned(redist6_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_2_q);
         end
     end
 
     // sync_out_aunroll_x(GPOUT,94)@4
     assign out_c0_exi2_0_tpl = GND_q;
-    assign out_c0_exi2_1_tpl = redist7_i_llvm_fpga_pipeline_keep_going28_dfr6_out_data_out_3_q;
-    assign out_c0_exi2_2_tpl = i_masked37_dfr28_q;
+    assign out_c0_exi2_1_tpl = redist7_i_llvm_fpga_pipeline_keep_going27_dfr6_out_data_out_3_q;
+    assign out_c0_exi2_2_tpl = i_masked36_dfr28_q;
     assign out_o_valid = valid_fanout_reg0_q;
     assign out_unnamed_dfr2 = GND_q;
 

@@ -56,3 +56,4 @@ host/misc/windows/scripts/work
 **/modelsim/nuand/
 
 hdl/fpga/platforms/common/bladerf/software/bladeRF_nios_bsp
+hdl/quartus/log.txt

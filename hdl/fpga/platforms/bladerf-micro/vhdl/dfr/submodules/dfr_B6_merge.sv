@@ -16,32 +16,32 @@
 
 // SystemVerilog created from dfr_B6_merge
 // Created for function/kernel dfr
-// SystemVerilog created on Tue Nov 30 17:20:14 2021
+// SystemVerilog created on Wed Dec  8 11:31:28 2021
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
 module dfr_B6_merge (
-    input wire [0:0] in_exitcond1048_0,
-    input wire [0:0] in_exitcond1048_1,
-    input wire [0:0] in_forked17_0,
-    input wire [0:0] in_forked17_1,
-    input wire [0:0] in_memdep_phi7_pop1846_0,
-    input wire [0:0] in_memdep_phi7_pop1846_1,
-    input wire [0:0] in_memdep_phi_pop1750_0,
-    input wire [0:0] in_memdep_phi_pop1750_1,
-    input wire [0:0] in_notcmp49_0,
-    input wire [0:0] in_notcmp49_1,
-    input wire [25:0] in_result_i_i16_i47_0,
-    input wire [25:0] in_result_i_i16_i47_1,
+    input wire [0:0] in_exitcond947_0,
+    input wire [0:0] in_exitcond947_1,
+    input wire [0:0] in_forked16_0,
+    input wire [0:0] in_forked16_1,
+    input wire [0:0] in_memdep_phi6_pop1845_0,
+    input wire [0:0] in_memdep_phi6_pop1845_1,
+    input wire [0:0] in_memdep_phi_pop1749_0,
+    input wire [0:0] in_memdep_phi_pop1749_1,
+    input wire [0:0] in_notcmp48_0,
+    input wire [0:0] in_notcmp48_1,
+    input wire [25:0] in_result_i_i16_i46_0,
+    input wire [25:0] in_result_i_i16_i46_1,
     input wire [0:0] in_stall_in,
     input wire [0:0] in_valid_in_0,
     input wire [0:0] in_valid_in_1,
-    output wire [0:0] out_exitcond1048,
-    output wire [0:0] out_forked17,
-    output wire [0:0] out_memdep_phi7_pop1846,
-    output wire [0:0] out_memdep_phi_pop1750,
-    output wire [0:0] out_notcmp49,
-    output wire [25:0] out_result_i_i16_i47,
+    output wire [0:0] out_exitcond947,
+    output wire [0:0] out_forked16,
+    output wire [0:0] out_memdep_phi6_pop1845,
+    output wire [0:0] out_memdep_phi_pop1749,
+    output wire [0:0] out_notcmp48,
+    output wire [25:0] out_result_i_i16_i46,
     output wire [0:0] out_stall_out_0,
     output wire [0:0] out_stall_out_1,
     output wire [0:0] out_valid_out,
@@ -50,18 +50,18 @@ module dfr_B6_merge (
     );
 
     wire [0:0] VCC_q;
-    wire [0:0] exitcond1048_mux_s;
-    reg [0:0] exitcond1048_mux_q;
-    wire [0:0] forked17_mux_s;
-    reg [0:0] forked17_mux_q;
-    wire [0:0] memdep_phi7_pop1846_mux_s;
-    reg [0:0] memdep_phi7_pop1846_mux_q;
-    wire [0:0] memdep_phi_pop1750_mux_s;
-    reg [0:0] memdep_phi_pop1750_mux_q;
-    wire [0:0] notcmp49_mux_s;
-    reg [0:0] notcmp49_mux_q;
-    wire [0:0] result_i_i16_i47_mux_s;
-    reg [25:0] result_i_i16_i47_mux_q;
+    wire [0:0] exitcond947_mux_s;
+    reg [0:0] exitcond947_mux_q;
+    wire [0:0] forked16_mux_s;
+    reg [0:0] forked16_mux_q;
+    wire [0:0] memdep_phi6_pop1845_mux_s;
+    reg [0:0] memdep_phi6_pop1845_mux_q;
+    wire [0:0] memdep_phi_pop1749_mux_s;
+    reg [0:0] memdep_phi_pop1749_mux_q;
+    wire [0:0] notcmp48_mux_s;
+    reg [0:0] notcmp48_mux_q;
+    wire [0:0] result_i_i16_i46_mux_s;
+    reg [25:0] result_i_i16_i46_mux_q;
     wire [0:0] stall_out_q;
     wire [0:0] stall_out_1_specific_q;
     wire [0:0] valid_or_q;
@@ -70,89 +70,89 @@ module dfr_B6_merge (
     // VCC(CONSTANT,1)
     assign VCC_q = $unsigned(1'b1);
 
-    // exitcond1048_mux(MUX,2)
-    assign exitcond1048_mux_s = in_valid_in_0;
-    always @(exitcond1048_mux_s or in_exitcond1048_1 or in_exitcond1048_0)
+    // exitcond947_mux(MUX,2)
+    assign exitcond947_mux_s = in_valid_in_0;
+    always @(exitcond947_mux_s or in_exitcond947_1 or in_exitcond947_0)
     begin
-        unique case (exitcond1048_mux_s)
-            1'b0 : exitcond1048_mux_q = in_exitcond1048_1;
-            1'b1 : exitcond1048_mux_q = in_exitcond1048_0;
-            default : exitcond1048_mux_q = 1'b0;
+        unique case (exitcond947_mux_s)
+            1'b0 : exitcond947_mux_q = in_exitcond947_1;
+            1'b1 : exitcond947_mux_q = in_exitcond947_0;
+            default : exitcond947_mux_q = 1'b0;
         endcase
     end
 
-    // out_exitcond1048(GPOUT,22)
-    assign out_exitcond1048 = exitcond1048_mux_q;
+    // out_exitcond947(GPOUT,22)
+    assign out_exitcond947 = exitcond947_mux_q;
 
-    // forked17_mux(MUX,3)
-    assign forked17_mux_s = in_valid_in_0;
-    always @(forked17_mux_s or in_forked17_1 or in_forked17_0)
+    // forked16_mux(MUX,3)
+    assign forked16_mux_s = in_valid_in_0;
+    always @(forked16_mux_s or in_forked16_1 or in_forked16_0)
     begin
-        unique case (forked17_mux_s)
-            1'b0 : forked17_mux_q = in_forked17_1;
-            1'b1 : forked17_mux_q = in_forked17_0;
-            default : forked17_mux_q = 1'b0;
+        unique case (forked16_mux_s)
+            1'b0 : forked16_mux_q = in_forked16_1;
+            1'b1 : forked16_mux_q = in_forked16_0;
+            default : forked16_mux_q = 1'b0;
         endcase
     end
 
-    // out_forked17(GPOUT,23)
-    assign out_forked17 = forked17_mux_q;
+    // out_forked16(GPOUT,23)
+    assign out_forked16 = forked16_mux_q;
 
-    // memdep_phi7_pop1846_mux(MUX,19)
-    assign memdep_phi7_pop1846_mux_s = in_valid_in_0;
-    always @(memdep_phi7_pop1846_mux_s or in_memdep_phi7_pop1846_1 or in_memdep_phi7_pop1846_0)
+    // memdep_phi6_pop1845_mux(MUX,19)
+    assign memdep_phi6_pop1845_mux_s = in_valid_in_0;
+    always @(memdep_phi6_pop1845_mux_s or in_memdep_phi6_pop1845_1 or in_memdep_phi6_pop1845_0)
     begin
-        unique case (memdep_phi7_pop1846_mux_s)
-            1'b0 : memdep_phi7_pop1846_mux_q = in_memdep_phi7_pop1846_1;
-            1'b1 : memdep_phi7_pop1846_mux_q = in_memdep_phi7_pop1846_0;
-            default : memdep_phi7_pop1846_mux_q = 1'b0;
+        unique case (memdep_phi6_pop1845_mux_s)
+            1'b0 : memdep_phi6_pop1845_mux_q = in_memdep_phi6_pop1845_1;
+            1'b1 : memdep_phi6_pop1845_mux_q = in_memdep_phi6_pop1845_0;
+            default : memdep_phi6_pop1845_mux_q = 1'b0;
         endcase
     end
 
-    // out_memdep_phi7_pop1846(GPOUT,24)
-    assign out_memdep_phi7_pop1846 = memdep_phi7_pop1846_mux_q;
+    // out_memdep_phi6_pop1845(GPOUT,24)
+    assign out_memdep_phi6_pop1845 = memdep_phi6_pop1845_mux_q;
 
-    // memdep_phi_pop1750_mux(MUX,20)
-    assign memdep_phi_pop1750_mux_s = in_valid_in_0;
-    always @(memdep_phi_pop1750_mux_s or in_memdep_phi_pop1750_1 or in_memdep_phi_pop1750_0)
+    // memdep_phi_pop1749_mux(MUX,20)
+    assign memdep_phi_pop1749_mux_s = in_valid_in_0;
+    always @(memdep_phi_pop1749_mux_s or in_memdep_phi_pop1749_1 or in_memdep_phi_pop1749_0)
     begin
-        unique case (memdep_phi_pop1750_mux_s)
-            1'b0 : memdep_phi_pop1750_mux_q = in_memdep_phi_pop1750_1;
-            1'b1 : memdep_phi_pop1750_mux_q = in_memdep_phi_pop1750_0;
-            default : memdep_phi_pop1750_mux_q = 1'b0;
+        unique case (memdep_phi_pop1749_mux_s)
+            1'b0 : memdep_phi_pop1749_mux_q = in_memdep_phi_pop1749_1;
+            1'b1 : memdep_phi_pop1749_mux_q = in_memdep_phi_pop1749_0;
+            default : memdep_phi_pop1749_mux_q = 1'b0;
         endcase
     end
 
-    // out_memdep_phi_pop1750(GPOUT,25)
-    assign out_memdep_phi_pop1750 = memdep_phi_pop1750_mux_q;
+    // out_memdep_phi_pop1749(GPOUT,25)
+    assign out_memdep_phi_pop1749 = memdep_phi_pop1749_mux_q;
 
-    // notcmp49_mux(MUX,21)
-    assign notcmp49_mux_s = in_valid_in_0;
-    always @(notcmp49_mux_s or in_notcmp49_1 or in_notcmp49_0)
+    // notcmp48_mux(MUX,21)
+    assign notcmp48_mux_s = in_valid_in_0;
+    always @(notcmp48_mux_s or in_notcmp48_1 or in_notcmp48_0)
     begin
-        unique case (notcmp49_mux_s)
-            1'b0 : notcmp49_mux_q = in_notcmp49_1;
-            1'b1 : notcmp49_mux_q = in_notcmp49_0;
-            default : notcmp49_mux_q = 1'b0;
+        unique case (notcmp48_mux_s)
+            1'b0 : notcmp48_mux_q = in_notcmp48_1;
+            1'b1 : notcmp48_mux_q = in_notcmp48_0;
+            default : notcmp48_mux_q = 1'b0;
         endcase
     end
 
-    // out_notcmp49(GPOUT,26)
-    assign out_notcmp49 = notcmp49_mux_q;
+    // out_notcmp48(GPOUT,26)
+    assign out_notcmp48 = notcmp48_mux_q;
 
-    // result_i_i16_i47_mux(MUX,31)
-    assign result_i_i16_i47_mux_s = in_valid_in_0;
-    always @(result_i_i16_i47_mux_s or in_result_i_i16_i47_1 or in_result_i_i16_i47_0)
+    // result_i_i16_i46_mux(MUX,31)
+    assign result_i_i16_i46_mux_s = in_valid_in_0;
+    always @(result_i_i16_i46_mux_s or in_result_i_i16_i46_1 or in_result_i_i16_i46_0)
     begin
-        unique case (result_i_i16_i47_mux_s)
-            1'b0 : result_i_i16_i47_mux_q = in_result_i_i16_i47_1;
-            1'b1 : result_i_i16_i47_mux_q = in_result_i_i16_i47_0;
-            default : result_i_i16_i47_mux_q = 26'b0;
+        unique case (result_i_i16_i46_mux_s)
+            1'b0 : result_i_i16_i46_mux_q = in_result_i_i16_i46_1;
+            1'b1 : result_i_i16_i46_mux_q = in_result_i_i16_i46_0;
+            default : result_i_i16_i46_mux_q = 26'b0;
         endcase
     end
 
-    // out_result_i_i16_i47(GPOUT,27)
-    assign out_result_i_i16_i47 = result_i_i16_i47_mux_q;
+    // out_result_i_i16_i46(GPOUT,27)
+    assign out_result_i_i16_i46 = result_i_i16_i46_mux_q;
 
     // valid_or(LOGICAL,34)
     assign valid_or_q = in_valid_in_0 | in_valid_in_1;
