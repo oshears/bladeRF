@@ -181,6 +181,11 @@ architecture hosted_bladerf of bladerf is
     signal dfr_rom_addr : std_logic_vector(12 downto 0) := "0000000000000";
     signal dfr_rom_dout : std_logic_vector(31 downto 0) := X"00000000";
 
+    signal dfr_done        : STD_LOGIC := 0;
+    signal dfr_start       : STD_LOGIC := 0;
+    signal dfr_output      : STD_LOGIC := 0;
+    signal dfr_next_sample : STD_LOGIC := 0;
+
 begin
 
     U_rx_pkt_gen : entity work.rx_packet_generator
@@ -666,6 +671,10 @@ begin
             adc_streams            => adc_streams
         );
 
+    ---------------------------------------------------------
+    ---------------- Begin  DFR IP --------------------------
+    ---------------------------------------------------------
+
         
     -- -- Packet FIFO
     -- packet_en              => packet_en_rx,
@@ -681,18 +690,21 @@ begin
     -- sample_fifo_rfull      => rx_sample_fifo.rfull,
     -- sample_fifo_rused      => rx_sample_fifo.rused,
 
+    -- dfr fsm
+    -- dfr_fsm : entity work.dfr_fsm
+
     spectrum_dfr_core : entity work.dfr
     port map(
         resetn => rx_reset,
         clock => fx3_pclk_pll,
         clock2x => '0',
-        start => '0',
+        start => dfr_start,
         busy => open,
-        done => open,
+        done => dfr_done,
         stall => '0',
-        returndata => open,
-        i_data => (others => '0'),
-        q_data => (others => '0')
+        returndata => dfr_output,
+        i_data => dfr_rom_dout(31 downto 16),
+        q_data => dfr_rom_dout(15 downto 0)
     );
     -- dfr_sample_fifo_rdata
 
@@ -712,16 +724,7 @@ begin
     -- rx_sample_fifo.rdata <= x"0000" & sample_count;
     dfr_rom_addr <= sample_count(12 downto 0);
 
-    rx_sample_fifo.rdata <= sample_count & dfr_rom_dout(15 downto 0);
-
-    dfr_rom_old : entity work.rams_20c
-    port map (
-        clk => fx3_pclk_pll,
-        we => '0',
-        addr => (others => '0'),
-        din => (others => '0'),
-        dout => open
-    );
+    rx_sample_fifo.rdata <= dfr_rom_dout;
 
     dfr_rom : entity work.rom
     port map(
@@ -729,6 +732,11 @@ begin
         clock => fx3_pclk_pll,
         q => dfr_rom_dout
     );
+
+
+    ---------------------------------------------------------
+    ---------------- End  DFR IP ----------------------------
+    ---------------------------------------------------------
 
     adc_assignment_proc : process( all )
     begin
