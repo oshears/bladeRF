@@ -173,6 +173,14 @@ architecture hosted_bladerf of bladerf is
     signal wbm_wb_stb_o           : std_logic;
     signal wbm_wb_ack_i           : std_logic;
     signal wbm_wb_cyc_o           : std_logic;
+
+    signal dfr_sample_fifo_rdata  :   std_logic_vector(RX_FIFO_T_DEFAULT.rdata'range);
+    -- signal sample_count   : std_logic_vector(RX_FIFO_T_DEFAULT.rdata'range) := X"00000000";
+    signal sample_count   : STD_LOGIC_VECTOR (15 downto 0) := X"0000";
+
+    signal dfr_rom_addr : std_logic_vector(12 downto 0) := "0000000000000";
+    signal dfr_rom_dout : std_logic_vector(31 downto 0) := X"00000000";
+
 begin
 
     U_rx_pkt_gen : entity work.rx_packet_generator
@@ -627,7 +635,7 @@ begin
             sample_fifo_rclock     => fx3_pclk_pll,
             sample_fifo_raclr      => not rx_enable_pclk,
             sample_fifo_rreq       => rx_sample_fifo.rreq,
-            sample_fifo_rdata      => rx_sample_fifo.rdata,
+            sample_fifo_rdata      => dfr_sample_fifo_rdata,
             sample_fifo_rempty     => rx_sample_fifo.rempty,
             sample_fifo_rfull      => rx_sample_fifo.rfull,
             sample_fifo_rused      => rx_sample_fifo.rused,
@@ -657,6 +665,70 @@ begin
             adc_controls           => adc_controls,
             adc_streams            => adc_streams
         );
+
+        
+    -- -- Packet FIFO
+    -- packet_en              => packet_en_rx,
+    -- packet_control         => rx_packet_control,
+    -- packet_ready           => rx_packet_ready,
+
+    -- -- Samples to host via FX3
+    -- sample_fifo_rclock     => fx3_pclk_pll,
+    -- sample_fifo_raclr      => not rx_enable_pclk,
+    -- sample_fifo_rreq       => rx_sample_fifo.rreq,
+    -- sample_fifo_rdata      => rx_sample_fifo.rdata,
+    -- sample_fifo_rempty     => rx_sample_fifo.rempty,
+    -- sample_fifo_rfull      => rx_sample_fifo.rfull,
+    -- sample_fifo_rused      => rx_sample_fifo.rused,
+
+    spectrum_dfr_core : entity work.dfr
+    port map(
+        resetn => rx_reset,
+        clock => fx3_pclk_pll,
+        clock2x => '0',
+        start => '0',
+        busy => open,
+        done => open,
+        stall => '0',
+        returndata => open,
+        i_data => (others => '0'),
+        q_data => (others => '0')
+    );
+    -- dfr_sample_fifo_rdata
+
+    -- dfr sample counter
+    process (fx3_pclk_pll)
+    begin
+        if (rising_edge(fx3_pclk_pll)) then
+            -- if (rx_sample_fifo.rreq = '1') then
+            if (rx_sample_fifo.rreq = '0') then
+                sample_count <= x"0000";
+            elsif (rx_sample_fifo.rreq = '1') then
+                sample_count <= std_logic_vector(to_unsigned(to_integer(unsigned( sample_count )) + 1, 16));
+            end if;
+        end if;
+    end process;
+
+    -- rx_sample_fifo.rdata <= x"0000" & sample_count;
+    dfr_rom_addr <= sample_count(12 downto 0);
+
+    rx_sample_fifo.rdata <= sample_count & dfr_rom_dout(15 downto 0);
+
+    dfr_rom_old : entity work.rams_20c
+    port map (
+        clk => fx3_pclk_pll,
+        we => '0',
+        addr => (others => '0'),
+        din => (others => '0'),
+        dout => open
+    );
+
+    dfr_rom : entity work.rom
+    port map(
+        address => dfr_rom_addr,
+        clock => fx3_pclk_pll,
+        q => dfr_rom_dout
+    );
 
     adc_assignment_proc : process( all )
     begin

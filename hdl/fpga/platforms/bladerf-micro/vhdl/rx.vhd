@@ -122,6 +122,7 @@ architecture arch of rx is
     signal trigger_signal_out       : std_logic;
     signal trigger_signal_out_sync  : std_logic;
 
+    -- signal sample_count   : STD_LOGIC_VECTOR (31 downto 0) := X"00000000";
 begin
 
     rx_mux_mode            <= rx_mux_mode_t'val(to_integer(rx_mux_sel));
@@ -165,6 +166,19 @@ begin
             rdusedw             => sample_fifo_rused
         );
 
+        -- sample_fifo_rdata <= x"DEADBEEF";
+        
+        -- sample counter
+        -- process (sample_fifo_rclock)
+        -- begin
+        --     if (rising_edge(sample_fifo_rclock)) then
+        --         if (sample_fifo_rreq = '1') then
+        --             sample_count <= std_logic_vector(to_unsigned(to_integer(unsigned( sample_count )) + 1, 32));
+        --         end if;
+        --     end if;
+        -- end process;
+
+        -- sample_fifo_rdata <= sample_count;
 
     -- RX meta FIFO
     meta_fifo.aclr   <= meta_fifo_raclr;

@@ -17,3 +17,4 @@ vcom -work nuand -2008 ../vhdl/tb/bladerf_tb.vhd
 
 compile_nuand_tb ../../../ip/nuand bladerf-micro
 
+vsim nuand.bladerf_tb

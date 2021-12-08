@@ -1,0 +1,2896 @@
+// ------------------------------------------------------------------------- 
+// High Level Design Compiler for Intel(R) FPGAs Version 21.3 (Release Build #136.2)
+// 
+// Legal Notice: Copyright 2021 Intel Corporation.  All rights reserved.
+// Your use of  Intel Corporation's design tools,  logic functions and other
+// software and  tools, and its AMPP partner logic functions, and any output
+// files any  of the foregoing (including  device programming  or simulation
+// files), and  any associated  documentation  or information  are expressly
+// subject  to the terms and  conditions of the  Intel FPGA Software License
+// Agreement, Intel MegaCore Function License Agreement, or other applicable
+// license agreement,  including,  without limitation,  that your use is for
+// the  sole  purpose of  programming  logic devices  manufactured by  Intel
+// and  sold by Intel  or its authorized  distributors. Please refer  to the
+// applicable agreement for further details.
+// ---------------------------------------------------------------------------
+
+// SystemVerilog created from i_sfc_logic_s_c1_in_wt_entry_dfrs_c1_enter_dfr0
+// Created for function/kernel dfr
+// SystemVerilog created on Tue Nov 30 17:20:14 2021
+
+
+(* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
+module dfr_i_sfc_logic_s_c1_in_wt_entry_s_c1_enter_dfr0 (
+    input wire [2047:0] in_memdep_4_dfr_avm_readdata,
+    input wire [0:0] in_memdep_4_dfr_avm_writeack,
+    input wire [0:0] in_memdep_4_dfr_avm_waitrequest,
+    input wire [0:0] in_memdep_4_dfr_avm_readdatavalid,
+    output wire [31:0] out_memdep_4_dfr_avm_address,
+    output wire [0:0] out_memdep_4_dfr_avm_enable,
+    output wire [0:0] out_memdep_4_dfr_avm_read,
+    output wire [0:0] out_memdep_4_dfr_avm_write,
+    output wire [2047:0] out_memdep_4_dfr_avm_writedata,
+    output wire [255:0] out_memdep_4_dfr_avm_byteenable,
+    output wire [0:0] out_memdep_4_dfr_avm_burstcount,
+    input wire [0:0] in_flush,
+    input wire [2047:0] in_memdep_15_dfr_avm_readdata,
+    input wire [0:0] in_memdep_15_dfr_avm_writeack,
+    input wire [0:0] in_memdep_15_dfr_avm_waitrequest,
+    input wire [0:0] in_memdep_15_dfr_avm_readdatavalid,
+    output wire [31:0] out_memdep_15_dfr_avm_address,
+    output wire [0:0] out_memdep_15_dfr_avm_enable,
+    output wire [0:0] out_memdep_15_dfr_avm_read,
+    output wire [0:0] out_memdep_15_dfr_avm_write,
+    output wire [2047:0] out_memdep_15_dfr_avm_writedata,
+    output wire [255:0] out_memdep_15_dfr_avm_byteenable,
+    output wire [0:0] out_memdep_15_dfr_avm_burstcount,
+    output wire [0:0] out_o_valid,
+    output wire [0:0] out_unnamed_dfr2,
+    output wire [0:0] out_unnamed_dfr8_0_tpl,
+    input wire [0:0] in_c1_eni1_0_tpl,
+    input wire [0:0] in_c1_eni1_1_tpl,
+    input wire [0:0] in_i_valid,
+    input wire clock,
+    input wire resetn
+    );
+
+    wire [0:0] GND_q;
+    wire [0:0] VCC_q;
+    wire [63:0] c_i64_0261_q;
+    wire [63:0] c_i64_4564687160011776000252_q;
+    wire [63:0] c_i64_4569474221218299904214_q;
+    wire [63:0] c_i64_4570395381008015360247_q;
+    wire [63:0] c_i64_4570886612628201472226_q;
+    wire [63:0] c_i64_4571901645985005568237_q;
+    wire [63:0] c_i64_4572345149366935552253_q;
+    wire [63:0] c_i64_4572560306388238336257_q;
+    wire [63:0] c_i64_4575007873677918208216_q;
+    wire [63:0] c_i64_4575923421679976448220_q;
+    wire [63:0] c_i64_4578915336108900352258_q;
+    wire [63:0] c_i64_4583644013906624512225_q;
+    wire [63:0] c_i64_4589955233664008192232_q;
+    wire [63:0] c_i64_4593983813901615104217_q;
+    wire [63:0] c_i64_4596760703840288768239_q;
+    wire [63:0] c_i64_4602763117823262720245_q;
+    wire [63:0] c_i64_4603846393516195840223_q;
+    wire [63:0] c_i64_4607209596532817920224_q;
+    wire [63:0] c_i64_4610523333983469568213_q;
+    wire [63:0] c_i64_4614057873247305728210_q;
+    wire [63:0] c_i64_4615979219934257920240_q;
+    wire [63:0] c_i64_4617428971670208512242_q;
+    wire [63:0] c_i64_4620958142920377032269_q;
+    wire [63:0] c_i64_4621630350130484910302_q;
+    wire [63:0] c_i64_4621748285601026878308_q;
+    wire [63:0] c_i64_4622328079211860956299_q;
+    wire [63:0] c_i64_4622593651689176224292_q;
+    wire [63:0] c_i64_4622763659939795274273_q;
+    wire [63:0] c_i64_4623373111882354566265_q;
+    wire [63:0] c_i64_4623400411886565032306_q;
+    wire [63:0] c_i64_4624269310775249156300_q;
+    wire [63:0] c_i64_4624287368398568514295_q;
+    wire [63:0] c_i64_4624848098348049492303_q;
+    wire [63:0] c_i64_4625005314219196666310_q;
+    wire [63:0] c_i64_4626951280394440864297_q;
+    wire [63:0] c_i64_4628299511403768820307_q;
+    wire [63:0] c_i64_4629106581062385664235_q;
+    wire [63:0] c_i64_4629344098196011112293_q;
+    wire [63:0] c_i64_4629981891913580544312_q;
+    wire [63:0] c_i64_4630263366890291200313_q;
+    wire [63:0] c_i64_4631829851413803440301_q;
+    wire [63:0] c_i64_4632557922030970040277_q;
+    wire [63:0] c_i64_4633248213328287744241_q;
+    wire [63:0] c_i64_4633319770795327952286_q;
+    wire [63:0] c_i64_4634618658257228928289_q;
+    wire [63:0] c_i64_4636054364303677248305_q;
+    wire [63:0] c_i64_4637453113555967136282_q;
+    wire [63:0] c_i64_4640464810468212736219_q;
+    wire [63:0] c_i64_4655282754735974656280_q;
+    wire [63:0] c_i64_4676056019505479680287_q;
+    wire [5:0] i_pms_cs1006_dfr43_vt_const_31_q;
+    wire [31:0] i_pms_cs1006_dfr43_vt_join_q;
+    wire [25:0] i_pms_cs1006_dfr43_vt_select_25_b;
+    wire [31:0] i_pms_cs1015_dfr41_vt_join_q;
+    wire [25:0] i_pms_cs1015_dfr41_vt_select_25_b;
+    wire [31:0] i_pms_cs1024_dfr39_vt_join_q;
+    wire [25:0] i_pms_cs1024_dfr39_vt_select_25_b;
+    wire [31:0] i_pms_cs1033_dfr37_vt_join_q;
+    wire [25:0] i_pms_cs1033_dfr37_vt_select_25_b;
+    wire [31:0] i_pms_cs1042_dfr35_vt_join_q;
+    wire [25:0] i_pms_cs1042_dfr35_vt_select_25_b;
+    wire [31:0] i_pms_cs1051_dfr33_vt_join_q;
+    wire [25:0] i_pms_cs1051_dfr33_vt_select_25_b;
+    wire [31:0] i_pms_cs1060_dfr31_vt_join_q;
+    wire [25:0] i_pms_cs1060_dfr31_vt_select_25_b;
+    wire [31:0] i_pms_cs1069_dfr29_vt_join_q;
+    wire [25:0] i_pms_cs1069_dfr29_vt_select_25_b;
+    wire [31:0] i_pms_cs1078_dfr27_vt_join_q;
+    wire [25:0] i_pms_cs1078_dfr27_vt_select_25_b;
+    wire [31:0] i_pms_cs1087_dfr25_vt_join_q;
+    wire [25:0] i_pms_cs1087_dfr25_vt_select_25_b;
+    wire [31:0] i_pms_cs1096_dfr23_vt_join_q;
+    wire [25:0] i_pms_cs1096_dfr23_vt_select_25_b;
+    wire [31:0] i_pms_cs1105_dfr21_vt_join_q;
+    wire [25:0] i_pms_cs1105_dfr21_vt_select_25_b;
+    wire [31:0] i_pms_cs1114_dfr19_vt_join_q;
+    wire [25:0] i_pms_cs1114_dfr19_vt_select_25_b;
+    wire [31:0] i_pms_cs1123_dfr17_vt_join_q;
+    wire [25:0] i_pms_cs1123_dfr17_vt_select_25_b;
+    wire [31:0] i_pms_cs1132_dfr15_vt_join_q;
+    wire [25:0] i_pms_cs1132_dfr15_vt_select_25_b;
+    wire [31:0] i_pms_cs1141_dfr13_vt_join_q;
+    wire [25:0] i_pms_cs1141_dfr13_vt_select_25_b;
+    wire [31:0] i_pms_cs1150_dfr11_vt_join_q;
+    wire [25:0] i_pms_cs1150_dfr11_vt_select_25_b;
+    wire [31:0] i_pms_cs1159_dfr9_vt_join_q;
+    wire [25:0] i_pms_cs1159_dfr9_vt_select_25_b;
+    wire [31:0] i_pms_cs1168_dfr7_vt_join_q;
+    wire [25:0] i_pms_cs1168_dfr7_vt_select_25_b;
+    wire [31:0] i_pms_cs1177_dfr5_vt_join_q;
+    wire [25:0] i_pms_cs1177_dfr5_vt_select_25_b;
+    wire [31:0] i_pms_cs1186_dfr3_vt_join_q;
+    wire [25:0] i_pms_cs1186_dfr3_vt_select_25_b;
+    wire [31:0] i_pms_cs1403_dfr202_vt_join_q;
+    wire [25:0] i_pms_cs1403_dfr202_vt_select_25_b;
+    wire [31:0] i_pms_cs313_dfr198_vt_join_q;
+    wire [25:0] i_pms_cs313_dfr198_vt_select_25_b;
+    wire [31:0] i_pms_cs322_dfr196_vt_join_q;
+    wire [25:0] i_pms_cs322_dfr196_vt_select_25_b;
+    wire [31:0] i_pms_cs331_dfr194_vt_join_q;
+    wire [25:0] i_pms_cs331_dfr194_vt_select_25_b;
+    wire [31:0] i_pms_cs340_dfr192_vt_join_q;
+    wire [25:0] i_pms_cs340_dfr192_vt_select_25_b;
+    wire [31:0] i_pms_cs349_dfr190_vt_join_q;
+    wire [25:0] i_pms_cs349_dfr190_vt_select_25_b;
+    wire [31:0] i_pms_cs358_dfr188_vt_join_q;
+    wire [25:0] i_pms_cs358_dfr188_vt_select_25_b;
+    wire [31:0] i_pms_cs367_dfr186_vt_join_q;
+    wire [25:0] i_pms_cs367_dfr186_vt_select_25_b;
+    wire [31:0] i_pms_cs376_dfr184_vt_join_q;
+    wire [25:0] i_pms_cs376_dfr184_vt_select_25_b;
+    wire [31:0] i_pms_cs385_dfr182_vt_join_q;
+    wire [25:0] i_pms_cs385_dfr182_vt_select_25_b;
+    wire [31:0] i_pms_cs394_dfr180_vt_join_q;
+    wire [25:0] i_pms_cs394_dfr180_vt_select_25_b;
+    wire [31:0] i_pms_cs403_dfr178_vt_join_q;
+    wire [25:0] i_pms_cs403_dfr178_vt_select_25_b;
+    wire [31:0] i_pms_cs412_dfr176_vt_join_q;
+    wire [25:0] i_pms_cs412_dfr176_vt_select_25_b;
+    wire [31:0] i_pms_cs421_dfr174_vt_join_q;
+    wire [25:0] i_pms_cs421_dfr174_vt_select_25_b;
+    wire [31:0] i_pms_cs430_dfr172_vt_join_q;
+    wire [25:0] i_pms_cs430_dfr172_vt_select_25_b;
+    wire [31:0] i_pms_cs439_dfr170_vt_join_q;
+    wire [25:0] i_pms_cs439_dfr170_vt_select_25_b;
+    wire [31:0] i_pms_cs448_dfr168_vt_join_q;
+    wire [25:0] i_pms_cs448_dfr168_vt_select_25_b;
+    wire [31:0] i_pms_cs457_dfr166_vt_join_q;
+    wire [25:0] i_pms_cs457_dfr166_vt_select_25_b;
+    wire [31:0] i_pms_cs466_dfr164_vt_join_q;
+    wire [25:0] i_pms_cs466_dfr164_vt_select_25_b;
+    wire [31:0] i_pms_cs475_dfr162_vt_join_q;
+    wire [25:0] i_pms_cs475_dfr162_vt_select_25_b;
+    wire [31:0] i_pms_cs484_dfr160_vt_join_q;
+    wire [25:0] i_pms_cs484_dfr160_vt_select_25_b;
+    wire [31:0] i_pms_cs493_dfr158_vt_join_q;
+    wire [25:0] i_pms_cs493_dfr158_vt_select_25_b;
+    wire [31:0] i_pms_cs502_dfr156_vt_join_q;
+    wire [25:0] i_pms_cs502_dfr156_vt_select_25_b;
+    wire [31:0] i_pms_cs511_dfr154_vt_join_q;
+    wire [25:0] i_pms_cs511_dfr154_vt_select_25_b;
+    wire [31:0] i_pms_cs520_dfr152_vt_join_q;
+    wire [25:0] i_pms_cs520_dfr152_vt_select_25_b;
+    wire [31:0] i_pms_cs529_dfr150_vt_join_q;
+    wire [25:0] i_pms_cs529_dfr150_vt_select_25_b;
+    wire [31:0] i_pms_cs538_dfr148_vt_join_q;
+    wire [25:0] i_pms_cs538_dfr148_vt_select_25_b;
+    wire [31:0] i_pms_cs547_dfr146_vt_join_q;
+    wire [25:0] i_pms_cs547_dfr146_vt_select_25_b;
+    wire [31:0] i_pms_cs556_dfr144_vt_join_q;
+    wire [25:0] i_pms_cs556_dfr144_vt_select_25_b;
+    wire [31:0] i_pms_cs565_dfr142_vt_join_q;
+    wire [25:0] i_pms_cs565_dfr142_vt_select_25_b;
+    wire [31:0] i_pms_cs574_dfr140_vt_join_q;
+    wire [25:0] i_pms_cs574_dfr140_vt_select_25_b;
+    wire [31:0] i_pms_cs583_dfr138_vt_join_q;
+    wire [25:0] i_pms_cs583_dfr138_vt_select_25_b;
+    wire [31:0] i_pms_cs592_dfr136_vt_join_q;
+    wire [25:0] i_pms_cs592_dfr136_vt_select_25_b;
+    wire [31:0] i_pms_cs601_dfr134_vt_join_q;
+    wire [25:0] i_pms_cs601_dfr134_vt_select_25_b;
+    wire [31:0] i_pms_cs610_dfr132_vt_join_q;
+    wire [25:0] i_pms_cs610_dfr132_vt_select_25_b;
+    wire [31:0] i_pms_cs619_dfr130_vt_join_q;
+    wire [25:0] i_pms_cs619_dfr130_vt_select_25_b;
+    wire [31:0] i_pms_cs628_dfr128_vt_join_q;
+    wire [25:0] i_pms_cs628_dfr128_vt_select_25_b;
+    wire [31:0] i_pms_cs637_dfr126_vt_join_q;
+    wire [25:0] i_pms_cs637_dfr126_vt_select_25_b;
+    wire [31:0] i_pms_cs646_dfr124_vt_join_q;
+    wire [25:0] i_pms_cs646_dfr124_vt_select_25_b;
+    wire [31:0] i_pms_cs655_dfr122_vt_join_q;
+    wire [25:0] i_pms_cs655_dfr122_vt_select_25_b;
+    wire [31:0] i_pms_cs664_dfr120_vt_join_q;
+    wire [25:0] i_pms_cs664_dfr120_vt_select_25_b;
+    wire [31:0] i_pms_cs673_dfr118_vt_join_q;
+    wire [25:0] i_pms_cs673_dfr118_vt_select_25_b;
+    wire [31:0] i_pms_cs682_dfr116_vt_join_q;
+    wire [25:0] i_pms_cs682_dfr116_vt_select_25_b;
+    wire [31:0] i_pms_cs691_dfr114_vt_join_q;
+    wire [25:0] i_pms_cs691_dfr114_vt_select_25_b;
+    wire [31:0] i_pms_cs700_dfr112_vt_join_q;
+    wire [25:0] i_pms_cs700_dfr112_vt_select_25_b;
+    wire [31:0] i_pms_cs709_dfr110_vt_join_q;
+    wire [25:0] i_pms_cs709_dfr110_vt_select_25_b;
+    wire [31:0] i_pms_cs718_dfr108_vt_join_q;
+    wire [25:0] i_pms_cs718_dfr108_vt_select_25_b;
+    wire [31:0] i_pms_cs727_dfr106_vt_join_q;
+    wire [25:0] i_pms_cs727_dfr106_vt_select_25_b;
+    wire [31:0] i_pms_cs736_dfr104_vt_join_q;
+    wire [25:0] i_pms_cs736_dfr104_vt_select_25_b;
+    wire [31:0] i_pms_cs745_dfr101_vt_join_q;
+    wire [25:0] i_pms_cs745_dfr101_vt_select_25_b;
+    wire [31:0] i_pms_cs754_dfr99_vt_join_q;
+    wire [25:0] i_pms_cs754_dfr99_vt_select_25_b;
+    wire [31:0] i_pms_cs763_dfr97_vt_join_q;
+    wire [25:0] i_pms_cs763_dfr97_vt_select_25_b;
+    wire [31:0] i_pms_cs772_dfr95_vt_join_q;
+    wire [25:0] i_pms_cs772_dfr95_vt_select_25_b;
+    wire [31:0] i_pms_cs781_dfr93_vt_join_q;
+    wire [25:0] i_pms_cs781_dfr93_vt_select_25_b;
+    wire [31:0] i_pms_cs790_dfr91_vt_join_q;
+    wire [25:0] i_pms_cs790_dfr91_vt_select_25_b;
+    wire [31:0] i_pms_cs799_dfr89_vt_join_q;
+    wire [25:0] i_pms_cs799_dfr89_vt_select_25_b;
+    wire [31:0] i_pms_cs808_dfr87_vt_join_q;
+    wire [25:0] i_pms_cs808_dfr87_vt_select_25_b;
+    wire [31:0] i_pms_cs817_dfr85_vt_join_q;
+    wire [25:0] i_pms_cs817_dfr85_vt_select_25_b;
+    wire [31:0] i_pms_cs826_dfr83_vt_join_q;
+    wire [25:0] i_pms_cs826_dfr83_vt_select_25_b;
+    wire [31:0] i_pms_cs835_dfr81_vt_join_q;
+    wire [25:0] i_pms_cs835_dfr81_vt_select_25_b;
+    wire [31:0] i_pms_cs844_dfr79_vt_join_q;
+    wire [25:0] i_pms_cs844_dfr79_vt_select_25_b;
+    wire [31:0] i_pms_cs853_dfr77_vt_join_q;
+    wire [25:0] i_pms_cs853_dfr77_vt_select_25_b;
+    wire [31:0] i_pms_cs862_dfr75_vt_join_q;
+    wire [25:0] i_pms_cs862_dfr75_vt_select_25_b;
+    wire [31:0] i_pms_cs871_dfr73_vt_join_q;
+    wire [25:0] i_pms_cs871_dfr73_vt_select_25_b;
+    wire [31:0] i_pms_cs880_dfr71_vt_join_q;
+    wire [25:0] i_pms_cs880_dfr71_vt_select_25_b;
+    wire [31:0] i_pms_cs889_dfr69_vt_join_q;
+    wire [25:0] i_pms_cs889_dfr69_vt_select_25_b;
+    wire [31:0] i_pms_cs898_dfr67_vt_join_q;
+    wire [25:0] i_pms_cs898_dfr67_vt_select_25_b;
+    wire [31:0] i_pms_cs907_dfr65_vt_join_q;
+    wire [25:0] i_pms_cs907_dfr65_vt_select_25_b;
+    wire [31:0] i_pms_cs916_dfr63_vt_join_q;
+    wire [25:0] i_pms_cs916_dfr63_vt_select_25_b;
+    wire [31:0] i_pms_cs925_dfr61_vt_join_q;
+    wire [25:0] i_pms_cs925_dfr61_vt_select_25_b;
+    wire [31:0] i_pms_cs934_dfr59_vt_join_q;
+    wire [25:0] i_pms_cs934_dfr59_vt_select_25_b;
+    wire [31:0] i_pms_cs943_dfr57_vt_join_q;
+    wire [25:0] i_pms_cs943_dfr57_vt_select_25_b;
+    wire [31:0] i_pms_cs952_dfr55_vt_join_q;
+    wire [25:0] i_pms_cs952_dfr55_vt_select_25_b;
+    wire [31:0] i_pms_cs961_dfr53_vt_join_q;
+    wire [25:0] i_pms_cs961_dfr53_vt_select_25_b;
+    wire [31:0] i_pms_cs970_dfr51_vt_join_q;
+    wire [25:0] i_pms_cs970_dfr51_vt_select_25_b;
+    wire [31:0] i_pms_cs979_dfr49_vt_join_q;
+    wire [25:0] i_pms_cs979_dfr49_vt_select_25_b;
+    wire [31:0] i_pms_cs988_dfr47_vt_join_q;
+    wire [25:0] i_pms_cs988_dfr47_vt_select_25_b;
+    wire [31:0] i_pms_cs997_dfr45_vt_join_q;
+    wire [25:0] i_pms_cs997_dfr45_vt_select_25_b;
+    wire [31:0] i_pms_cs_dfr200_vt_join_q;
+    wire [25:0] i_pms_cs_dfr200_vt_select_25_b;
+    wire [31:0] i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_address;
+    wire [0:0] i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_burstcount;
+    wire [255:0] i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_byteenable;
+    wire [0:0] i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_enable;
+    wire [0:0] i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_read;
+    wire [0:0] i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_write;
+    wire [2047:0] i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_writedata;
+    wire [31:0] i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_address;
+    wire [0:0] i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_burstcount;
+    wire [255:0] i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_byteenable;
+    wire [0:0] i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_enable;
+    wire [0:0] i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_read;
+    wire [0:0] i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_write;
+    wire [2047:0] i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_writedata;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr1_x_out_primWireOut;
+    wire [25:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr1_x_out_primWireOut;
+    wire [31:0] i_pms_cs1006_dfr43_sel_x_b;
+    wire [31:0] i_pms_cs1015_dfr41_sel_x_b;
+    wire [31:0] i_pms_cs1024_dfr39_sel_x_b;
+    wire [31:0] i_pms_cs1033_dfr37_sel_x_b;
+    wire [31:0] i_pms_cs1042_dfr35_sel_x_b;
+    wire [31:0] i_pms_cs1051_dfr33_sel_x_b;
+    wire [31:0] i_pms_cs1060_dfr31_sel_x_b;
+    wire [31:0] i_pms_cs1069_dfr29_sel_x_b;
+    wire [31:0] i_pms_cs1078_dfr27_sel_x_b;
+    wire [31:0] i_pms_cs1087_dfr25_sel_x_b;
+    wire [31:0] i_pms_cs1096_dfr23_sel_x_b;
+    wire [31:0] i_pms_cs1105_dfr21_sel_x_b;
+    wire [31:0] i_pms_cs1114_dfr19_sel_x_b;
+    wire [31:0] i_pms_cs1123_dfr17_sel_x_b;
+    wire [31:0] i_pms_cs1132_dfr15_sel_x_b;
+    wire [31:0] i_pms_cs1141_dfr13_sel_x_b;
+    wire [31:0] i_pms_cs1150_dfr11_sel_x_b;
+    wire [31:0] i_pms_cs1159_dfr9_sel_x_b;
+    wire [31:0] i_pms_cs1168_dfr7_sel_x_b;
+    wire [31:0] i_pms_cs1177_dfr5_sel_x_b;
+    wire [31:0] i_pms_cs1186_dfr3_sel_x_b;
+    wire [31:0] i_pms_cs1403_dfr202_sel_x_b;
+    wire [31:0] i_pms_cs313_dfr198_sel_x_b;
+    wire [31:0] i_pms_cs322_dfr196_sel_x_b;
+    wire [31:0] i_pms_cs331_dfr194_sel_x_b;
+    wire [31:0] i_pms_cs340_dfr192_sel_x_b;
+    wire [31:0] i_pms_cs349_dfr190_sel_x_b;
+    wire [31:0] i_pms_cs358_dfr188_sel_x_b;
+    wire [31:0] i_pms_cs367_dfr186_sel_x_b;
+    wire [31:0] i_pms_cs376_dfr184_sel_x_b;
+    wire [31:0] i_pms_cs385_dfr182_sel_x_b;
+    wire [31:0] i_pms_cs394_dfr180_sel_x_b;
+    wire [31:0] i_pms_cs403_dfr178_sel_x_b;
+    wire [31:0] i_pms_cs412_dfr176_sel_x_b;
+    wire [31:0] i_pms_cs421_dfr174_sel_x_b;
+    wire [31:0] i_pms_cs430_dfr172_sel_x_b;
+    wire [31:0] i_pms_cs439_dfr170_sel_x_b;
+    wire [31:0] i_pms_cs448_dfr168_sel_x_b;
+    wire [31:0] i_pms_cs457_dfr166_sel_x_b;
+    wire [31:0] i_pms_cs466_dfr164_sel_x_b;
+    wire [31:0] i_pms_cs475_dfr162_sel_x_b;
+    wire [31:0] i_pms_cs484_dfr160_sel_x_b;
+    wire [31:0] i_pms_cs493_dfr158_sel_x_b;
+    wire [31:0] i_pms_cs502_dfr156_sel_x_b;
+    wire [31:0] i_pms_cs511_dfr154_sel_x_b;
+    wire [31:0] i_pms_cs520_dfr152_sel_x_b;
+    wire [31:0] i_pms_cs529_dfr150_sel_x_b;
+    wire [31:0] i_pms_cs538_dfr148_sel_x_b;
+    wire [31:0] i_pms_cs547_dfr146_sel_x_b;
+    wire [31:0] i_pms_cs556_dfr144_sel_x_b;
+    wire [31:0] i_pms_cs565_dfr142_sel_x_b;
+    wire [31:0] i_pms_cs574_dfr140_sel_x_b;
+    wire [31:0] i_pms_cs583_dfr138_sel_x_b;
+    wire [31:0] i_pms_cs592_dfr136_sel_x_b;
+    wire [31:0] i_pms_cs601_dfr134_sel_x_b;
+    wire [31:0] i_pms_cs610_dfr132_sel_x_b;
+    wire [31:0] i_pms_cs619_dfr130_sel_x_b;
+    wire [31:0] i_pms_cs628_dfr128_sel_x_b;
+    wire [31:0] i_pms_cs637_dfr126_sel_x_b;
+    wire [31:0] i_pms_cs646_dfr124_sel_x_b;
+    wire [31:0] i_pms_cs655_dfr122_sel_x_b;
+    wire [31:0] i_pms_cs664_dfr120_sel_x_b;
+    wire [31:0] i_pms_cs673_dfr118_sel_x_b;
+    wire [31:0] i_pms_cs682_dfr116_sel_x_b;
+    wire [31:0] i_pms_cs691_dfr114_sel_x_b;
+    wire [31:0] i_pms_cs700_dfr112_sel_x_b;
+    wire [31:0] i_pms_cs709_dfr110_sel_x_b;
+    wire [31:0] i_pms_cs718_dfr108_sel_x_b;
+    wire [31:0] i_pms_cs727_dfr106_sel_x_b;
+    wire [31:0] i_pms_cs736_dfr104_sel_x_b;
+    wire [31:0] i_pms_cs745_dfr101_sel_x_b;
+    wire [31:0] i_pms_cs754_dfr99_sel_x_b;
+    wire [31:0] i_pms_cs763_dfr97_sel_x_b;
+    wire [31:0] i_pms_cs772_dfr95_sel_x_b;
+    wire [31:0] i_pms_cs781_dfr93_sel_x_b;
+    wire [31:0] i_pms_cs790_dfr91_sel_x_b;
+    wire [31:0] i_pms_cs799_dfr89_sel_x_b;
+    wire [31:0] i_pms_cs808_dfr87_sel_x_b;
+    wire [31:0] i_pms_cs817_dfr85_sel_x_b;
+    wire [31:0] i_pms_cs826_dfr83_sel_x_b;
+    wire [31:0] i_pms_cs835_dfr81_sel_x_b;
+    wire [31:0] i_pms_cs844_dfr79_sel_x_b;
+    wire [31:0] i_pms_cs853_dfr77_sel_x_b;
+    wire [31:0] i_pms_cs862_dfr75_sel_x_b;
+    wire [31:0] i_pms_cs871_dfr73_sel_x_b;
+    wire [31:0] i_pms_cs880_dfr71_sel_x_b;
+    wire [31:0] i_pms_cs889_dfr69_sel_x_b;
+    wire [31:0] i_pms_cs898_dfr67_sel_x_b;
+    wire [31:0] i_pms_cs907_dfr65_sel_x_b;
+    wire [31:0] i_pms_cs916_dfr63_sel_x_b;
+    wire [31:0] i_pms_cs925_dfr61_sel_x_b;
+    wire [31:0] i_pms_cs934_dfr59_sel_x_b;
+    wire [31:0] i_pms_cs943_dfr57_sel_x_b;
+    wire [31:0] i_pms_cs952_dfr55_sel_x_b;
+    wire [31:0] i_pms_cs961_dfr53_sel_x_b;
+    wire [31:0] i_pms_cs970_dfr51_sel_x_b;
+    wire [31:0] i_pms_cs979_dfr49_sel_x_b;
+    wire [31:0] i_pms_cs988_dfr47_sel_x_b;
+    wire [31:0] i_pms_cs997_dfr45_sel_x_b;
+    wire [31:0] i_pms_cs_dfr200_sel_x_b;
+    (* dont_merge *) reg [0:0] valid_fanout_reg0_q;
+    (* dont_merge *) reg [0:0] valid_fanout_reg1_q;
+    (* dont_merge *) reg [0:0] valid_fanout_reg2_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_vpfp_cast_inputx_x_b_const_q;
+    wire [63:0] i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_vpfp_cast_inputx_x_b_const_q;
+    reg [0:0] redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_q;
+    reg [0:0] redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_0;
+    reg [0:0] redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_1;
+    reg [0:0] redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_2;
+    reg [0:0] redist1_sync_together315_aunroll_x_in_i_valid_3_q;
+    reg [0:0] redist1_sync_together315_aunroll_x_in_i_valid_3_delay_0;
+    reg [0:0] redist1_sync_together315_aunroll_x_in_i_valid_3_delay_1;
+    reg [0:0] redist2_sync_together315_aunroll_x_in_i_valid_38_q;
+
+
+    // c_i64_0261(CONSTANT,4)
+    assign c_i64_0261_q = $unsigned(64'b0000000000000000000000000000000000000000000000000000000000000000);
+
+    // i_pms_cs1006_dfr43_vt_const_31(CONSTANT,110)
+    assign i_pms_cs1006_dfr43_vt_const_31_q = $unsigned(6'b000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1025)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111010100101000011100010111010101100110001001000010110010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr1_x(BLACKBOX,542)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0009d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs736_dfr104_sel_x(BITSELECT,884)@6
+    assign i_pms_cs736_dfr104_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1164_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs736_dfr104_vt_select_25(BITSELECT,388)@6
+    assign i_pms_cs736_dfr104_vt_select_25_b = i_pms_cs736_dfr104_sel_x_b[25:0];
+
+    // i_pms_cs736_dfr104_vt_join(BITJOIN,387)@6
+    assign i_pms_cs736_dfr104_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs736_dfr104_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1026)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011000111101001011010001000010110101111000000010010000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr1_x(BLACKBOX,545)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000ad6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs727_dfr106_sel_x(BITSELECT,883)@6
+    assign i_pms_cs727_dfr106_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1182_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs727_dfr106_vt_select_25(BITSELECT,384)@6
+    assign i_pms_cs727_dfr106_vt_select_25_b = i_pms_cs727_dfr106_sel_x_b[25:0];
+
+    // i_pms_cs727_dfr106_vt_join(BITJOIN,383)@6
+    assign i_pms_cs727_dfr106_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs727_dfr106_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1027)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011110001111111000110011101100101000010001010001001110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr1_x(BLACKBOX,548)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000bd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs718_dfr108_sel_x(BITSELECT,882)@6
+    assign i_pms_cs718_dfr108_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1200_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs718_dfr108_vt_select_25(BITSELECT,380)@6
+    assign i_pms_cs718_dfr108_vt_select_25_b = i_pms_cs718_dfr108_sel_x_b[25:0];
+
+    // i_pms_cs718_dfr108_vt_join(BITJOIN,379)@6
+    assign i_pms_cs718_dfr108_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs718_dfr108_vt_select_25_b};
+
+    // c_i64_4623373111882354566265(CONSTANT,70)
+    assign c_i64_4623373111882354566265_q = $unsigned(64'b1011111111010110011110101010011010000010001010001111000001111010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr1_x(BLACKBOX,551)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000cd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr1_x (
+        .in_0(c_i64_4623373111882354566265_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs709_dfr110_sel_x(BITSELECT,881)@6
+    assign i_pms_cs709_dfr110_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1218_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs709_dfr110_vt_select_25(BITSELECT,376)@6
+    assign i_pms_cs709_dfr110_vt_select_25_b = i_pms_cs709_dfr110_sel_x_b[25:0];
+
+    // i_pms_cs709_dfr110_vt_join(BITJOIN,375)@6
+    assign i_pms_cs709_dfr110_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs709_dfr110_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1028)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011101010000101110111001111100001101001111001110110100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr1_x(BLACKBOX,554)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000dd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs700_dfr112_sel_x(BITSELECT,880)@6
+    assign i_pms_cs700_dfr112_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1236_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs700_dfr112_vt_select_25(BITSELECT,372)@6
+    assign i_pms_cs700_dfr112_vt_select_25_b = i_pms_cs700_dfr112_sel_x_b[25:0];
+
+    // i_pms_cs700_dfr112_vt_join(BITJOIN,371)@6
+    assign i_pms_cs700_dfr112_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs700_dfr112_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1029)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011110110010111110011001001000000001010100010101011100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr1_x(BLACKBOX,557)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000ed6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs691_dfr114_sel_x(BITSELECT,879)@6
+    assign i_pms_cs691_dfr114_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1254_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs691_dfr114_vt_select_25(BITSELECT,368)@6
+    assign i_pms_cs691_dfr114_vt_select_25_b = i_pms_cs691_dfr114_sel_x_b[25:0];
+
+    // i_pms_cs691_dfr114_vt_join(BITJOIN,367)@6
+    assign i_pms_cs691_dfr114_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs691_dfr114_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1030)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111010111010001011110000100010101110001111010000110010010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr1_x(BLACKBOX,560)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000fd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs682_dfr116_sel_x(BITSELECT,878)@6
+    assign i_pms_cs682_dfr116_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1272_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs682_dfr116_vt_select_25(BITSELECT,364)@6
+    assign i_pms_cs682_dfr116_vt_select_25_b = i_pms_cs682_dfr116_sel_x_b[25:0];
+
+    // i_pms_cs682_dfr116_vt_join(BITJOIN,363)@6
+    assign i_pms_cs682_dfr116_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs682_dfr116_vt_select_25_b};
+
+    // c_i64_4620958142920377032269(CONSTANT,64)
+    assign c_i64_4620958142920377032269_q = $unsigned(64'b1011111111011111000011110000110101001001010010000011110100111000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr1_x(BLACKBOX,563)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000gd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr1_x (
+        .in_0(c_i64_4620958142920377032269_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs673_dfr118_sel_x(BITSELECT,877)@6
+    assign i_pms_cs673_dfr118_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1290_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs673_dfr118_vt_select_25(BITSELECT,360)@6
+    assign i_pms_cs673_dfr118_vt_select_25_b = i_pms_cs673_dfr118_sel_x_b[25:0];
+
+    // i_pms_cs673_dfr118_vt_join(BITJOIN,359)@6
+    assign i_pms_cs673_dfr118_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs673_dfr118_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1031)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011101111100101000000010110000101010101100010001110110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr1_x(BLACKBOX,566)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000hd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs664_dfr120_sel_x(BITSELECT,876)@6
+    assign i_pms_cs664_dfr120_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1308_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs664_dfr120_vt_select_25(BITSELECT,356)@6
+    assign i_pms_cs664_dfr120_vt_select_25_b = i_pms_cs664_dfr120_sel_x_b[25:0];
+
+    // i_pms_cs664_dfr120_vt_join(BITJOIN,355)@6
+    assign i_pms_cs664_dfr120_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs664_dfr120_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1032)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011011010110101110100111100100101111100001100111000110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr1_x(BLACKBOX,569)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000id6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs655_dfr122_sel_x(BITSELECT,875)@6
+    assign i_pms_cs655_dfr122_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1326_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs655_dfr122_vt_select_25(BITSELECT,352)@6
+    assign i_pms_cs655_dfr122_vt_select_25_b = i_pms_cs655_dfr122_sel_x_b[25:0];
+
+    // i_pms_cs655_dfr122_vt_join(BITJOIN,351)@6
+    assign i_pms_cs655_dfr122_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs655_dfr122_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1033)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111001101010100000101111000001011000100001111000100101100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr1_x(BLACKBOX,572)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000jd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs646_dfr124_sel_x(BITSELECT,874)@6
+    assign i_pms_cs646_dfr124_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1344_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs646_dfr124_vt_select_25(BITSELECT,348)@6
+    assign i_pms_cs646_dfr124_vt_select_25_b = i_pms_cs646_dfr124_sel_x_b[25:0];
+
+    // i_pms_cs646_dfr124_vt_join(BITJOIN,347)@6
+    assign i_pms_cs646_dfr124_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs646_dfr124_vt_select_25_b};
+
+    // c_i64_4622763659939795274273(CONSTANT,69)
+    assign c_i64_4622763659939795274273_q = $unsigned(64'b1011111111011000101001001111000110011000101101000010111010110110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr1_x(BLACKBOX,575)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000kd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr1_x (
+        .in_0(c_i64_4622763659939795274273_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs637_dfr126_sel_x(BITSELECT,873)@6
+    assign i_pms_cs637_dfr126_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1362_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs637_dfr126_vt_select_25(BITSELECT,344)@6
+    assign i_pms_cs637_dfr126_vt_select_25_b = i_pms_cs637_dfr126_sel_x_b[25:0];
+
+    // i_pms_cs637_dfr126_vt_join(BITJOIN,343)@6
+    assign i_pms_cs637_dfr126_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs637_dfr126_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1034)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011011101001101101110110101011111110110010101001111110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr1_x(BLACKBOX,578)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000ld6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs628_dfr128_sel_x(BITSELECT,872)@6
+    assign i_pms_cs628_dfr128_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1380_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs628_dfr128_vt_select_25(BITSELECT,340)@6
+    assign i_pms_cs628_dfr128_vt_select_25_b = i_pms_cs628_dfr128_sel_x_b[25:0];
+
+    // i_pms_cs628_dfr128_vt_join(BITJOIN,339)@6
+    assign i_pms_cs628_dfr128_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs628_dfr128_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1035)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111001011000001101011101011010101110111111110100011011100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr1_x(BLACKBOX,581)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000md6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs619_dfr130_sel_x(BITSELECT,871)@6
+    assign i_pms_cs619_dfr130_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1398_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs619_dfr130_vt_select_25(BITSELECT,336)@6
+    assign i_pms_cs619_dfr130_vt_select_25_b = i_pms_cs619_dfr130_sel_x_b[25:0];
+
+    // i_pms_cs619_dfr130_vt_join(BITJOIN,335)@6
+    assign i_pms_cs619_dfr130_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs619_dfr130_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1036)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111001110000000111000111011000100001001000001010000000100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr1_x(BLACKBOX,584)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000nd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs610_dfr132_sel_x(BITSELECT,870)@6
+    assign i_pms_cs610_dfr132_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1416_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs610_dfr132_vt_select_25(BITSELECT,332)@6
+    assign i_pms_cs610_dfr132_vt_select_25_b = i_pms_cs610_dfr132_sel_x_b[25:0];
+
+    // i_pms_cs610_dfr132_vt_join(BITJOIN,331)@6
+    assign i_pms_cs610_dfr132_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs610_dfr132_vt_select_25_b};
+
+    // c_i64_4632557922030970040277(CONSTANT,83)
+    assign c_i64_4632557922030970040277_q = $unsigned(64'b1011111110110101110110010001110100111111111011000001101101001000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr1_x(BLACKBOX,587)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000od6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr1_x (
+        .in_0(c_i64_4632557922030970040277_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs601_dfr134_sel_x(BITSELECT,869)@6
+    assign i_pms_cs601_dfr134_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1434_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs601_dfr134_vt_select_25(BITSELECT,328)@6
+    assign i_pms_cs601_dfr134_vt_select_25_b = i_pms_cs601_dfr134_sel_x_b[25:0];
+
+    // i_pms_cs601_dfr134_vt_join(BITJOIN,327)@6
+    assign i_pms_cs601_dfr134_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs601_dfr134_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1037)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111010010010010100101000000011011100011101011110001011110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr1_x(BLACKBOX,590)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000pd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs592_dfr136_sel_x(BITSELECT,868)@6
+    assign i_pms_cs592_dfr136_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1452_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs592_dfr136_vt_select_25(BITSELECT,324)@6
+    assign i_pms_cs592_dfr136_vt_select_25_b = i_pms_cs592_dfr136_sel_x_b[25:0];
+
+    // i_pms_cs592_dfr136_vt_join(BITJOIN,323)@6
+    assign i_pms_cs592_dfr136_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs592_dfr136_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1038)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111110011110000001000000000111000101101011100101001111100000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr1_x(BLACKBOX,593)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000qd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs583_dfr138_sel_x(BITSELECT,867)@6
+    assign i_pms_cs583_dfr138_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1470_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs583_dfr138_vt_select_25(BITSELECT,320)@6
+    assign i_pms_cs583_dfr138_vt_select_25_b = i_pms_cs583_dfr138_sel_x_b[25:0];
+
+    // i_pms_cs583_dfr138_vt_join(BITJOIN,319)@6
+    assign i_pms_cs583_dfr138_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs583_dfr138_vt_select_25_b};
+
+    // c_i64_4655282754735974656280(CONSTANT,101)
+    assign c_i64_4655282754735974656280_q = $unsigned(64'b1011111101100101000111001111111111010010111101011101011100000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr1_x(BLACKBOX,596)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000rd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr1_x (
+        .in_0(c_i64_4655282754735974656280_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs574_dfr140_sel_x(BITSELECT,866)@6
+    assign i_pms_cs574_dfr140_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1488_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs574_dfr140_vt_select_25(BITSELECT,316)@6
+    assign i_pms_cs574_dfr140_vt_select_25_b = i_pms_cs574_dfr140_sel_x_b[25:0];
+
+    // i_pms_cs574_dfr140_vt_join(BITJOIN,315)@6
+    assign i_pms_cs574_dfr140_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs574_dfr140_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1039)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111010000011111101010000100100000011101010110111111100110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr1_x(BLACKBOX,599)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000sd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs565_dfr142_sel_x(BITSELECT,865)@6
+    assign i_pms_cs565_dfr142_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1506_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs565_dfr142_vt_select_25(BITSELECT,312)@6
+    assign i_pms_cs565_dfr142_vt_select_25_b = i_pms_cs565_dfr142_sel_x_b[25:0];
+
+    // i_pms_cs565_dfr142_vt_join(BITJOIN,311)@6
+    assign i_pms_cs565_dfr142_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs565_dfr142_vt_select_25_b};
+
+    // c_i64_4637453113555967136282(CONSTANT,89)
+    assign c_i64_4637453113555967136282_q = $unsigned(64'b1011111110100100011101001111011010100111111101111010001101100000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr1_x(BLACKBOX,602)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000td6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr1_x (
+        .in_0(c_i64_4637453113555967136282_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs556_dfr144_sel_x(BITSELECT,864)@6
+    assign i_pms_cs556_dfr144_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1524_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs556_dfr144_vt_select_25(BITSELECT,308)@6
+    assign i_pms_cs556_dfr144_vt_select_25_b = i_pms_cs556_dfr144_sel_x_b[25:0];
+
+    // i_pms_cs556_dfr144_vt_join(BITJOIN,307)@6
+    assign i_pms_cs556_dfr144_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs556_dfr144_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1040)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011100101110110111111001000000011001101010001111110100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr1_x(BLACKBOX,605)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000ud6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs547_dfr146_sel_x(BITSELECT,863)@6
+    assign i_pms_cs547_dfr146_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1542_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs547_dfr146_vt_select_25(BITSELECT,304)@6
+    assign i_pms_cs547_dfr146_vt_select_25_b = i_pms_cs547_dfr146_sel_x_b[25:0];
+
+    // i_pms_cs547_dfr146_vt_join(BITJOIN,303)@6
+    assign i_pms_cs547_dfr146_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs547_dfr146_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1041)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011111101011111010100101000000100101100110000000000010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr1_x(BLACKBOX,608)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000vd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs538_dfr148_sel_x(BITSELECT,862)@6
+    assign i_pms_cs538_dfr148_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1560_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs538_dfr148_vt_select_25(BITSELECT,300)@6
+    assign i_pms_cs538_dfr148_vt_select_25_b = i_pms_cs538_dfr148_sel_x_b[25:0];
+
+    // i_pms_cs538_dfr148_vt_join(BITJOIN,299)@6
+    assign i_pms_cs538_dfr148_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs538_dfr148_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1042)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111110111110110001100100111100001100111100100000000000001000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr1_x(BLACKBOX,611)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000wd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs529_dfr150_sel_x(BITSELECT,861)@6
+    assign i_pms_cs529_dfr150_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1578_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs529_dfr150_vt_select_25(BITSELECT,296)@6
+    assign i_pms_cs529_dfr150_vt_select_25_b = i_pms_cs529_dfr150_sel_x_b[25:0];
+
+    // i_pms_cs529_dfr150_vt_join(BITJOIN,295)@6
+    assign i_pms_cs529_dfr150_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs529_dfr150_vt_select_25_b};
+
+    // c_i64_4633319770795327952286(CONSTANT,85)
+    assign c_i64_4633319770795327952286_q = $unsigned(64'b1011111110110011001001000011011110000010111100110011111000110000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr1_x(BLACKBOX,614)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000xd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr1_x (
+        .in_0(c_i64_4633319770795327952286_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs520_dfr152_sel_x(BITSELECT,860)@6
+    assign i_pms_cs520_dfr152_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1596_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs520_dfr152_vt_select_25(BITSELECT,292)@6
+    assign i_pms_cs520_dfr152_vt_select_25_b = i_pms_cs520_dfr152_sel_x_b[25:0];
+
+    // i_pms_cs520_dfr152_vt_join(BITJOIN,291)@6
+    assign i_pms_cs520_dfr152_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs520_dfr152_vt_select_25_b};
+
+    // c_i64_4676056019505479680287(CONSTANT,106)
+    assign c_i64_4676056019505479680287_q = $unsigned(64'b1011111100011011010011111101001100110111100011001000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr1_x(BLACKBOX,617)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000yd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr1_x (
+        .in_0(c_i64_4676056019505479680287_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs511_dfr154_sel_x(BITSELECT,859)@6
+    assign i_pms_cs511_dfr154_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1614_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs511_dfr154_vt_select_25(BITSELECT,288)@6
+    assign i_pms_cs511_dfr154_vt_select_25_b = i_pms_cs511_dfr154_sel_x_b[25:0];
+
+    // i_pms_cs511_dfr154_vt_join(BITJOIN,287)@6
+    assign i_pms_cs511_dfr154_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs511_dfr154_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1043)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011101000110000000001010111001110111100101100101111000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr1_x(BLACKBOX,620)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re000zd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs502_dfr156_sel_x(BITSELECT,858)@6
+    assign i_pms_cs502_dfr156_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1632_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs502_dfr156_vt_select_25(BITSELECT,284)@6
+    assign i_pms_cs502_dfr156_vt_select_25_b = i_pms_cs502_dfr156_sel_x_b[25:0];
+
+    // i_pms_cs502_dfr156_vt_join(BITJOIN,283)@6
+    assign i_pms_cs502_dfr156_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs502_dfr156_vt_select_25_b};
+
+    // c_i64_4634618658257228928289(CONSTANT,87)
+    assign c_i64_4634618658257228928289_q = $unsigned(64'b1011111110101110100001101110001010110101001011100010101110000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr1_x(BLACKBOX,623)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0010d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr1_x (
+        .in_0(c_i64_4634618658257228928289_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs493_dfr158_sel_x(BITSELECT,857)@6
+    assign i_pms_cs493_dfr158_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1650_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs493_dfr158_vt_select_25(BITSELECT,280)@6
+    assign i_pms_cs493_dfr158_vt_select_25_b = i_pms_cs493_dfr158_sel_x_b[25:0];
+
+    // i_pms_cs493_dfr158_vt_join(BITJOIN,279)@6
+    assign i_pms_cs493_dfr158_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs493_dfr158_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1044)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011011010101101000000000001100111100001110010100101010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr1_x(BLACKBOX,626)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0011d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs484_dfr160_sel_x(BITSELECT,856)@6
+    assign i_pms_cs484_dfr160_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1668_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs484_dfr160_vt_select_25(BITSELECT,276)@6
+    assign i_pms_cs484_dfr160_vt_select_25_b = i_pms_cs484_dfr160_sel_x_b[25:0];
+
+    // i_pms_cs484_dfr160_vt_join(BITJOIN,275)@6
+    assign i_pms_cs484_dfr160_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs484_dfr160_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1045)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111000000100001101001110110101100010000010100100111000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr1_x(BLACKBOX,629)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0012d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs475_dfr162_sel_x(BITSELECT,855)@6
+    assign i_pms_cs475_dfr162_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1686_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs475_dfr162_vt_select_25(BITSELECT,272)@6
+    assign i_pms_cs475_dfr162_vt_select_25_b = i_pms_cs475_dfr162_sel_x_b[25:0];
+
+    // i_pms_cs475_dfr162_vt_join(BITJOIN,271)@6
+    assign i_pms_cs475_dfr162_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs475_dfr162_vt_select_25_b};
+
+    // c_i64_4622593651689176224292(CONSTANT,68)
+    assign c_i64_4622593651689176224292_q = $unsigned(64'b1011111111011001001111111001000010111010000101110100001101100000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr1_x(BLACKBOX,632)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0013d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr1_x (
+        .in_0(c_i64_4622593651689176224292_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs466_dfr164_sel_x(BITSELECT,854)@6
+    assign i_pms_cs466_dfr164_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1704_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs466_dfr164_vt_select_25(BITSELECT,268)@6
+    assign i_pms_cs466_dfr164_vt_select_25_b = i_pms_cs466_dfr164_sel_x_b[25:0];
+
+    // i_pms_cs466_dfr164_vt_join(BITJOIN,267)@6
+    assign i_pms_cs466_dfr164_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs466_dfr164_vt_select_25_b};
+
+    // c_i64_4629344098196011112293(CONSTANT,79)
+    assign c_i64_4629344098196011112293_q = $unsigned(64'b1011111111000001010001000001000111101011111110011100011110011000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr1_x(BLACKBOX,635)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0014d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr1_x (
+        .in_0(c_i64_4629344098196011112293_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs457_dfr166_sel_x(BITSELECT,853)@6
+    assign i_pms_cs457_dfr166_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1722_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs457_dfr166_vt_select_25(BITSELECT,264)@6
+    assign i_pms_cs457_dfr166_vt_select_25_b = i_pms_cs457_dfr166_sel_x_b[25:0];
+
+    // i_pms_cs457_dfr166_vt_join(BITJOIN,263)@6
+    assign i_pms_cs457_dfr166_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs457_dfr166_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1046)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011100010010111001010011001001101100001000011100001010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr1_x(BLACKBOX,638)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0015d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs448_dfr168_sel_x(BITSELECT,852)@6
+    assign i_pms_cs448_dfr168_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1740_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs448_dfr168_vt_select_25(BITSELECT,260)@6
+    assign i_pms_cs448_dfr168_vt_select_25_b = i_pms_cs448_dfr168_sel_x_b[25:0];
+
+    // i_pms_cs448_dfr168_vt_join(BITJOIN,259)@6
+    assign i_pms_cs448_dfr168_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs448_dfr168_vt_select_25_b};
+
+    // c_i64_4624287368398568514295(CONSTANT,73)
+    assign c_i64_4624287368398568514295_q = $unsigned(64'b1011111111010011001110110010001110010011010001110000001110111110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr1_x(BLACKBOX,641)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0016d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr1_x (
+        .in_0(c_i64_4624287368398568514295_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs439_dfr170_sel_x(BITSELECT,851)@6
+    assign i_pms_cs439_dfr170_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1758_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs439_dfr170_vt_select_25(BITSELECT,256)@6
+    assign i_pms_cs439_dfr170_vt_select_25_b = i_pms_cs439_dfr170_sel_x_b[25:0];
+
+    // i_pms_cs439_dfr170_vt_join(BITJOIN,255)@6
+    assign i_pms_cs439_dfr170_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs439_dfr170_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1047)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111000110000000111110110110011011111100110111011100110000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr1_x(BLACKBOX,644)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0017d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs430_dfr172_sel_x(BITSELECT,850)@6
+    assign i_pms_cs430_dfr172_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1776_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs430_dfr172_vt_select_25(BITSELECT,252)@6
+    assign i_pms_cs430_dfr172_vt_select_25_b = i_pms_cs430_dfr172_sel_x_b[25:0];
+
+    // i_pms_cs430_dfr172_vt_join(BITJOIN,251)@6
+    assign i_pms_cs430_dfr172_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs430_dfr172_vt_select_25_b};
+
+    // c_i64_4626951280394440864297(CONSTANT,76)
+    assign c_i64_4626951280394440864297_q = $unsigned(64'b1011111111001001110001000101001100111011000011001110111101100000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr1_x(BLACKBOX,647)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0018d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr1_x (
+        .in_0(c_i64_4626951280394440864297_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs421_dfr174_sel_x(BITSELECT,849)@6
+    assign i_pms_cs421_dfr174_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1794_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs421_dfr174_vt_select_25(BITSELECT,248)@6
+    assign i_pms_cs421_dfr174_vt_select_25_b = i_pms_cs421_dfr174_sel_x_b[25:0];
+
+    // i_pms_cs421_dfr174_vt_join(BITJOIN,247)@6
+    assign i_pms_cs421_dfr174_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs421_dfr174_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1048)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111110110100100100001010100111001010100111111000100000111000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr1_x(BLACKBOX,650)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0019d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs412_dfr176_sel_x(BITSELECT,848)@6
+    assign i_pms_cs412_dfr176_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1812_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs412_dfr176_vt_select_25(BITSELECT,244)@6
+    assign i_pms_cs412_dfr176_vt_select_25_b = i_pms_cs412_dfr176_sel_x_b[25:0];
+
+    // i_pms_cs412_dfr176_vt_join(BITJOIN,243)@6
+    assign i_pms_cs412_dfr176_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs412_dfr176_vt_select_25_b};
+
+    // c_i64_4622328079211860956299(CONSTANT,67)
+    assign c_i64_4622328079211860956299_q = $unsigned(64'b1011111111011010001100010001101000100011010000110110110000100100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr1_x(BLACKBOX,653)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001ad6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr1_x (
+        .in_0(c_i64_4622328079211860956299_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs403_dfr178_sel_x(BITSELECT,847)@6
+    assign i_pms_cs403_dfr178_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1830_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs403_dfr178_vt_select_25(BITSELECT,240)@6
+    assign i_pms_cs403_dfr178_vt_select_25_b = i_pms_cs403_dfr178_sel_x_b[25:0];
+
+    // i_pms_cs403_dfr178_vt_join(BITJOIN,239)@6
+    assign i_pms_cs403_dfr178_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs403_dfr178_vt_select_25_b};
+
+    // c_i64_4624269310775249156300(CONSTANT,72)
+    assign c_i64_4624269310775249156300_q = $unsigned(64'b1011111111010011010010111000111111110001100000000011011011111100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr1_x(BLACKBOX,656)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001bd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr1_x (
+        .in_0(c_i64_4624269310775249156300_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs394_dfr180_sel_x(BITSELECT,846)@6
+    assign i_pms_cs394_dfr180_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1848_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs394_dfr180_vt_select_25(BITSELECT,236)@6
+    assign i_pms_cs394_dfr180_vt_select_25_b = i_pms_cs394_dfr180_sel_x_b[25:0];
+
+    // i_pms_cs394_dfr180_vt_join(BITJOIN,235)@6
+    assign i_pms_cs394_dfr180_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs394_dfr180_vt_select_25_b};
+
+    // c_i64_4631829851413803440301(CONSTANT,82)
+    assign c_i64_4631829851413803440301_q = $unsigned(64'b1011111110111000011011110100101001100110011011100000111001010000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr1_x(BLACKBOX,659)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001cd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr1_x (
+        .in_0(c_i64_4631829851413803440301_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs385_dfr182_sel_x(BITSELECT,845)@6
+    assign i_pms_cs385_dfr182_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1866_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs385_dfr182_vt_select_25(BITSELECT,232)@6
+    assign i_pms_cs385_dfr182_vt_select_25_b = i_pms_cs385_dfr182_sel_x_b[25:0];
+
+    // i_pms_cs385_dfr182_vt_join(BITJOIN,231)@6
+    assign i_pms_cs385_dfr182_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs385_dfr182_vt_select_25_b};
+
+    // c_i64_4621630350130484910302(CONSTANT,65)
+    assign c_i64_4621630350130484910302_q = $unsigned(64'b1011111111011100101010111010111011011001010011101110100101010010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr1_x(BLACKBOX,662)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001dd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr1_x (
+        .in_0(c_i64_4621630350130484910302_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs376_dfr184_sel_x(BITSELECT,844)@6
+    assign i_pms_cs376_dfr184_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1884_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs376_dfr184_vt_select_25(BITSELECT,228)@6
+    assign i_pms_cs376_dfr184_vt_select_25_b = i_pms_cs376_dfr184_sel_x_b[25:0];
+
+    // i_pms_cs376_dfr184_vt_join(BITJOIN,227)@6
+    assign i_pms_cs376_dfr184_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs376_dfr184_vt_select_25_b};
+
+    // c_i64_4624848098348049492303(CONSTANT,74)
+    assign c_i64_4624848098348049492303_q = $unsigned(64'b1011111111010001001111010010100001110101110100101101101110101100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr1_x(BLACKBOX,665)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001ed6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr1_x (
+        .in_0(c_i64_4624848098348049492303_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs367_dfr186_sel_x(BITSELECT,843)@6
+    assign i_pms_cs367_dfr186_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1902_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs367_dfr186_vt_select_25(BITSELECT,224)@6
+    assign i_pms_cs367_dfr186_vt_select_25_b = i_pms_cs367_dfr186_sel_x_b[25:0];
+
+    // i_pms_cs367_dfr186_vt_join(BITJOIN,223)@6
+    assign i_pms_cs367_dfr186_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs367_dfr186_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1049)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111010010111101101111101000010010011110010100011110010010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr1_x(BLACKBOX,668)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001fd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs358_dfr188_sel_x(BITSELECT,842)@6
+    assign i_pms_cs358_dfr188_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1920_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs358_dfr188_vt_select_25(BITSELECT,220)@6
+    assign i_pms_cs358_dfr188_vt_select_25_b = i_pms_cs358_dfr188_sel_x_b[25:0];
+
+    // i_pms_cs358_dfr188_vt_join(BITJOIN,219)@6
+    assign i_pms_cs358_dfr188_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs358_dfr188_vt_select_25_b};
+
+    // c_i64_4636054364303677248305(CONSTANT,88)
+    assign c_i64_4636054364303677248305_q = $unsigned(64'b1011111110101001011011010001111001011000010001111010100011000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr1_x(BLACKBOX,671)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001gd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr1_x (
+        .in_0(c_i64_4636054364303677248305_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs349_dfr190_sel_x(BITSELECT,841)@6
+    assign i_pms_cs349_dfr190_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1938_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs349_dfr190_vt_select_25(BITSELECT,216)@6
+    assign i_pms_cs349_dfr190_vt_select_25_b = i_pms_cs349_dfr190_sel_x_b[25:0];
+
+    // i_pms_cs349_dfr190_vt_join(BITJOIN,215)@6
+    assign i_pms_cs349_dfr190_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs349_dfr190_vt_select_25_b};
+
+    // c_i64_4623400411886565032306(CONSTANT,71)
+    assign c_i64_4623400411886565032306_q = $unsigned(64'b1011111111010110011000011101001000111011000110110100100101011000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr1_x(BLACKBOX,674)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001hd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr1_x (
+        .in_0(c_i64_4623400411886565032306_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs340_dfr192_sel_x(BITSELECT,840)@6
+    assign i_pms_cs340_dfr192_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1956_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs340_dfr192_vt_select_25(BITSELECT,212)@6
+    assign i_pms_cs340_dfr192_vt_select_25_b = i_pms_cs340_dfr192_sel_x_b[25:0];
+
+    // i_pms_cs340_dfr192_vt_join(BITJOIN,211)@6
+    assign i_pms_cs340_dfr192_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs340_dfr192_vt_select_25_b};
+
+    // c_i64_4628299511403768820307(CONSTANT,77)
+    assign c_i64_4628299511403768820307_q = $unsigned(64'b1011111111000100111110100001110110111100101010100001010000001100);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr1_x(BLACKBOX,677)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001id6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr1_x (
+        .in_0(c_i64_4628299511403768820307_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs331_dfr194_sel_x(BITSELECT,839)@6
+    assign i_pms_cs331_dfr194_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1974_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs331_dfr194_vt_select_25(BITSELECT,208)@6
+    assign i_pms_cs331_dfr194_vt_select_25_b = i_pms_cs331_dfr194_sel_x_b[25:0];
+
+    // i_pms_cs331_dfr194_vt_join(BITJOIN,207)@6
+    assign i_pms_cs331_dfr194_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs331_dfr194_vt_select_25_b};
+
+    // c_i64_4621748285601026878308(CONSTANT,66)
+    assign c_i64_4621748285601026878308_q = $unsigned(64'b1011111111011100010000000110101111011011011110101110110011000010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr1_x(BLACKBOX,680)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001jd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr1_x (
+        .in_0(c_i64_4621748285601026878308_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs322_dfr196_sel_x(BITSELECT,838)@6
+    assign i_pms_cs322_dfr196_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1992_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs322_dfr196_vt_select_25(BITSELECT,204)@6
+    assign i_pms_cs322_dfr196_vt_select_25_b = i_pms_cs322_dfr196_sel_x_b[25:0];
+
+    // i_pms_cs322_dfr196_vt_join(BITJOIN,203)@6
+    assign i_pms_cs322_dfr196_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs322_dfr196_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1050)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111011000000110000101000101010000101100101010101100000110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr1_x(BLACKBOX,683)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001kd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs313_dfr198_sel_x(BITSELECT,837)@6
+    assign i_pms_cs313_dfr198_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2010_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs313_dfr198_vt_select_25(BITSELECT,200)@6
+    assign i_pms_cs313_dfr198_vt_select_25_b = i_pms_cs313_dfr198_sel_x_b[25:0];
+
+    // i_pms_cs313_dfr198_vt_join(BITJOIN,199)@6
+    assign i_pms_cs313_dfr198_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs313_dfr198_vt_select_25_b};
+
+    // c_i64_4625005314219196666310(CONSTANT,75)
+    assign c_i64_4625005314219196666310_q = $unsigned(64'b1011111111010000101011100010101111001001101010111011111100000110);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr1_x(BLACKBOX,686)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001ld6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr1_x (
+        .in_0(c_i64_4625005314219196666310_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs_dfr200_sel_x(BITSELECT,914)@6
+    assign i_pms_cs_dfr200_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i2028_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs_dfr200_vt_select_25(BITSELECT,508)@6
+    assign i_pms_cs_dfr200_vt_select_25_b = i_pms_cs_dfr200_sel_x_b[25:0];
+
+    // i_pms_cs_dfr200_vt_join(BITJOIN,507)@6
+    assign i_pms_cs_dfr200_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs_dfr200_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1072)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111010010010111111101000110010100010110011010011101111010);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr1_x(BLACKBOX,812)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002rd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1403_dfr202_sel_x(BITSELECT,836)@6
+    assign i_pms_cs1403_dfr202_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1403_dfr202_vt_select_25(BITSELECT,196)@6
+    assign i_pms_cs1403_dfr202_vt_select_25_b = i_pms_cs1403_dfr202_sel_x_b[25:0];
+
+    // i_pms_cs1403_dfr202_vt_join(BITJOIN,195)@6
+    assign i_pms_cs1403_dfr202_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1403_dfr202_vt_select_25_b};
+
+    // VCC(CONSTANT,1)
+    assign VCC_q = $unsigned(1'b1);
+
+    // redist1_sync_together315_aunroll_x_in_i_valid_3(DELAY,1074)
+    always @ (posedge clock or negedge resetn)
+    begin
+        if (!resetn)
+        begin
+            redist1_sync_together315_aunroll_x_in_i_valid_3_delay_0 <= '0;
+            redist1_sync_together315_aunroll_x_in_i_valid_3_delay_1 <= '0;
+            redist1_sync_together315_aunroll_x_in_i_valid_3_q <= '0;
+        end
+        else
+        begin
+            redist1_sync_together315_aunroll_x_in_i_valid_3_delay_0 <= $unsigned(in_i_valid);
+            redist1_sync_together315_aunroll_x_in_i_valid_3_delay_1 <= redist1_sync_together315_aunroll_x_in_i_valid_3_delay_0;
+            redist1_sync_together315_aunroll_x_in_i_valid_3_q <= redist1_sync_together315_aunroll_x_in_i_valid_3_delay_1;
+        end
+    end
+
+    // valid_fanout_reg1(REG,918)@5 + 1
+    always @ (posedge clock or negedge resetn)
+    begin
+        if (!resetn)
+        begin
+            valid_fanout_reg1_q <= $unsigned(1'b0);
+        end
+        else
+        begin
+            valid_fanout_reg1_q <= $unsigned(redist1_sync_together315_aunroll_x_in_i_valid_3_q);
+        end
+    end
+
+    // GND(CONSTANT,0)
+    assign GND_q = $unsigned(1'b0);
+
+    // redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4(DELAY,1073)
+    always @ (posedge clock or negedge resetn)
+    begin
+        if (!resetn)
+        begin
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_0 <= '0;
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_1 <= '0;
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_2 <= '0;
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_q <= '0;
+        end
+        else
+        begin
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_0 <= $unsigned(in_c1_eni1_1_tpl);
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_1 <= redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_0;
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_2 <= redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_1;
+            redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_q <= redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_delay_2;
+        end
+    end
+
+    // c_i64_4629981891913580544312(CONSTANT,80)
+    assign c_i64_4629981891913580544312_q = $unsigned(64'b0100000001000001000000000000000000000000000000000000000000000000);
+
+    // i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x(BLACKBOX,514)@6
+    // out out_memdep_4_dfr_avm_address@20000000
+    // out out_memdep_4_dfr_avm_burstcount@20000000
+    // out out_memdep_4_dfr_avm_byteenable@20000000
+    // out out_memdep_4_dfr_avm_enable@20000000
+    // out out_memdep_4_dfr_avm_read@20000000
+    // out out_memdep_4_dfr_avm_write@20000000
+    // out out_memdep_4_dfr_avm_writedata@20000000
+    // out out_o_stall@7
+    // out out_o_valid@7
+    // out out_o_writeack@7
+    dfr_i_llvm_fpga_mem_memdep_4_0 thei_llvm_fpga_mem_memdep_4_dfr204_aunroll_x (
+        .in_flush(in_flush),
+        .in_i_address(c_i64_4629981891913580544312_q),
+        .in_i_dependence(redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_q),
+        .in_i_predicate(GND_q),
+        .in_i_stall(GND_q),
+        .in_i_valid(valid_fanout_reg1_q),
+        .in_memdep_4_dfr_avm_readdata(in_memdep_4_dfr_avm_readdata),
+        .in_memdep_4_dfr_avm_readdatavalid(in_memdep_4_dfr_avm_readdatavalid),
+        .in_memdep_4_dfr_avm_waitrequest(in_memdep_4_dfr_avm_waitrequest),
+        .in_memdep_4_dfr_avm_writeack(in_memdep_4_dfr_avm_writeack),
+        .in_i_writedata_0_tpl(i_pms_cs1403_dfr202_vt_join_q),
+        .in_i_writedata_1_tpl(i_pms_cs_dfr200_vt_join_q),
+        .in_i_writedata_2_tpl(i_pms_cs313_dfr198_vt_join_q),
+        .in_i_writedata_3_tpl(i_pms_cs322_dfr196_vt_join_q),
+        .in_i_writedata_4_tpl(i_pms_cs331_dfr194_vt_join_q),
+        .in_i_writedata_5_tpl(i_pms_cs340_dfr192_vt_join_q),
+        .in_i_writedata_6_tpl(i_pms_cs349_dfr190_vt_join_q),
+        .in_i_writedata_7_tpl(i_pms_cs358_dfr188_vt_join_q),
+        .in_i_writedata_8_tpl(i_pms_cs367_dfr186_vt_join_q),
+        .in_i_writedata_9_tpl(i_pms_cs376_dfr184_vt_join_q),
+        .in_i_writedata_10_tpl(i_pms_cs385_dfr182_vt_join_q),
+        .in_i_writedata_11_tpl(i_pms_cs394_dfr180_vt_join_q),
+        .in_i_writedata_12_tpl(i_pms_cs403_dfr178_vt_join_q),
+        .in_i_writedata_13_tpl(i_pms_cs412_dfr176_vt_join_q),
+        .in_i_writedata_14_tpl(i_pms_cs421_dfr174_vt_join_q),
+        .in_i_writedata_15_tpl(i_pms_cs430_dfr172_vt_join_q),
+        .in_i_writedata_16_tpl(i_pms_cs439_dfr170_vt_join_q),
+        .in_i_writedata_17_tpl(i_pms_cs448_dfr168_vt_join_q),
+        .in_i_writedata_18_tpl(i_pms_cs457_dfr166_vt_join_q),
+        .in_i_writedata_19_tpl(i_pms_cs466_dfr164_vt_join_q),
+        .in_i_writedata_20_tpl(i_pms_cs475_dfr162_vt_join_q),
+        .in_i_writedata_21_tpl(i_pms_cs484_dfr160_vt_join_q),
+        .in_i_writedata_22_tpl(i_pms_cs493_dfr158_vt_join_q),
+        .in_i_writedata_23_tpl(i_pms_cs502_dfr156_vt_join_q),
+        .in_i_writedata_24_tpl(i_pms_cs511_dfr154_vt_join_q),
+        .in_i_writedata_25_tpl(i_pms_cs520_dfr152_vt_join_q),
+        .in_i_writedata_26_tpl(i_pms_cs529_dfr150_vt_join_q),
+        .in_i_writedata_27_tpl(i_pms_cs538_dfr148_vt_join_q),
+        .in_i_writedata_28_tpl(i_pms_cs547_dfr146_vt_join_q),
+        .in_i_writedata_29_tpl(i_pms_cs556_dfr144_vt_join_q),
+        .in_i_writedata_30_tpl(i_pms_cs565_dfr142_vt_join_q),
+        .in_i_writedata_31_tpl(i_pms_cs574_dfr140_vt_join_q),
+        .in_i_writedata_32_tpl(i_pms_cs583_dfr138_vt_join_q),
+        .in_i_writedata_33_tpl(i_pms_cs592_dfr136_vt_join_q),
+        .in_i_writedata_34_tpl(i_pms_cs601_dfr134_vt_join_q),
+        .in_i_writedata_35_tpl(i_pms_cs610_dfr132_vt_join_q),
+        .in_i_writedata_36_tpl(i_pms_cs619_dfr130_vt_join_q),
+        .in_i_writedata_37_tpl(i_pms_cs628_dfr128_vt_join_q),
+        .in_i_writedata_38_tpl(i_pms_cs637_dfr126_vt_join_q),
+        .in_i_writedata_39_tpl(i_pms_cs646_dfr124_vt_join_q),
+        .in_i_writedata_40_tpl(i_pms_cs655_dfr122_vt_join_q),
+        .in_i_writedata_41_tpl(i_pms_cs664_dfr120_vt_join_q),
+        .in_i_writedata_42_tpl(i_pms_cs673_dfr118_vt_join_q),
+        .in_i_writedata_43_tpl(i_pms_cs682_dfr116_vt_join_q),
+        .in_i_writedata_44_tpl(i_pms_cs691_dfr114_vt_join_q),
+        .in_i_writedata_45_tpl(i_pms_cs700_dfr112_vt_join_q),
+        .in_i_writedata_46_tpl(i_pms_cs709_dfr110_vt_join_q),
+        .in_i_writedata_47_tpl(i_pms_cs718_dfr108_vt_join_q),
+        .in_i_writedata_48_tpl(i_pms_cs727_dfr106_vt_join_q),
+        .in_i_writedata_49_tpl(i_pms_cs736_dfr104_vt_join_q),
+        .in_i_writedata_50_tpl(c_i64_0261_q),
+        .in_i_writedata_51_tpl(c_i64_0261_q),
+        .in_i_writedata_52_tpl(c_i64_0261_q),
+        .in_i_writedata_53_tpl(c_i64_0261_q),
+        .in_i_writedata_54_tpl(c_i64_0261_q),
+        .in_i_writedata_55_tpl(c_i64_0261_q),
+        .in_i_writedata_56_tpl(c_i64_0261_q),
+        .out_memdep_4_dfr_avm_address(i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_address),
+        .out_memdep_4_dfr_avm_burstcount(i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_burstcount),
+        .out_memdep_4_dfr_avm_byteenable(i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_byteenable),
+        .out_memdep_4_dfr_avm_enable(i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_enable),
+        .out_memdep_4_dfr_avm_read(i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_read),
+        .out_memdep_4_dfr_avm_write(i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_write),
+        .out_memdep_4_dfr_avm_writedata(i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_writedata),
+        .out_o_stall(),
+        .out_o_valid(),
+        .out_o_writeack(),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // ext_sig_sync_out(GPOUT,108)
+    assign out_memdep_4_dfr_avm_address = i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_address;
+    assign out_memdep_4_dfr_avm_enable = i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_enable;
+    assign out_memdep_4_dfr_avm_read = i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_read;
+    assign out_memdep_4_dfr_avm_write = i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_write;
+    assign out_memdep_4_dfr_avm_writedata = i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_writedata;
+    assign out_memdep_4_dfr_avm_byteenable = i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_byteenable;
+    assign out_memdep_4_dfr_avm_burstcount = i_llvm_fpga_mem_memdep_4_dfr204_aunroll_x_out_memdep_4_dfr_avm_burstcount;
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1051)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000001010000101111011101010111010010000000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr1_x(BLACKBOX,689)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001md6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1186_dfr3_sel_x(BITSELECT,835)@6
+    assign i_pms_cs1186_dfr3_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i264_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1186_dfr3_vt_select_25(BITSELECT,192)@6
+    assign i_pms_cs1186_dfr3_vt_select_25_b = i_pms_cs1186_dfr3_sel_x_b[25:0];
+
+    // i_pms_cs1186_dfr3_vt_join(BITJOIN,191)@6
+    assign i_pms_cs1186_dfr3_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1186_dfr3_vt_select_25_b};
+
+    // c_i64_4614057873247305728210(CONSTANT,60)
+    assign c_i64_4614057873247305728210_q = $unsigned(64'b1011111111110111100100101100111110000100000000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr1_x(BLACKBOX,692)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001nd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr1_x (
+        .in_0(c_i64_4614057873247305728210_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1177_dfr5_sel_x(BITSELECT,834)@6
+    assign i_pms_cs1177_dfr5_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i282_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1177_dfr5_vt_select_25(BITSELECT,188)@6
+    assign i_pms_cs1177_dfr5_vt_select_25_b = i_pms_cs1177_dfr5_sel_x_b[25:0];
+
+    // i_pms_cs1177_dfr5_vt_join(BITJOIN,187)@6
+    assign i_pms_cs1177_dfr5_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1177_dfr5_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1052)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010101000001111011110001010011011100011110110000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr1_x(BLACKBOX,695)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001od6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1168_dfr7_sel_x(BITSELECT,833)@6
+    assign i_pms_cs1168_dfr7_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i300_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1168_dfr7_vt_select_25(BITSELECT,184)@6
+    assign i_pms_cs1168_dfr7_vt_select_25_b = i_pms_cs1168_dfr7_sel_x_b[25:0];
+
+    // i_pms_cs1168_dfr7_vt_join(BITJOIN,183)@6
+    assign i_pms_cs1168_dfr7_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1168_dfr7_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1053)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010010000001010101000110100001101001111111111000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr1_x(BLACKBOX,698)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001pd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1159_dfr9_sel_x(BITSELECT,832)@6
+    assign i_pms_cs1159_dfr9_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i318_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1159_dfr9_vt_select_25(BITSELECT,180)@6
+    assign i_pms_cs1159_dfr9_vt_select_25_b = i_pms_cs1159_dfr9_sel_x_b[25:0];
+
+    // i_pms_cs1159_dfr9_vt_join(BITJOIN,179)@6
+    assign i_pms_cs1159_dfr9_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1159_dfr9_vt_select_25_b};
+
+    // c_i64_4610523333983469568213(CONSTANT,59)
+    assign c_i64_4610523333983469568213_q = $unsigned(64'b1100000000000100001000010111010010010001010001000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr1_x(BLACKBOX,701)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001qd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr1_x (
+        .in_0(c_i64_4610523333983469568213_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1150_dfr11_sel_x(BITSELECT,831)@6
+    assign i_pms_cs1150_dfr11_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i336_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1150_dfr11_vt_select_25(BITSELECT,176)@6
+    assign i_pms_cs1150_dfr11_vt_select_25_b = i_pms_cs1150_dfr11_sel_x_b[25:0];
+
+    // i_pms_cs1150_dfr11_vt_join(BITJOIN,175)@6
+    assign i_pms_cs1150_dfr11_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1150_dfr11_vt_select_25_b};
+
+    // c_i64_4569474221218299904214(CONSTANT,6)
+    assign c_i64_4569474221218299904214_q = $unsigned(64'b1100000010010101111101110110011111101001111110101000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr1_x(BLACKBOX,704)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001rd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr1_x (
+        .in_0(c_i64_4569474221218299904214_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1141_dfr13_sel_x(BITSELECT,830)@6
+    assign i_pms_cs1141_dfr13_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i354_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1141_dfr13_vt_select_25(BITSELECT,172)@6
+    assign i_pms_cs1141_dfr13_vt_select_25_b = i_pms_cs1141_dfr13_sel_x_b[25:0];
+
+    // i_pms_cs1141_dfr13_vt_join(BITJOIN,171)@6
+    assign i_pms_cs1141_dfr13_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1141_dfr13_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1054)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111110100111110110101000100100111010111100110000010000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr1_x(BLACKBOX,707)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001sd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1132_dfr15_sel_x(BITSELECT,829)@6
+    assign i_pms_cs1132_dfr15_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i372_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1132_dfr15_vt_select_25(BITSELECT,168)@6
+    assign i_pms_cs1132_dfr15_vt_select_25_b = i_pms_cs1132_dfr15_sel_x_b[25:0];
+
+    // i_pms_cs1132_dfr15_vt_join(BITJOIN,167)@6
+    assign i_pms_cs1132_dfr15_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1132_dfr15_vt_select_25_b};
+
+    // c_i64_4575007873677918208216(CONSTANT,12)
+    assign c_i64_4575007873677918208216_q = $unsigned(64'b1100000010000010010011101001010000001100110100000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr1_x(BLACKBOX,710)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001td6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr1_x (
+        .in_0(c_i64_4575007873677918208216_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1123_dfr17_sel_x(BITSELECT,828)@6
+    assign i_pms_cs1123_dfr17_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i390_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1123_dfr17_vt_select_25(BITSELECT,164)@6
+    assign i_pms_cs1123_dfr17_vt_select_25_b = i_pms_cs1123_dfr17_sel_x_b[25:0];
+
+    // i_pms_cs1123_dfr17_vt_join(BITJOIN,163)@6
+    assign i_pms_cs1123_dfr17_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1123_dfr17_vt_select_25_b};
+
+    // c_i64_4593983813901615104217(CONSTANT,24)
+    assign c_i64_4593983813901615104217_q = $unsigned(64'b1100000000111110111001000000111110101100100000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr1_x(BLACKBOX,713)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001ud6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr1_x (
+        .in_0(c_i64_4593983813901615104217_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1114_dfr19_sel_x(BITSELECT,827)@6
+    assign i_pms_cs1114_dfr19_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i408_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1114_dfr19_vt_select_25(BITSELECT,160)@6
+    assign i_pms_cs1114_dfr19_vt_select_25_b = i_pms_cs1114_dfr19_sel_x_b[25:0];
+
+    // i_pms_cs1114_dfr19_vt_join(BITJOIN,159)@6
+    assign i_pms_cs1114_dfr19_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1114_dfr19_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1055)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010010000000101100110110101001100101000001000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr1_x(BLACKBOX,716)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001vd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1105_dfr21_sel_x(BITSELECT,826)@6
+    assign i_pms_cs1105_dfr21_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i426_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1105_dfr21_vt_select_25(BITSELECT,156)@6
+    assign i_pms_cs1105_dfr21_vt_select_25_b = i_pms_cs1105_dfr21_sel_x_b[25:0];
+
+    // i_pms_cs1105_dfr21_vt_join(BITJOIN,155)@6
+    assign i_pms_cs1105_dfr21_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1105_dfr21_vt_select_25_b};
+
+    // c_i64_4640464810468212736219(CONSTANT,90)
+    assign c_i64_4640464810468212736219_q = $unsigned(64'b1011111110011001110000011101011101010011010101111000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr1_x(BLACKBOX,719)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001wd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr1_x (
+        .in_0(c_i64_4640464810468212736219_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1096_dfr23_sel_x(BITSELECT,825)@6
+    assign i_pms_cs1096_dfr23_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i444_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1096_dfr23_vt_select_25(BITSELECT,152)@6
+    assign i_pms_cs1096_dfr23_vt_select_25_b = i_pms_cs1096_dfr23_sel_x_b[25:0];
+
+    // i_pms_cs1096_dfr23_vt_join(BITJOIN,151)@6
+    assign i_pms_cs1096_dfr23_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1096_dfr23_vt_select_25_b};
+
+    // c_i64_4575923421679976448220(CONSTANT,13)
+    assign c_i64_4575923421679976448220_q = $unsigned(64'b1100000001111111000011011110010001101011011000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr1_x(BLACKBOX,722)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001xd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr1_x (
+        .in_0(c_i64_4575923421679976448220_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1087_dfr25_sel_x(BITSELECT,824)@6
+    assign i_pms_cs1087_dfr25_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i462_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1087_dfr25_vt_select_25(BITSELECT,148)@6
+    assign i_pms_cs1087_dfr25_vt_select_25_b = i_pms_cs1087_dfr25_sel_x_b[25:0];
+
+    // i_pms_cs1087_dfr25_vt_join(BITJOIN,147)@6
+    assign i_pms_cs1087_dfr25_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1087_dfr25_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1056)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000001110000101111101101111010111000011100111000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr1_x(BLACKBOX,725)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001yd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1078_dfr27_sel_x(BITSELECT,823)@6
+    assign i_pms_cs1078_dfr27_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i480_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1078_dfr27_vt_select_25(BITSELECT,144)@6
+    assign i_pms_cs1078_dfr27_vt_select_25_b = i_pms_cs1078_dfr27_sel_x_b[25:0];
+
+    // i_pms_cs1078_dfr27_vt_join(BITJOIN,143)@6
+    assign i_pms_cs1078_dfr27_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1078_dfr27_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1057)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111101000001010111110010001001101010000001001100000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr1_x(BLACKBOX,728)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re001zd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1069_dfr29_sel_x(BITSELECT,822)@6
+    assign i_pms_cs1069_dfr29_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i498_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1069_dfr29_vt_select_25(BITSELECT,140)@6
+    assign i_pms_cs1069_dfr29_vt_select_25_b = i_pms_cs1069_dfr29_sel_x_b[25:0];
+
+    // i_pms_cs1069_dfr29_vt_join(BITJOIN,139)@6
+    assign i_pms_cs1069_dfr29_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1069_dfr29_vt_select_25_b};
+
+    // c_i64_4603846393516195840223(CONSTANT,52)
+    assign c_i64_4603846393516195840223_q = $unsigned(64'b1100000000011011110110100001100011101010000000010000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr1_x(BLACKBOX,731)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0020d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr1_x (
+        .in_0(c_i64_4603846393516195840223_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1060_dfr31_sel_x(BITSELECT,821)@6
+    assign i_pms_cs1060_dfr31_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i516_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1060_dfr31_vt_select_25(BITSELECT,136)@6
+    assign i_pms_cs1060_dfr31_vt_select_25_b = i_pms_cs1060_dfr31_sel_x_b[25:0];
+
+    // i_pms_cs1060_dfr31_vt_join(BITJOIN,135)@6
+    assign i_pms_cs1060_dfr31_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1060_dfr31_vt_select_25_b};
+
+    // c_i64_4607209596532817920224(CONSTANT,58)
+    assign c_i64_4607209596532817920224_q = $unsigned(64'b1100000000001111111001110100100000110000111001000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr1_x(BLACKBOX,734)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0021d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr1_x (
+        .in_0(c_i64_4607209596532817920224_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1051_dfr33_sel_x(BITSELECT,820)@6
+    assign i_pms_cs1051_dfr33_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i534_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1051_dfr33_vt_select_25(BITSELECT,132)@6
+    assign i_pms_cs1051_dfr33_vt_select_25_b = i_pms_cs1051_dfr33_sel_x_b[25:0];
+
+    // i_pms_cs1051_dfr33_vt_join(BITJOIN,131)@6
+    assign i_pms_cs1051_dfr33_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1051_dfr33_vt_select_25_b};
+
+    // c_i64_4583644013906624512225(CONSTANT,15)
+    assign c_i64_4583644013906624512225_q = $unsigned(64'b1100000001100011101000000000110111110110010000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr1_x(BLACKBOX,737)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0022d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr1_x (
+        .in_0(c_i64_4583644013906624512225_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1042_dfr35_sel_x(BITSELECT,819)@6
+    assign i_pms_cs1042_dfr35_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i552_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1042_dfr35_vt_select_25(BITSELECT,128)@6
+    assign i_pms_cs1042_dfr35_vt_select_25_b = i_pms_cs1042_dfr35_sel_x_b[25:0];
+
+    // i_pms_cs1042_dfr35_vt_join(BITJOIN,127)@6
+    assign i_pms_cs1042_dfr35_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1042_dfr35_vt_select_25_b};
+
+    // c_i64_4570886612628201472226(CONSTANT,8)
+    assign c_i64_4570886612628201472226_q = $unsigned(64'b1100000010010000111100101101011111101001101101010010000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr1_x(BLACKBOX,740)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0023d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr1_x (
+        .in_0(c_i64_4570886612628201472226_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1033_dfr37_sel_x(BITSELECT,818)@6
+    assign i_pms_cs1033_dfr37_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i570_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1033_dfr37_vt_select_25(BITSELECT,124)@6
+    assign i_pms_cs1033_dfr37_vt_select_25_b = i_pms_cs1033_dfr37_sel_x_b[25:0];
+
+    // i_pms_cs1033_dfr37_vt_join(BITJOIN,123)@6
+    assign i_pms_cs1033_dfr37_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1033_dfr37_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1058)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111101010100001100110101011010010100001001000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr1_x(BLACKBOX,743)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0024d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1024_dfr39_sel_x(BITSELECT,817)@6
+    assign i_pms_cs1024_dfr39_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i588_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1024_dfr39_vt_select_25(BITSELECT,120)@6
+    assign i_pms_cs1024_dfr39_vt_select_25_b = i_pms_cs1024_dfr39_sel_x_b[25:0];
+
+    // i_pms_cs1024_dfr39_vt_join(BITJOIN,119)@6
+    assign i_pms_cs1024_dfr39_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1024_dfr39_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1059)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010100001011100100110011011111000001010001110000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr1_x(BLACKBOX,746)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0025d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1015_dfr41_sel_x(BITSELECT,816)@6
+    assign i_pms_cs1015_dfr41_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i606_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1015_dfr41_vt_select_25(BITSELECT,116)@6
+    assign i_pms_cs1015_dfr41_vt_select_25_b = i_pms_cs1015_dfr41_sel_x_b[25:0];
+
+    // i_pms_cs1015_dfr41_vt_join(BITJOIN,115)@6
+    assign i_pms_cs1015_dfr41_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1015_dfr41_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1060)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111100111001011101101011000010011001100101000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr1_x(BLACKBOX,749)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0026d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs1006_dfr43_sel_x(BITSELECT,815)@6
+    assign i_pms_cs1006_dfr43_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i624_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs1006_dfr43_vt_select_25(BITSELECT,112)@6
+    assign i_pms_cs1006_dfr43_vt_select_25_b = i_pms_cs1006_dfr43_sel_x_b[25:0];
+
+    // i_pms_cs1006_dfr43_vt_join(BITJOIN,111)@6
+    assign i_pms_cs1006_dfr43_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs1006_dfr43_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1061)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010010110011111110101111110110001011000100000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr1_x(BLACKBOX,752)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0027d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs997_dfr45_sel_x(BITSELECT,913)@6
+    assign i_pms_cs997_dfr45_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i642_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs997_dfr45_vt_select_25(BITSELECT,504)@6
+    assign i_pms_cs997_dfr45_vt_select_25_b = i_pms_cs997_dfr45_sel_x_b[25:0];
+
+    // i_pms_cs997_dfr45_vt_join(BITJOIN,503)@6
+    assign i_pms_cs997_dfr45_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs997_dfr45_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1062)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111000000110010010010010110001110011111101010111000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr1_x(BLACKBOX,755)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0028d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs988_dfr47_sel_x(BITSELECT,912)@6
+    assign i_pms_cs988_dfr47_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i660_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs988_dfr47_vt_select_25(BITSELECT,500)@6
+    assign i_pms_cs988_dfr47_vt_select_25_b = i_pms_cs988_dfr47_sel_x_b[25:0];
+
+    // i_pms_cs988_dfr47_vt_join(BITJOIN,499)@6
+    assign i_pms_cs988_dfr47_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs988_dfr47_vt_select_25_b};
+
+    // c_i64_4589955233664008192232(CONSTANT,19)
+    assign c_i64_4589955233664008192232_q = $unsigned(64'b1100000001001101001101000000100010011010100000110000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr1_x(BLACKBOX,758)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0029d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr1_x (
+        .in_0(c_i64_4589955233664008192232_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs979_dfr49_sel_x(BITSELECT,911)@6
+    assign i_pms_cs979_dfr49_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i678_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs979_dfr49_vt_select_25(BITSELECT,496)@6
+    assign i_pms_cs979_dfr49_vt_select_25_b = i_pms_cs979_dfr49_sel_x_b[25:0];
+
+    // i_pms_cs979_dfr49_vt_join(BITJOIN,495)@6
+    assign i_pms_cs979_dfr49_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs979_dfr49_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1063)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111001010101001111111000101001001000110010010000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr1_x(BLACKBOX,761)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002ad6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs970_dfr51_sel_x(BITSELECT,910)@6
+    assign i_pms_cs970_dfr51_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i696_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs970_dfr51_vt_select_25(BITSELECT,492)@6
+    assign i_pms_cs970_dfr51_vt_select_25_b = i_pms_cs970_dfr51_sel_x_b[25:0];
+
+    // i_pms_cs970_dfr51_vt_join(BITJOIN,491)@6
+    assign i_pms_cs970_dfr51_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs970_dfr51_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1064)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111000101010000011001101000100111101010110010000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr1_x(BLACKBOX,764)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002bd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs961_dfr53_sel_x(BITSELECT,909)@6
+    assign i_pms_cs961_dfr53_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i714_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs961_dfr53_vt_select_25(BITSELECT,488)@6
+    assign i_pms_cs961_dfr53_vt_select_25_b = i_pms_cs961_dfr53_sel_x_b[25:0];
+
+    // i_pms_cs961_dfr53_vt_join(BITJOIN,487)@6
+    assign i_pms_cs961_dfr53_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs961_dfr53_vt_select_25_b};
+
+    // c_i64_4629106581062385664235(CONSTANT,78)
+    assign c_i64_4629106581062385664235_q = $unsigned(64'b1011111111000010000111000001011100110000010110101000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr1_x(BLACKBOX,767)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002cd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr1_x (
+        .in_0(c_i64_4629106581062385664235_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs952_dfr55_sel_x(BITSELECT,908)@6
+    assign i_pms_cs952_dfr55_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i732_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs952_dfr55_vt_select_25(BITSELECT,484)@6
+    assign i_pms_cs952_dfr55_vt_select_25_b = i_pms_cs952_dfr55_sel_x_b[25:0];
+
+    // i_pms_cs952_dfr55_vt_join(BITJOIN,483)@6
+    assign i_pms_cs952_dfr55_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs952_dfr55_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1065)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010001110010011101001111111001110010101101000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr1_x(BLACKBOX,770)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002dd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs943_dfr57_sel_x(BITSELECT,907)@6
+    assign i_pms_cs943_dfr57_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i750_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs943_dfr57_vt_select_25(BITSELECT,480)@6
+    assign i_pms_cs943_dfr57_vt_select_25_b = i_pms_cs943_dfr57_sel_x_b[25:0];
+
+    // i_pms_cs943_dfr57_vt_join(BITJOIN,479)@6
+    assign i_pms_cs943_dfr57_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs943_dfr57_vt_select_25_b};
+
+    // c_i64_4571901645985005568237(CONSTANT,9)
+    assign c_i64_4571901645985005568237_q = $unsigned(64'b1100000010001101010101111010110100001011000010100100000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr1_x(BLACKBOX,773)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002ed6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr1_x (
+        .in_0(c_i64_4571901645985005568237_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs934_dfr59_sel_x(BITSELECT,906)@6
+    assign i_pms_cs934_dfr59_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i768_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs934_dfr59_vt_select_25(BITSELECT,476)@6
+    assign i_pms_cs934_dfr59_vt_select_25_b = i_pms_cs934_dfr59_sel_x_b[25:0];
+
+    // i_pms_cs934_dfr59_vt_join(BITJOIN,475)@6
+    assign i_pms_cs934_dfr59_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs934_dfr59_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1066)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111110100001001010110100001111010000001011100000100000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr1_x(BLACKBOX,776)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002fd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs925_dfr61_sel_x(BITSELECT,905)@6
+    assign i_pms_cs925_dfr61_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i786_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs925_dfr61_vt_select_25(BITSELECT,472)@6
+    assign i_pms_cs925_dfr61_vt_select_25_b = i_pms_cs925_dfr61_sel_x_b[25:0];
+
+    // i_pms_cs925_dfr61_vt_join(BITJOIN,471)@6
+    assign i_pms_cs925_dfr61_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs925_dfr61_vt_select_25_b};
+
+    // c_i64_4596760703840288768239(CONSTANT,28)
+    assign c_i64_4596760703840288768239_q = $unsigned(64'b1100000000110101000001100111111010011010001000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr1_x(BLACKBOX,779)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002gd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr1_x (
+        .in_0(c_i64_4596760703840288768239_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs916_dfr63_sel_x(BITSELECT,904)@6
+    assign i_pms_cs916_dfr63_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i804_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs916_dfr63_vt_select_25(BITSELECT,468)@6
+    assign i_pms_cs916_dfr63_vt_select_25_b = i_pms_cs916_dfr63_sel_x_b[25:0];
+
+    // i_pms_cs916_dfr63_vt_join(BITJOIN,467)@6
+    assign i_pms_cs916_dfr63_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs916_dfr63_vt_select_25_b};
+
+    // c_i64_4615979219934257920240(CONSTANT,61)
+    assign c_i64_4615979219934257920240_q = $unsigned(64'b1011111111110000101111110101101100100001001110111101110100000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr1_x(BLACKBOX,782)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002hd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr1_x (
+        .in_0(c_i64_4615979219934257920240_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs907_dfr65_sel_x(BITSELECT,903)@6
+    assign i_pms_cs907_dfr65_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i822_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs907_dfr65_vt_select_25(BITSELECT,464)@6
+    assign i_pms_cs907_dfr65_vt_select_25_b = i_pms_cs907_dfr65_sel_x_b[25:0];
+
+    // i_pms_cs907_dfr65_vt_join(BITJOIN,463)@6
+    assign i_pms_cs907_dfr65_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs907_dfr65_vt_select_25_b};
+
+    // c_i64_4633248213328287744241(CONSTANT,84)
+    assign c_i64_4633248213328287744241_q = $unsigned(64'b1011111110110011011001010100110001001000010110101010100000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr1_x(BLACKBOX,785)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002id6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr1_x (
+        .in_0(c_i64_4633248213328287744241_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs898_dfr67_sel_x(BITSELECT,902)@6
+    assign i_pms_cs898_dfr67_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i840_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs898_dfr67_vt_select_25(BITSELECT,460)@6
+    assign i_pms_cs898_dfr67_vt_select_25_b = i_pms_cs898_dfr67_sel_x_b[25:0];
+
+    // i_pms_cs898_dfr67_vt_join(BITJOIN,459)@6
+    assign i_pms_cs898_dfr67_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs898_dfr67_vt_select_25_b};
+
+    // c_i64_4617428971670208512242(CONSTANT,62)
+    assign c_i64_4617428971670208512242_q = $unsigned(64'b1011111111101011100110001101000010000000000000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr1_x(BLACKBOX,788)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002jd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr1_x (
+        .in_0(c_i64_4617428971670208512242_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs889_dfr69_sel_x(BITSELECT,901)@6
+    assign i_pms_cs889_dfr69_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i858_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs889_dfr69_vt_select_25(BITSELECT,456)@6
+    assign i_pms_cs889_dfr69_vt_select_25_b = i_pms_cs889_dfr69_sel_x_b[25:0];
+
+    // i_pms_cs889_dfr69_vt_join(BITJOIN,455)@6
+    assign i_pms_cs889_dfr69_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs889_dfr69_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1067)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111101000111010000001110010100101111100110100010000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr1_x(BLACKBOX,791)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002kd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs880_dfr71_sel_x(BITSELECT,900)@6
+    assign i_pms_cs880_dfr71_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i876_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs880_dfr71_vt_select_25(BITSELECT,452)@6
+    assign i_pms_cs880_dfr71_vt_select_25_b = i_pms_cs880_dfr71_sel_x_b[25:0];
+
+    // i_pms_cs880_dfr71_vt_join(BITJOIN,451)@6
+    assign i_pms_cs880_dfr71_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs880_dfr71_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1068)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000000010101001011100010100100111100100111000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr1_x(BLACKBOX,794)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002ld6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs871_dfr73_sel_x(BITSELECT,899)@6
+    assign i_pms_cs871_dfr73_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i894_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs871_dfr73_vt_select_25(BITSELECT,448)@6
+    assign i_pms_cs871_dfr73_vt_select_25_b = i_pms_cs871_dfr73_sel_x_b[25:0];
+
+    // i_pms_cs871_dfr73_vt_join(BITJOIN,447)@6
+    assign i_pms_cs871_dfr73_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs871_dfr73_vt_select_25_b};
+
+    // c_i64_4602763117823262720245(CONSTANT,51)
+    assign c_i64_4602763117823262720245_q = $unsigned(64'b1100000000011111101100110101010010110000111000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr1_x(BLACKBOX,797)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002md6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr1_x (
+        .in_0(c_i64_4602763117823262720245_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs862_dfr75_sel_x(BITSELECT,898)@6
+    assign i_pms_cs862_dfr75_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i912_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs862_dfr75_vt_select_25(BITSELECT,444)@6
+    assign i_pms_cs862_dfr75_vt_select_25_b = i_pms_cs862_dfr75_sel_x_b[25:0];
+
+    // i_pms_cs862_dfr75_vt_join(BITJOIN,443)@6
+    assign i_pms_cs862_dfr75_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs862_dfr75_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1069)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000001111111101111110100010101101101011100010000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr1_x(BLACKBOX,800)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002nd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs853_dfr77_sel_x(BITSELECT,897)@6
+    assign i_pms_cs853_dfr77_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i930_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs853_dfr77_vt_select_25(BITSELECT,440)@6
+    assign i_pms_cs853_dfr77_vt_select_25_b = i_pms_cs853_dfr77_sel_x_b[25:0];
+
+    // i_pms_cs853_dfr77_vt_join(BITJOIN,439)@6
+    assign i_pms_cs853_dfr77_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs853_dfr77_vt_select_25_b};
+
+    // c_i64_4570395381008015360247(CONSTANT,7)
+    assign c_i64_4570395381008015360247_q = $unsigned(64'b1100000010010010101100011001110110101111111011100110000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr1_x(BLACKBOX,803)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002od6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr1_x (
+        .in_0(c_i64_4570395381008015360247_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs844_dfr79_sel_x(BITSELECT,896)@6
+    assign i_pms_cs844_dfr79_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i948_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs844_dfr79_vt_select_25(BITSELECT,436)@6
+    assign i_pms_cs844_dfr79_vt_select_25_b = i_pms_cs844_dfr79_sel_x_b[25:0];
+
+    // i_pms_cs844_dfr79_vt_join(BITJOIN,435)@6
+    assign i_pms_cs844_dfr79_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs844_dfr79_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1070)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0011111111100100001110111000100110100100011000000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr1_x(BLACKBOX,806)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002pd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs835_dfr81_sel_x(BITSELECT,895)@6
+    assign i_pms_cs835_dfr81_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i966_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs835_dfr81_vt_select_25(BITSELECT,432)@6
+    assign i_pms_cs835_dfr81_vt_select_25_b = i_pms_cs835_dfr81_sel_x_b[25:0];
+
+    // i_pms_cs835_dfr81_vt_join(BITJOIN,431)@6
+    assign i_pms_cs835_dfr81_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs835_dfr81_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1071)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010010101110100101010010100100100010000100000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr1_x(BLACKBOX,809)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re002qd6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs826_dfr83_sel_x(BITSELECT,894)@6
+    assign i_pms_cs826_dfr83_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i984_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs826_dfr83_vt_select_25(BITSELECT,428)@6
+    assign i_pms_cs826_dfr83_vt_select_25_b = i_pms_cs826_dfr83_sel_x_b[25:0];
+
+    // i_pms_cs826_dfr83_vt_join(BITJOIN,427)@6
+    assign i_pms_cs826_dfr83_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs826_dfr83_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1020)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010011101010011010111111110010000011101101000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr1_x(BLACKBOX,515)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0000d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs817_dfr85_sel_x(BITSELECT,893)@6
+    assign i_pms_cs817_dfr85_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1002_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs817_dfr85_vt_select_25(BITSELECT,424)@6
+    assign i_pms_cs817_dfr85_vt_select_25_b = i_pms_cs817_dfr85_sel_x_b[25:0];
+
+    // i_pms_cs817_dfr85_vt_join(BITJOIN,423)@6
+    assign i_pms_cs817_dfr85_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs817_dfr85_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1021)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010100000010001010011010111110010000111010000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr1_x(BLACKBOX,518)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0001d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs808_dfr87_sel_x(BITSELECT,892)@6
+    assign i_pms_cs808_dfr87_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1020_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs808_dfr87_vt_select_25(BITSELECT,420)@6
+    assign i_pms_cs808_dfr87_vt_select_25_b = i_pms_cs808_dfr87_sel_x_b[25:0];
+
+    // i_pms_cs808_dfr87_vt_join(BITJOIN,419)@6
+    assign i_pms_cs808_dfr87_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs808_dfr87_vt_select_25_b};
+
+    // c_i64_4564687160011776000252(CONSTANT,5)
+    assign c_i64_4564687160011776000252_q = $unsigned(64'b1100000010100110111110010011011001110100101101100010000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr1_x(BLACKBOX,521)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0002d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr1_x (
+        .in_0(c_i64_4564687160011776000252_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs799_dfr89_sel_x(BITSELECT,891)@6
+    assign i_pms_cs799_dfr89_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1038_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs799_dfr89_vt_select_25(BITSELECT,416)@6
+    assign i_pms_cs799_dfr89_vt_select_25_b = i_pms_cs799_dfr89_sel_x_b[25:0];
+
+    // i_pms_cs799_dfr89_vt_join(BITJOIN,415)@6
+    assign i_pms_cs799_dfr89_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs799_dfr89_vt_select_25_b};
+
+    // c_i64_4572345149366935552253(CONSTANT,10)
+    assign c_i64_4572345149366935552253_q = $unsigned(64'b1100000010001011110001000100111111011101100000001110000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr1_x(BLACKBOX,524)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0003d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr1_x (
+        .in_0(c_i64_4572345149366935552253_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs790_dfr91_sel_x(BITSELECT,890)@6
+    assign i_pms_cs790_dfr91_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1056_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs790_dfr91_vt_select_25(BITSELECT,412)@6
+    assign i_pms_cs790_dfr91_vt_select_25_b = i_pms_cs790_dfr91_sel_x_b[25:0];
+
+    // i_pms_cs790_dfr91_vt_join(BITJOIN,411)@6
+    assign i_pms_cs790_dfr91_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs790_dfr91_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1022)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000001111101000111111101101101111111001110111010000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr1_x(BLACKBOX,527)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0004d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs781_dfr93_sel_x(BITSELECT,889)@6
+    assign i_pms_cs781_dfr93_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1074_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs781_dfr93_vt_select_25(BITSELECT,408)@6
+    assign i_pms_cs781_dfr93_vt_select_25_b = i_pms_cs781_dfr93_sel_x_b[25:0];
+
+    // i_pms_cs781_dfr93_vt_join(BITJOIN,407)@6
+    assign i_pms_cs781_dfr93_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs781_dfr93_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1023)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000001101111100100000110100101000100101010100000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr1_x(BLACKBOX,530)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0005d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs772_dfr95_sel_x(BITSELECT,888)@6
+    assign i_pms_cs772_dfr95_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1092_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs772_dfr95_vt_select_25(BITSELECT,404)@6
+    assign i_pms_cs772_dfr95_vt_select_25_b = i_pms_cs772_dfr95_sel_x_b[25:0];
+
+    // i_pms_cs772_dfr95_vt_join(BITJOIN,403)@6
+    assign i_pms_cs772_dfr95_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs772_dfr95_vt_select_25_b};
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_vpfp_cast_inputx_x_b_const(CONSTANT,1024)
+    assign i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_vpfp_cast_inputx_x_b_const_q = $unsigned(64'b0100000010010111010100001001011101100010101010011000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr1_x(BLACKBOX,533)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0006d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr1_x (
+        .in_0(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_vpfp_cast_inputx_x_b_const_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs763_dfr97_sel_x(BITSELECT,887)@6
+    assign i_pms_cs763_dfr97_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1110_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs763_dfr97_vt_select_25(BITSELECT,400)@6
+    assign i_pms_cs763_dfr97_vt_select_25_b = i_pms_cs763_dfr97_sel_x_b[25:0];
+
+    // i_pms_cs763_dfr97_vt_join(BITJOIN,399)@6
+    assign i_pms_cs763_dfr97_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs763_dfr97_vt_select_25_b};
+
+    // c_i64_4572560306388238336257(CONSTANT,11)
+    assign c_i64_4572560306388238336257_q = $unsigned(64'b1100000010001011000000001010000010110111101011011000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr1_x(BLACKBOX,536)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0007d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr1_x (
+        .in_0(c_i64_4572560306388238336257_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs754_dfr99_sel_x(BITSELECT,886)@6
+    assign i_pms_cs754_dfr99_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1128_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs754_dfr99_vt_select_25(BITSELECT,396)@6
+    assign i_pms_cs754_dfr99_vt_select_25_b = i_pms_cs754_dfr99_sel_x_b[25:0];
+
+    // i_pms_cs754_dfr99_vt_join(BITJOIN,395)@6
+    assign i_pms_cs754_dfr99_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs754_dfr99_vt_select_25_b};
+
+    // c_i64_4578915336108900352258(CONSTANT,14)
+    assign c_i64_4578915336108900352258_q = $unsigned(64'b1100000001110100011011001100001100001110101001000000000000000000);
+
+    // i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr1_x(BLACKBOX,539)@6
+    dfr_flt_i_llvm_fpga_vpfp_cast_i26_i64_re0008d6oq3cd16oe0cp36hj0u thei_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr1_x (
+        .in_0(c_i64_4578915336108900352258_q),
+        .out_primWireOut(i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr1_x_out_primWireOut),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // i_pms_cs745_dfr101_sel_x(BITSELECT,885)@6
+    assign i_pms_cs745_dfr101_sel_x_b = {6'b000000, i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr0_i_llvm_fpga_vpfp_cast_i26_i64_result_i_i1146_dfr1_x_out_primWireOut[25:0]};
+
+    // i_pms_cs745_dfr101_vt_select_25(BITSELECT,392)@6
+    assign i_pms_cs745_dfr101_vt_select_25_b = i_pms_cs745_dfr101_sel_x_b[25:0];
+
+    // i_pms_cs745_dfr101_vt_join(BITJOIN,391)@6
+    assign i_pms_cs745_dfr101_vt_join_q = {i_pms_cs1006_dfr43_vt_const_31_q, i_pms_cs745_dfr101_vt_select_25_b};
+
+    // valid_fanout_reg2(REG,919)@5 + 1
+    always @ (posedge clock or negedge resetn)
+    begin
+        if (!resetn)
+        begin
+            valid_fanout_reg2_q <= $unsigned(1'b0);
+        end
+        else
+        begin
+            valid_fanout_reg2_q <= $unsigned(redist1_sync_together315_aunroll_x_in_i_valid_3_q);
+        end
+    end
+
+    // c_i64_4630263366890291200313(CONSTANT,81)
+    assign c_i64_4630263366890291200313_q = $unsigned(64'b0100000001000010000000000000000000000000000000000000000000000000);
+
+    // i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x(BLACKBOX,513)@6
+    // out out_memdep_15_dfr_avm_address@20000000
+    // out out_memdep_15_dfr_avm_burstcount@20000000
+    // out out_memdep_15_dfr_avm_byteenable@20000000
+    // out out_memdep_15_dfr_avm_enable@20000000
+    // out out_memdep_15_dfr_avm_read@20000000
+    // out out_memdep_15_dfr_avm_write@20000000
+    // out out_memdep_15_dfr_avm_writedata@20000000
+    // out out_o_stall@7
+    // out out_o_valid@7
+    // out out_o_writeack@7
+    dfr_i_llvm_fpga_mem_memdep_15_0 thei_llvm_fpga_mem_memdep_15_dfr205_aunroll_x (
+        .in_flush(in_flush),
+        .in_i_address(c_i64_4630263366890291200313_q),
+        .in_i_dependence(redist0_sync_together315_aunroll_x_in_c1_eni1_1_tpl_4_q),
+        .in_i_predicate(GND_q),
+        .in_i_stall(GND_q),
+        .in_i_valid(valid_fanout_reg2_q),
+        .in_memdep_15_dfr_avm_readdata(in_memdep_15_dfr_avm_readdata),
+        .in_memdep_15_dfr_avm_readdatavalid(in_memdep_15_dfr_avm_readdatavalid),
+        .in_memdep_15_dfr_avm_waitrequest(in_memdep_15_dfr_avm_waitrequest),
+        .in_memdep_15_dfr_avm_writeack(in_memdep_15_dfr_avm_writeack),
+        .in_i_writedata_0_tpl(i_pms_cs745_dfr101_vt_join_q),
+        .in_i_writedata_1_tpl(i_pms_cs754_dfr99_vt_join_q),
+        .in_i_writedata_2_tpl(i_pms_cs763_dfr97_vt_join_q),
+        .in_i_writedata_3_tpl(i_pms_cs772_dfr95_vt_join_q),
+        .in_i_writedata_4_tpl(i_pms_cs781_dfr93_vt_join_q),
+        .in_i_writedata_5_tpl(i_pms_cs790_dfr91_vt_join_q),
+        .in_i_writedata_6_tpl(i_pms_cs799_dfr89_vt_join_q),
+        .in_i_writedata_7_tpl(i_pms_cs808_dfr87_vt_join_q),
+        .in_i_writedata_8_tpl(i_pms_cs817_dfr85_vt_join_q),
+        .in_i_writedata_9_tpl(i_pms_cs826_dfr83_vt_join_q),
+        .in_i_writedata_10_tpl(i_pms_cs835_dfr81_vt_join_q),
+        .in_i_writedata_11_tpl(i_pms_cs844_dfr79_vt_join_q),
+        .in_i_writedata_12_tpl(i_pms_cs853_dfr77_vt_join_q),
+        .in_i_writedata_13_tpl(i_pms_cs862_dfr75_vt_join_q),
+        .in_i_writedata_14_tpl(i_pms_cs871_dfr73_vt_join_q),
+        .in_i_writedata_15_tpl(i_pms_cs880_dfr71_vt_join_q),
+        .in_i_writedata_16_tpl(i_pms_cs889_dfr69_vt_join_q),
+        .in_i_writedata_17_tpl(i_pms_cs898_dfr67_vt_join_q),
+        .in_i_writedata_18_tpl(i_pms_cs907_dfr65_vt_join_q),
+        .in_i_writedata_19_tpl(i_pms_cs916_dfr63_vt_join_q),
+        .in_i_writedata_20_tpl(i_pms_cs925_dfr61_vt_join_q),
+        .in_i_writedata_21_tpl(i_pms_cs934_dfr59_vt_join_q),
+        .in_i_writedata_22_tpl(i_pms_cs943_dfr57_vt_join_q),
+        .in_i_writedata_23_tpl(i_pms_cs952_dfr55_vt_join_q),
+        .in_i_writedata_24_tpl(i_pms_cs961_dfr53_vt_join_q),
+        .in_i_writedata_25_tpl(i_pms_cs970_dfr51_vt_join_q),
+        .in_i_writedata_26_tpl(i_pms_cs979_dfr49_vt_join_q),
+        .in_i_writedata_27_tpl(i_pms_cs988_dfr47_vt_join_q),
+        .in_i_writedata_28_tpl(i_pms_cs997_dfr45_vt_join_q),
+        .in_i_writedata_29_tpl(i_pms_cs1006_dfr43_vt_join_q),
+        .in_i_writedata_30_tpl(i_pms_cs1015_dfr41_vt_join_q),
+        .in_i_writedata_31_tpl(i_pms_cs1024_dfr39_vt_join_q),
+        .in_i_writedata_32_tpl(i_pms_cs1033_dfr37_vt_join_q),
+        .in_i_writedata_33_tpl(i_pms_cs1042_dfr35_vt_join_q),
+        .in_i_writedata_34_tpl(i_pms_cs1051_dfr33_vt_join_q),
+        .in_i_writedata_35_tpl(i_pms_cs1060_dfr31_vt_join_q),
+        .in_i_writedata_36_tpl(i_pms_cs1069_dfr29_vt_join_q),
+        .in_i_writedata_37_tpl(i_pms_cs1078_dfr27_vt_join_q),
+        .in_i_writedata_38_tpl(i_pms_cs1087_dfr25_vt_join_q),
+        .in_i_writedata_39_tpl(i_pms_cs1096_dfr23_vt_join_q),
+        .in_i_writedata_40_tpl(i_pms_cs1105_dfr21_vt_join_q),
+        .in_i_writedata_41_tpl(i_pms_cs1114_dfr19_vt_join_q),
+        .in_i_writedata_42_tpl(i_pms_cs1123_dfr17_vt_join_q),
+        .in_i_writedata_43_tpl(i_pms_cs1132_dfr15_vt_join_q),
+        .in_i_writedata_44_tpl(i_pms_cs1141_dfr13_vt_join_q),
+        .in_i_writedata_45_tpl(i_pms_cs1150_dfr11_vt_join_q),
+        .in_i_writedata_46_tpl(i_pms_cs1159_dfr9_vt_join_q),
+        .in_i_writedata_47_tpl(i_pms_cs1168_dfr7_vt_join_q),
+        .in_i_writedata_48_tpl(i_pms_cs1177_dfr5_vt_join_q),
+        .in_i_writedata_49_tpl(i_pms_cs1186_dfr3_vt_join_q),
+        .in_i_writedata_50_tpl(c_i64_0261_q),
+        .in_i_writedata_51_tpl(c_i64_0261_q),
+        .in_i_writedata_52_tpl(c_i64_0261_q),
+        .in_i_writedata_53_tpl(c_i64_0261_q),
+        .in_i_writedata_54_tpl(c_i64_0261_q),
+        .in_i_writedata_55_tpl(c_i64_0261_q),
+        .in_i_writedata_56_tpl(c_i64_0261_q),
+        .out_memdep_15_dfr_avm_address(i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_address),
+        .out_memdep_15_dfr_avm_burstcount(i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_burstcount),
+        .out_memdep_15_dfr_avm_byteenable(i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_byteenable),
+        .out_memdep_15_dfr_avm_enable(i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_enable),
+        .out_memdep_15_dfr_avm_read(i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_read),
+        .out_memdep_15_dfr_avm_write(i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_write),
+        .out_memdep_15_dfr_avm_writedata(i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_writedata),
+        .out_o_stall(),
+        .out_o_valid(),
+        .out_o_writeack(),
+        .clock(clock),
+        .resetn(resetn)
+    );
+
+    // dupName_0_ext_sig_sync_out_x(GPOUT,512)
+    assign out_memdep_15_dfr_avm_address = i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_address;
+    assign out_memdep_15_dfr_avm_enable = i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_enable;
+    assign out_memdep_15_dfr_avm_read = i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_read;
+    assign out_memdep_15_dfr_avm_write = i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_write;
+    assign out_memdep_15_dfr_avm_writedata = i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_writedata;
+    assign out_memdep_15_dfr_avm_byteenable = i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_byteenable;
+    assign out_memdep_15_dfr_avm_burstcount = i_llvm_fpga_mem_memdep_15_dfr205_aunroll_x_out_memdep_15_dfr_avm_burstcount;
+
+    // redist2_sync_together315_aunroll_x_in_i_valid_38(DELAY,1075)
+    dspba_delay_ver #( .width(1), .depth(35), .reset_kind("ASYNC"), .phase(0), .modulus(1), .reset_high(1'b0) )
+    redist2_sync_together315_aunroll_x_in_i_valid_38 ( .xin(redist1_sync_together315_aunroll_x_in_i_valid_3_q), .xout(redist2_sync_together315_aunroll_x_in_i_valid_38_q), .clk(clock), .aclr(resetn), .ena(1'b1) );
+
+    // valid_fanout_reg0(REG,917)@40 + 1
+    always @ (posedge clock or negedge resetn)
+    begin
+        if (!resetn)
+        begin
+            valid_fanout_reg0_q <= $unsigned(1'b0);
+        end
+        else
+        begin
+            valid_fanout_reg0_q <= $unsigned(redist2_sync_together315_aunroll_x_in_i_valid_38_q);
+        end
+    end
+
+    // sync_out_aunroll_x(GPOUT,915)@41
+    assign out_o_valid = valid_fanout_reg0_q;
+    assign out_unnamed_dfr2 = GND_q;
+    assign out_unnamed_dfr8_0_tpl = GND_q;
+
+endmodule
