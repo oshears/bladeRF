@@ -181,10 +181,13 @@ architecture hosted_bladerf of bladerf is
     signal dfr_rom_addr : std_logic_vector(12 downto 0) := "0000000000000";
     signal dfr_rom_dout : std_logic_vector(31 downto 0) := X"00000000";
 
-    signal dfr_done        : STD_LOGIC := 0;
-    signal dfr_start       : STD_LOGIC := 0;
-    signal dfr_output      : STD_LOGIC := 0;
-    signal dfr_next_sample : STD_LOGIC := 0;
+    signal dfr_done        : STD_LOGIC := '0';
+    signal dfr_start       : STD_LOGIC := '0';
+    signal dfr_output      : STD_LOGIC := '0';
+    signal dfr_busy      : STD_LOGIC := '0';
+    signal dfr_next_sample : STD_LOGIC := '0';
+
+    signal dfr_fsm_state   : STD_LOGIC_VECTOR(1 downto 0) := "00";
 
 begin
 
@@ -691,7 +694,15 @@ begin
     -- sample_fifo_rused      => rx_sample_fifo.rused,
 
     -- dfr fsm
-    -- dfr_fsm : entity work.dfr_fsm
+    dfr_fsm : entity work.dfr_fsm
+    port map(
+        clk => fx3_pclk_pll,
+        reset => rx_reset,
+        rx_req => rx_sample_fifo.rreq,
+        dfr_done => dfr_done,
+        dfr_start => dfr_start,
+        dfr_fsm_state => dfr_fsm_state
+    );
 
     spectrum_dfr_core : entity work.dfr
     port map(
@@ -699,7 +710,7 @@ begin
         clock => fx3_pclk_pll,
         clock2x => '0',
         start => dfr_start,
-        busy => open,
+        busy => dfr_busy,
         done => dfr_done,
         stall => '0',
         returndata => dfr_output,
@@ -716,15 +727,15 @@ begin
             if (rx_sample_fifo.rreq = '0') then
                 sample_count <= x"0000";
             elsif (rx_sample_fifo.rreq = '1') then
-                sample_count <= std_logic_vector(to_unsigned(to_integer(unsigned( sample_count )) + 1, 16));
+                sample_count <= std_logic_vector(unsigned( sample_count ) + 1);
             end if;
         end if;
     end process;
 
-    -- rx_sample_fifo.rdata <= x"0000" & sample_count;
     dfr_rom_addr <= sample_count(12 downto 0);
 
-    rx_sample_fifo.rdata <= dfr_rom_dout;
+    -- rx_sample_fifo.rdata <= x"0000" & sample_count;
+    rx_sample_fifo.rdata <= dfr_rom_dout(15 downto 0) & x"000" & dfr_done & dfr_busy & dfr_fsm_state;
 
     dfr_rom : entity work.rom
     port map(

@@ -5,42 +5,42 @@ use ieee.numeric_std.all;
 
 ENTITY DFR_FSM IS
    PORT(
-      clk      : IN   STD_LOGIC;
-      input    : IN   STD_LOGIC;
-      reset    : IN   STD_LOGIC;
-      output   : OUT  STD_LOGIC_VECTOR(1 downto 0));
+      clk         : IN   STD_LOGIC;
+      reset       : IN   STD_LOGIC;
+      rx_req      : IN   STD_LOGIC;
+      dfr_done    : IN   STD_LOGIC;
+      dfr_start   : OUT   STD_LOGIC;
+      dfr_fsm_state : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+   );
 END DFR_FSM;
 
 
 ARCHITECTURE a OF DFR_FSM IS
 
-   TYPE STATE_TYPE IS (s0, s1, s2);
+   TYPE STATE_TYPE IS (DFR_FSM_IDLE, DFR_FSM_START, DFR_FSM_WAIT);
+
    SIGNAL state   : STATE_TYPE;
 
    BEGIN
    PROCESS (clk, reset)
    BEGIN
       IF reset = '1' THEN
-         state <= s0;
+         state <= DFR_FSM_IDLE;
       ELSIF (clk'EVENT AND clk = '1') THEN
          CASE state IS
-            WHEN s0=>
-               IF input = '1' THEN
-                  state <= s1;
+            WHEN DFR_FSM_IDLE=>
+               IF rx_req = '1' THEN
+                  state <= DFR_FSM_START;
                ELSE
-                  state <= s0;
+                  state <= DFR_FSM_IDLE;
                END IF;
-            WHEN s1=>
-               IF input = '1' THEN
-                  state <= s2;
+            WHEN DFR_FSM_START=>
+               state <= DFR_FSM_WAIT;
+            WHEN DFR_FSM_WAIT=>
+               IF dfr_done = '1' THEN
+                  state <= DFR_FSM_IDLE;
                ELSE
-                  state <= s1;
-               END IF;
-            WHEN s2=>
-               IF input = '1' THEN
-                  state <= s0;
-               ELSE
-                  state <= s2;
+                  state <= DFR_FSM_WAIT;
                END IF;
          END CASE;
       END IF;
@@ -49,12 +49,17 @@ ARCHITECTURE a OF DFR_FSM IS
    PROCESS (state)
    BEGIN
       CASE state IS
-         WHEN s0 =>
-            output <= "00";
-         WHEN s1 =>
-            output <= "01";
-         WHEN s2 =>
-            output <= "10";
+         WHEN DFR_FSM_IDLE =>
+            dfr_start <= '0';
+            dfr_fsm_state <= "00";
+         WHEN DFR_FSM_START =>
+            dfr_start <= '1';
+            dfr_fsm_state <= "01";
+         WHEN DFR_FSM_WAIT =>
+            dfr_start <= '0';
+            dfr_fsm_state <= "10";
+         WHEN OTHERS =>
+            dfr_fsm_state <= "11";
       END CASE;
    END PROCESS;
    

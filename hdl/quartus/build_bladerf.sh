@@ -3,7 +3,7 @@
 # Build a bladeRF fpga image
 ################################################################################
 
-export QUARTUS_ROOTDIR=/home/oshears/intelFPGA_lite/20.1/quartus/
+# export QUARTUS_ROOTDIR=/home/oshears/intelFPGA_lite/20.1/quartus/
 
 function print_boards() {
     echo "Supported boards:"
