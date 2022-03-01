@@ -245,6 +245,7 @@ begin
             rx_enable <= '0';
             tx_enable <= '0';
         elsif (rising_edge(pclk)) then
+            -- enable rx when not in reset
             rx_enable <= dma_rx_enable;
             tx_enable <= dma_tx_enable;
         end if;
@@ -350,6 +351,7 @@ begin
             should_rx   <= false;
             should_tx   <= false;
         elsif (rising_edge(pclk)) then
+            -- OYS: should rx if enough samples are available for rx, the rx dma is enabled and there was a request at dma port 0 r 1
             can_rx      <= dma_rx_enable = '1' and rx_fifo_enough and (dma_req.rx0 = '1' or dma_req.rx1 = '1');
             can_tx      <= dma_tx_enable = '1' and tx_fifo_enough and (dma_req.tx2 = '1' or dma_req.tx3 = '1');
             should_rx   <= can_rx and (not can_tx or rx_fifo_critical);
@@ -410,6 +412,7 @@ begin
                 future.finishing_rx   <= '0';
 
                 if (current.dma_idle = '1') then
+                    -- OYS: wait until enough samples are available (should_rx = '1') before attempting to read
                     if (should_rx and ( (rx_meta_fifo_empty = '0' and current.rx_meta_en = '1')
                                         or (current.rx_meta_en = '0') ) ) then
                         -- There is an RX to perform (sending data to FX3).
@@ -438,6 +441,7 @@ begin
                 -- GPIF, FIFO, next state depend on rx_meta_en
                 if (current.rx_meta_en = '0') then
                     future.gpif_mode    <= RX;
+                    -- enable the read request on the FIFO (rx_fifo_rd => rx_sample_fifo.rreq) when host is requesting samples to be read
                     future.rx_fifo_rd   <= '1';
                     next_state          := SAMPLE_READ;
                 else

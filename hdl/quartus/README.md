@@ -4,6 +4,7 @@ Enter the nios2eds command line
 
 ```
 ~/intelFPGA_lite/20.1/nios2eds/nios2_command_shell.sh
+~/software/intelFPGA/21.1/nios2eds/nios2_command_shell.sh
 ```
 
 

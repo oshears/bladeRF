@@ -10,8 +10,14 @@ set opencores_ip [file normalize [file join $here ../../ip/opencores]]
 # set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/dfr.vhd]]
 # set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/demo.vhd]]
 # set_global_assignment -name VERILOG_FILE [file normalize [file join $here vhdl/dfr.v]]
-set_global_assignment -name QIP_FILE [file normalize [file join $here vhdl/dfr/dfr.qip]]
-set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/dfr/dfr.vhd]]
+
+# Binary DFR IP
+# set_global_assignment -name QIP_FILE [file normalize [file join $here vhdl/dfr/dfr.qip]]
+# set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/dfr/dfr.vhd]]
+
+# Raw Data DFR IP
+set_global_assignment -name QIP_FILE [file normalize [file join $here vhdl/dfr_raw/dfr.qip]]
+set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/dfr_raw/dfr.vhd]]
 
 # DFR Sample ROM
 set_global_assignment -name QIP_FILE [file normalize [file join $here vhdl/rom/rom.qip]]

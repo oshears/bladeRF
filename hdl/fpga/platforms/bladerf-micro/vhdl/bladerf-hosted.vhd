@@ -177,6 +177,8 @@ architecture hosted_bladerf of bladerf is
     signal dfr_sample_fifo_rdata  :   std_logic_vector(RX_FIFO_T_DEFAULT.rdata'range);
     -- signal sample_count   : std_logic_vector(RX_FIFO_T_DEFAULT.rdata'range) := X"00000000";
     signal sample_count   : STD_LOGIC_VECTOR (15 downto 0) := X"0000";
+    signal dfr_count : STD_LOGIC_VECTOR(15 downto 0) := X"0000";
+    signal half_clk : STD_LOGIC := '0';
 
     signal dfr_rom_addr : std_logic_vector(12 downto 0) := "0000000000000";
     signal dfr_rom_dout : std_logic_vector(31 downto 0) := X"00000000";
@@ -184,10 +186,20 @@ architecture hosted_bladerf of bladerf is
     signal dfr_done        : STD_LOGIC := '0';
     signal dfr_start       : STD_LOGIC := '0';
     signal dfr_output      : STD_LOGIC := '0';
+    signal dfr_raw_output  : std_logic_vector(25 downto 0) := (others => '0');
     signal dfr_busy      : STD_LOGIC := '0';
     signal dfr_next_sample : STD_LOGIC := '0';
 
     signal dfr_fsm_state   : STD_LOGIC_VECTOR(1 downto 0) := "00";
+
+    -- signal dfr_ram_addr
+    signal rx_packet_ready_dfr : STD_LOGIC := '0';
+
+    signal dfr_sample_fifo_rempty     : std_logic := '1';
+    signal dfr_sample_fifo_rfull      : std_logic := '0';
+    signal dfr_sample_fifo_rused      : std_logic_vector(RX_FIFO_T_DEFAULT.rused'range) := ( others => '0' );
+
+    signal dfr_toggle : std_logic := '0';
 
 begin
 
@@ -196,7 +208,7 @@ begin
             rx_clock               => rx_clock,
             rx_reset               => rx_reset,
 
-            rx_packet_ready        => rx_packet_ready,
+            rx_packet_ready        => rx_packet_ready_dfr,
 
             rx_enable              => rx_enable,
             rx_packet_enable       => packet_en_rx,
@@ -494,9 +506,9 @@ begin
     tx_trigger_ctl <= unpack(tx_trigger_ctl_i, tx_trigger_line);
 
     -- LEDs
-    led(1) <= led1_blink        when nios_gpio.o.led_mode = '0' else not nios_gpio.o.leds(1);
-    led(2) <= tx_underflow_led  when nios_gpio.o.led_mode = '0' else not nios_gpio.o.leds(2);
-    led(3) <= rx_overflow_led   when nios_gpio.o.led_mode = '0' else not nios_gpio.o.leds(3);
+    -- led(1) <= led1_blink        when nios_gpio.o.led_mode = '0' else not nios_gpio.o.leds(1);
+    -- led(2) <= tx_underflow_led  when nios_gpio.o.led_mode = '0' else not nios_gpio.o.leds(2);
+    -- led(3) <= rx_overflow_led   when nios_gpio.o.led_mode = '0' else not nios_gpio.o.leds(3);
 
     -- DAC SPI (data latched on falling edge)
     dac_sclk <= not nios_sclk when nios_gpio.o.adf_chip_enable = '0' else '0';
@@ -644,9 +656,12 @@ begin
             sample_fifo_raclr      => not rx_enable_pclk,
             sample_fifo_rreq       => rx_sample_fifo.rreq,
             sample_fifo_rdata      => dfr_sample_fifo_rdata,
-            sample_fifo_rempty     => rx_sample_fifo.rempty,
-            sample_fifo_rfull      => rx_sample_fifo.rfull,
-            sample_fifo_rused      => rx_sample_fifo.rused,
+            -- sample_fifo_rempty     => rx_sample_fifo.rempty,
+            -- sample_fifo_rfull      => rx_sample_fifo.rfull,
+            -- sample_fifo_rused      => rx_sample_fifo.rused,
+            sample_fifo_rempty     => Open,
+            sample_fifo_rfull      => Open,
+            sample_fifo_rused      => Open,
 
             -- Mini expansion signals
             mini_exp               => mini_exp2 & mini_exp1,
@@ -694,15 +709,20 @@ begin
     -- sample_fifo_rused      => rx_sample_fifo.rused,
 
     -- dfr fsm
-    dfr_fsm : entity work.dfr_fsm
-    port map(
-        clk => fx3_pclk_pll,
-        reset => rx_reset,
-        rx_req => rx_sample_fifo.rreq,
-        dfr_done => dfr_done,
-        dfr_start => dfr_start,
-        dfr_fsm_state => dfr_fsm_state
-    );
+    -- dfr_fsm : entity work.dfr_fsm
+    -- port map(
+    --     clk => fx3_pclk_pll,
+    --     reset => rx_reset,
+    --     rx_req => rx_sample_fifo.rreq,
+    --     dfr_done => dfr_done,
+    --     dfr_start => dfr_start,
+    --     dfr_fsm_state => dfr_fsm_state,
+    --     meta_en => meta_en_rx,
+    --     rx_enable => rx_enable
+    -- );
+
+    -- dfr_start <= sample_count(0) AND NOT(dfr_busy);
+    dfr_start <= '0';
 
     spectrum_dfr_core : entity work.dfr
     port map(
@@ -713,7 +733,7 @@ begin
         busy => dfr_busy,
         done => dfr_done,
         stall => '0',
-        returndata => dfr_output,
+        returndata => dfr_raw_output,
         i_data => dfr_rom_dout(31 downto 16),
         q_data => dfr_rom_dout(15 downto 0)
     );
@@ -723,19 +743,84 @@ begin
     process (fx3_pclk_pll)
     begin
         if (rising_edge(fx3_pclk_pll)) then
-            -- if (rx_sample_fifo.rreq = '1') then
-            if (rx_sample_fifo.rreq = '0') then
-                sample_count <= x"0000";
-            elsif (rx_sample_fifo.rreq = '1') then
+            -- if (rx_sample_fifo.rreq = '0') then
+            --     sample_count <= x"0000";
+            -- elsif (rx_sample_fifo.rreq = '1') then
+            --     sample_count <= std_logic_vector(unsigned( sample_count ) + 1);
+            -- end if;
+            -- rx_enable is enabled as long as the GPIF is not in reset
+            -- meta_en_rx is 0 when rx samples need to be read
+            -- rx_sample_fifo.rreq is set to 1 only when GPIF is about to start reading samples?
+            
+            -- if RX is not enabled, reset sample count
+            if ( NOT(rx_enable) = '1' ) then
+                sample_count <= ( others => '0' );
+            -- elsif (rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
+            -- if meta is not enabled and rx is enabled, increment count
+            elsif (meta_en_pclk = '0' AND rx_enable = '1') then
                 sample_count <= std_logic_vector(unsigned( sample_count ) + 1);
             end if;
+            -- half_clk <= NOT half_clk;
+            -- dfr_count <= std_logic_vector(unsigned( dfr_count ) + 1);
         end if;
     end process;
 
-    dfr_rom_addr <= sample_count(12 downto 0);
+    -- rx_sample_fifo.rempty
+    -- rx_sample_fifo.rfull
+    -- rx_sample_fifo.rused
 
-    -- rx_sample_fifo.rdata <= x"0000" & sample_count;
-    rx_sample_fifo.rdata <= dfr_rom_dout(15 downto 0) & x"000" & dfr_done & dfr_busy & dfr_fsm_state;
+    -- dfr_sample_fifo_rempty     : std_logic;
+    -- dfr_sample_fifo_rfull      : std_logic;
+    -- dfr_sample_fifo_rused      : std_logic_vector(RX_FIFO_T_DEFAULT.rused'range);
+
+    rx_sample_fifo.rempty <= dfr_sample_fifo_rempty;
+    rx_sample_fifo.rfull <= dfr_sample_fifo_rfull;
+    rx_sample_fifo.rused <= dfr_sample_fifo_rused;
+
+    process(sample_count)
+    begin
+        if ( NOT(rx_enable) = '1') then
+            dfr_toggle <= '0';
+        elsif (NOT(dfr_toggle) AND sample_count(5)) then
+            dfr_toggle <= '1';
+        else
+            -- dfr_toggle <= '0';
+            dfr_toggle <= dfr_toggle;
+        end if;
+        
+        if ( NOT(rx_enable) = '1') then
+            dfr_count <= ( others => '0' );
+        elsif (dfr_toggle = '1' AND rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
+            dfr_count <= std_logic_vector(unsigned( dfr_count ) + 1);
+        end if;
+
+        if(dfr_toggle = '1') then
+            -- use this to tell the gpif fsm that enough samples are ready to be read
+            dfr_sample_fifo_rempty <= '0';
+            dfr_sample_fifo_rfull <= '1';
+            dfr_sample_fifo_rused(0) <= '0';
+            -- dfr_sample_fifo_rused(0) <= ( others => '0' );
+        else
+            dfr_sample_fifo_rempty <= '0';
+            dfr_sample_fifo_rfull <= '0';
+            dfr_sample_fifo_rused(0) <= '0';
+            -- dfr_sample_fifo_rused(0) <= ( others => '0' );
+        end if;
+    end process;
+
+    
+    -- rx_packet_ready_dfr <= rx_packet_ready AND dfr_count(2);
+    -- rx_packet_ready_dfr <= rx_packet_ready;
+
+    -- rx_sample_fifo.rdata <= x"FFFF" & dfr_count;
+    rx_sample_fifo.rdata <= sample_count & dfr_count;
+    -- rx_sample_fifo.rdata <= x"000" & "000" & rx_packet_ready & x"00" & dfr_count(7 downto 0);
+    -- rx_sample_fifo.rdata <= dfr_rom_dout(31 downto 16) & sample_count;
+    -- rx_sample_fifo.rdata <= dfr_rom_dout(15 downto 0) & x"000" & dfr_done & dfr_busy & dfr_fsm_state;
+    -- rx_sample_fifo.rdata <= sample_count(15 downto 0) & x"000" & dfr_done & dfr_busy & dfr_fsm_state;
+    
+    -- address DFR ROM
+    dfr_rom_addr <= sample_count(12 downto 0);
 
     dfr_rom : entity work.rom
     port map(
@@ -744,6 +829,36 @@ begin
         q => dfr_rom_dout
     );
 
+    -- led(1) <= NOT dfr_start;
+    -- led(2) <= NOT dfr_busy;
+    -- led(3) <= NOT dfr_done;
+
+    -- on and off bits are flipped ('1' = off)
+    -- led(1) <= '0';
+    -- led(2) <= '1';
+    -- led(3) <= '0';
+
+    -- FX3 DMA Simulation Model
+    -- https://github.com/Nuand/bladeRF/blob/master/hdl/fpga/ip/nuand/simulation/fx3_model.vhd
+
+    -- It appears that dma_rx_enable is only turned on when samples need to be read
+
+
+    -- dma_rx_enable (active high)
+    -- this must be enabled for an rx to occur
+    -- this signal is low after programming
+    -- led1 is closest to the usb port and ld4
+    led(1) <= NOT fx3_ctl_in(4);
+    
+    -- dma0_rx_reqx / dma_req.rx0 (active low)
+    -- if this is a one, it allows should_rx to go high
+    -- this signal is high after programming
+    led(2) <= fx3_ctl_in(8);
+
+    -- dma_idle (active high)
+    -- this signal is high after programming
+    -- led 3 is closests to the antennas
+    led(3) <= NOT fx3_ctl_in(6);
 
     ---------------------------------------------------------
     ---------------- End  DFR IP ----------------------------

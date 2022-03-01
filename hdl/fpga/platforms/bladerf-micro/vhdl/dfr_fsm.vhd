@@ -9,6 +9,10 @@ ENTITY DFR_FSM IS
       reset       : IN   STD_LOGIC;
       rx_req      : IN   STD_LOGIC;
       dfr_done    : IN   STD_LOGIC;
+      meta_en    : IN   STD_LOGIC;
+      sample_counter : IN STD_LOGIC(1 DOWNTO 0);
+      sample_counter_reset : OUT STD_LOGIC;
+      rx_enable    : IN   STD_LOGIC;
       dfr_start   : OUT   STD_LOGIC;
       dfr_fsm_state : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
    );
@@ -29,7 +33,7 @@ ARCHITECTURE a OF DFR_FSM IS
       ELSIF (clk'EVENT AND clk = '1') THEN
          CASE state IS
             WHEN DFR_FSM_IDLE=>
-               IF rx_req = '1' THEN
+               IF rx_req = '1' AND meta_en = '0' AND rx_enable = '1' THEN
                   state <= DFR_FSM_START;
                ELSE
                   state <= DFR_FSM_IDLE;
