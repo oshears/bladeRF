@@ -26,6 +26,10 @@ set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/rom/
 # DFR FSM
 set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/dfr_fsm.vhd]]
 
+# DFR Output RAM
+set_global_assignment -name VHDL_FILE [file normalize [file join $here vhdl/dfr_ram.vhd]]
+
+
 # Altera IP
 set_global_assignment -name VHDL_FILE    [file normalize [file join $altera_ip common_dcfifo/common_dcfifo.vhd]]
 set_global_assignment -name VHDL_FILE    [file normalize [file join $here      vhdl/wrappers/tx_fifo.vhd]]

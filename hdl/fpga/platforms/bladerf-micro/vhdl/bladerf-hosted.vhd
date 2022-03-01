@@ -174,32 +174,32 @@ architecture hosted_bladerf of bladerf is
     signal wbm_wb_ack_i           : std_logic;
     signal wbm_wb_cyc_o           : std_logic;
 
-    signal dfr_sample_fifo_rdata  :   std_logic_vector(RX_FIFO_T_DEFAULT.rdata'range);
-    -- signal sample_count   : std_logic_vector(RX_FIFO_T_DEFAULT.rdata'range) := X"00000000";
-    signal sample_count   : STD_LOGIC_VECTOR (15 downto 0) := X"0000";
-    signal dfr_count : STD_LOGIC_VECTOR(15 downto 0) := X"0000";
-    signal half_clk : STD_LOGIC := '0';
+    -- DFR FSM Signals
+    signal dfr_input_count :  std_logic_vector(31 downto 0) := X"00000000";
+    signal dfr_input_count_reset : std_logic := '0';
+    signal dfr_input_count_inc : std_logic := '0';
+    signal dfr_resetn : std_logic := '0';
+    signal dfr_start       : STD_LOGIC := '0';
+    signal dfr_done        : STD_LOGIC := '0';
+    signal dfr_output_ram_wen : std_logic := '0';
+    signal dfr_fsm_done : std_logic := '0';
 
+    -- DFR HLS IP Core signals
+    -- signal dfr_output : std_logic_vector(25 downto 0);
+
+    -- Misc DFR Signals
+    signal dfr_busy      : STD_LOGIC := '0';
+
+    -- DFR Input ROM Signals
     signal dfr_rom_addr : std_logic_vector(12 downto 0) := "0000000000000";
     signal dfr_rom_dout : std_logic_vector(31 downto 0) := X"00000000";
 
-    signal dfr_done        : STD_LOGIC := '0';
-    signal dfr_start       : STD_LOGIC := '0';
-    signal dfr_output      : STD_LOGIC := '0';
-    signal dfr_raw_output  : std_logic_vector(25 downto 0) := (others => '0');
-    signal dfr_busy      : STD_LOGIC := '0';
-    signal dfr_next_sample : STD_LOGIC := '0';
+    -- DFR Output Coutner
+    signal dfr_output_count :  std_logic_vector(31 downto 0) := X"00000000";
 
-    signal dfr_fsm_state   : STD_LOGIC_VECTOR(1 downto 0) := "00";
-
-    -- signal dfr_ram_addr
-    signal rx_packet_ready_dfr : STD_LOGIC := '0';
-
-    signal dfr_sample_fifo_rempty     : std_logic := '1';
-    signal dfr_sample_fifo_rfull      : std_logic := '0';
-    signal dfr_sample_fifo_rused      : std_logic_vector(RX_FIFO_T_DEFAULT.rused'range) := ( others => '0' );
-
-    signal dfr_toggle : std_logic := '0';
+    -- DFR Output RAM Signals
+    signal dfr_ram_din : std_logic_vector(31 downto 0) := X"00000000";
+    signal dfr_ram_dout : std_logic_vector(31 downto 0) := X"00000000";
 
 begin
 
@@ -693,141 +693,145 @@ begin
     ---------------- Begin  DFR IP --------------------------
     ---------------------------------------------------------
 
-        
-    -- -- Packet FIFO
-    -- packet_en              => packet_en_rx,
-    -- packet_control         => rx_packet_control,
-    -- packet_ready           => rx_packet_ready,
 
-    -- -- Samples to host via FX3
-    -- sample_fifo_rclock     => fx3_pclk_pll,
-    -- sample_fifo_raclr      => not rx_enable_pclk,
-    -- sample_fifo_rreq       => rx_sample_fifo.rreq,
-    -- sample_fifo_rdata      => rx_sample_fifo.rdata,
-    -- sample_fifo_rempty     => rx_sample_fifo.rempty,
-    -- sample_fifo_rfull      => rx_sample_fifo.rfull,
-    -- sample_fifo_rused      => rx_sample_fifo.rused,
+    -- DFR Controller State Machine
+    dfr_fsm : entity work.dfr_fsm
+    port map(
+        clk => fx3_pclk_pll,
+        reset => rx_reset,
+        dfr_input_count => dfr_input_count,
+        dfr_input_count_reset => dfr_input_count_reset,
+        dfr_input_count_inc => dfr_input_count_inc,
+        dfr_resetn => dfr_resetn,
+        dfr_start => dfr_start,
+        dfr_done => dfr_done,
+        dfr_output_ram_wen => dfr_output_ram_wen,
+        dfr_fsm_done => dfr_fsm_done
+    );
 
-    -- dfr fsm
-    -- dfr_fsm : entity work.dfr_fsm
-    -- port map(
-    --     clk => fx3_pclk_pll,
-    --     reset => rx_reset,
-    --     rx_req => rx_sample_fifo.rreq,
-    --     dfr_done => dfr_done,
-    --     dfr_start => dfr_start,
-    --     dfr_fsm_state => dfr_fsm_state,
-    --     meta_en => meta_en_rx,
-    --     rx_enable => rx_enable
-    -- );
+    -- dfr input sample counter
+    process (fx3_pclk_pll)
+    begin
+        if (rising_edge(fx3_pclk_pll)) then
+            if (dfr_input_count_reset = '1') then
+                dfr_input_count <= (others => '0');
+            elsif (dfr_input_count_inc = '1') then
+                dfr_input_count <= std_logic_vector(unsigned(dfr_input_count) + 1)
+            end if;
+        end if;
+    end process;
 
-    -- dfr_start <= sample_count(0) AND NOT(dfr_busy);
-    dfr_start <= '0';
-
+    -- address DFR ROM
+    dfr_rom_addr <= dfr_input_count(12 downto 0);
+    
+    -- DFR ROM
+    dfr_rom : entity work.dfr_rom
+    port map(
+        address => dfr_rom_addr,
+        clock => fx3_pclk_pll,
+        q => dfr_rom_dout
+    );
+    
+    -- DFR IP Core
     spectrum_dfr_core : entity work.dfr
     port map(
-        resetn => rx_reset,
+        resetn => dfr_resetn,
         clock => fx3_pclk_pll,
         clock2x => '0',
         start => dfr_start,
         busy => dfr_busy,
         done => dfr_done,
         stall => '0',
-        returndata => dfr_raw_output,
+        returndata => dfr_ram_din,
         i_data => dfr_rom_dout(31 downto 16),
         q_data => dfr_rom_dout(15 downto 0)
     );
-    -- dfr_sample_fifo_rdata
-
-    -- dfr sample counter
+    
+    -- DFR Output RAM
+    dfr_ram : entity work.dfr_ram
+    port map(
+        write_address => to_integer(dfr_input_count),
+        read_address => to_integer(dfr_output_count),
+        clock => fx3_pclk_pll,
+        we => dfr_ram_wen,
+        din =>  dfr_ram_din,
+        dout => dfr_ram_dout
+    );
+    
+    -- DFR Output RAM Counter for GPIF Bridge
     process (fx3_pclk_pll)
     begin
         if (rising_edge(fx3_pclk_pll)) then
-            -- if (rx_sample_fifo.rreq = '0') then
-            --     sample_count <= x"0000";
-            -- elsif (rx_sample_fifo.rreq = '1') then
-            --     sample_count <= std_logic_vector(unsigned( sample_count ) + 1);
-            -- end if;
-            -- rx_enable is enabled as long as the GPIF is not in reset
-            -- meta_en_rx is 0 when rx samples need to be read
-            -- rx_sample_fifo.rreq is set to 1 only when GPIF is about to start reading samples?
-            
-            -- if RX is not enabled, reset sample count
-            if ( NOT(rx_enable) = '1' ) then
-                sample_count <= ( others => '0' );
-            -- elsif (rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
-            -- if meta is not enabled and rx is enabled, increment count
-            elsif (meta_en_pclk = '0' AND rx_enable = '1') then
-                sample_count <= std_logic_vector(unsigned( sample_count ) + 1);
+            if (rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
+                dfr_output_count <= std_logic_vector(unsigned(dfr_output_count) + 1)
+            else
+                dfr_output_count <= (others => '0');
             end if;
-            -- half_clk <= NOT half_clk;
-            -- dfr_count <= std_logic_vector(unsigned( dfr_count ) + 1);
         end if;
     end process;
+
+    -- signals to GPIF Bridge
+    rx_sample_fifo.rdata <= dfr_output_count(3 downto 0) & "00" & dfr_ram_dout;
+    rx_sample_fifo.rempty <= '0';
+    rx_sample_fifo.rfull <= dfr_fsm_done;
+    rx_sample_fifo.rused <= (others => '0');
+
+    -- debug LEDS
+    led(1) <= NOT dfr_fsm_done;
+    led(2) <= NOT dfr_busy;
+    led(3) <= NOT dfr_done;
 
     -- rx_sample_fifo.rempty
     -- rx_sample_fifo.rfull
     -- rx_sample_fifo.rused
-
     -- dfr_sample_fifo_rempty     : std_logic;
     -- dfr_sample_fifo_rfull      : std_logic;
     -- dfr_sample_fifo_rused      : std_logic_vector(RX_FIFO_T_DEFAULT.rused'range);
 
-    rx_sample_fifo.rempty <= dfr_sample_fifo_rempty;
-    rx_sample_fifo.rfull <= dfr_sample_fifo_rfull;
-    rx_sample_fifo.rused <= dfr_sample_fifo_rused;
+    
 
-    process(sample_count)
-    begin
-        if ( NOT(rx_enable) = '1') then
-            dfr_toggle <= '0';
-        elsif (NOT(dfr_toggle) AND sample_count(5)) then
-            dfr_toggle <= '1';
-        else
-            -- dfr_toggle <= '0';
-            dfr_toggle <= dfr_toggle;
-        end if;
+    -- process(sample_count)
+    -- begin
+    --     if ( NOT(rx_enable) = '1') then
+    --         dfr_toggle <= '0';
+    --     elsif (NOT(dfr_toggle) AND sample_count(5)) then
+    --         dfr_toggle <= '1';
+    --     else
+    --         -- dfr_toggle <= '0';
+    --         dfr_toggle <= dfr_toggle;
+    --     end if;
         
-        if ( NOT(rx_enable) = '1') then
-            dfr_count <= ( others => '0' );
-        elsif (dfr_toggle = '1' AND rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
-            dfr_count <= std_logic_vector(unsigned( dfr_count ) + 1);
-        end if;
+    --     if ( NOT(rx_enable) = '1') then
+    --         dfr_count <= ( others => '0' );
+    --     elsif (dfr_toggle = '1' AND rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
+    --         dfr_count <= std_logic_vector(unsigned( dfr_count ) + 1);
+    --     end if;
 
-        if(dfr_toggle = '1') then
-            -- use this to tell the gpif fsm that enough samples are ready to be read
-            dfr_sample_fifo_rempty <= '0';
-            dfr_sample_fifo_rfull <= '1';
-            dfr_sample_fifo_rused(0) <= '0';
-            -- dfr_sample_fifo_rused(0) <= ( others => '0' );
-        else
-            dfr_sample_fifo_rempty <= '0';
-            dfr_sample_fifo_rfull <= '0';
-            dfr_sample_fifo_rused(0) <= '0';
-            -- dfr_sample_fifo_rused(0) <= ( others => '0' );
-        end if;
-    end process;
+    --     if(dfr_toggle = '1') then
+    --         -- use this to tell the gpif fsm that enough samples are ready to be read
+    --         dfr_sample_fifo_rempty <= '0';
+    --         dfr_sample_fifo_rfull <= '1';
+    --         dfr_sample_fifo_rused(0) <= '0';
+    --         -- dfr_sample_fifo_rused(0) <= ( others => '0' );
+    --     else
+    --         dfr_sample_fifo_rempty <= '0';
+    --         dfr_sample_fifo_rfull <= '0';
+    --         dfr_sample_fifo_rused(0) <= '0';
+    --         -- dfr_sample_fifo_rused(0) <= ( others => '0' );
+    --     end if;
+    -- end process;
 
     
     -- rx_packet_ready_dfr <= rx_packet_ready AND dfr_count(2);
     -- rx_packet_ready_dfr <= rx_packet_ready;
 
     -- rx_sample_fifo.rdata <= x"FFFF" & dfr_count;
-    rx_sample_fifo.rdata <= sample_count & dfr_count;
     -- rx_sample_fifo.rdata <= x"000" & "000" & rx_packet_ready & x"00" & dfr_count(7 downto 0);
     -- rx_sample_fifo.rdata <= dfr_rom_dout(31 downto 16) & sample_count;
     -- rx_sample_fifo.rdata <= dfr_rom_dout(15 downto 0) & x"000" & dfr_done & dfr_busy & dfr_fsm_state;
     -- rx_sample_fifo.rdata <= sample_count(15 downto 0) & x"000" & dfr_done & dfr_busy & dfr_fsm_state;
     
-    -- address DFR ROM
-    dfr_rom_addr <= sample_count(12 downto 0);
-
-    dfr_rom : entity work.rom
-    port map(
-        address => dfr_rom_addr,
-        clock => fx3_pclk_pll,
-        q => dfr_rom_dout
-    );
+    
 
     -- led(1) <= NOT dfr_start;
     -- led(2) <= NOT dfr_busy;
@@ -848,17 +852,17 @@ begin
     -- this must be enabled for an rx to occur
     -- this signal is low after programming
     -- led1 is closest to the usb port and ld4
-    led(1) <= NOT fx3_ctl_in(4);
+    -- led(1) <= NOT fx3_ctl_in(4);
     
     -- dma0_rx_reqx / dma_req.rx0 (active low)
     -- if this is a one, it allows should_rx to go high
     -- this signal is high after programming
-    led(2) <= fx3_ctl_in(8);
+    -- led(2) <= fx3_ctl_in(8);
 
     -- dma_idle (active high)
     -- this signal is high after programming
     -- led 3 is closests to the antennas
-    led(3) <= NOT fx3_ctl_in(6);
+    -- led(3) <= NOT fx3_ctl_in(6);
 
     ---------------------------------------------------------
     ---------------- End  DFR IP ----------------------------
