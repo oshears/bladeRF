@@ -16,7 +16,7 @@
 
 // SystemVerilog created from i_llvm_fpga_push_i1_notexitcond_dfr0
 // Created for function/kernel dfr
-// SystemVerilog created on Mon Feb 28 10:52:36 2022
+// SystemVerilog created on Mon Mar  7 11:29:59 2022
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -68,10 +68,10 @@ module dfr_i_llvm_fpga_push_i1_notexitcond_0 (
     // c_i7_03(CONSTANT,4)
     assign c_i7_03_q = $unsigned(7'b0000000);
 
-    // element_extension2(BITJOIN,5)@2
+    // element_extension2(BITJOIN,5)@52
     assign element_extension2_q = {c_i7_03_q, in_data_in};
 
-    // i_llvm_fpga_push_i1_notexitcond_dfr1(EXTIFACE,8)@2
+    // i_llvm_fpga_push_i1_notexitcond_dfr1(EXTIFACE,8)@52
     assign i_llvm_fpga_push_i1_notexitcond_dfr1_data_in = element_extension2_q[0:0];
     assign i_llvm_fpga_push_i1_notexitcond_dfr1_dir = in_first_cleanup;
     assign i_llvm_fpga_push_i1_notexitcond_dfr1_feedback_stall_in = in_feedback_stall_in_3;
@@ -90,10 +90,10 @@ module dfr_i_llvm_fpga_push_i1_notexitcond_0 (
     assign i_llvm_fpga_push_i1_notexitcond_dfr1_stall_out[0] = i_llvm_fpga_push_i1_notexitcond_dfr1_stall_out_bitsignaltemp;
     assign i_llvm_fpga_push_i1_notexitcond_dfr1_valid_out[0] = i_llvm_fpga_push_i1_notexitcond_dfr1_valid_out_bitsignaltemp;
     acl_push #(
-        .FIFO_DEPTH(1),
+        .FIFO_DEPTH(3),
         .INF_LOOP(0),
         .INF_LOOP_INITIALIZATION(1'b0),
-        .MIN_FIFO_LATENCY(0),
+        .MIN_FIFO_LATENCY(128),
         .STYLE("REGULAR"),
         .ASYNC_RESET(1),
         .DATA_WIDTH(1),
@@ -121,10 +121,10 @@ module dfr_i_llvm_fpga_push_i1_notexitcond_0 (
     assign out_feedback_out_3 = i_llvm_fpga_push_i1_notexitcond_dfr1_feedback_out;
     assign out_feedback_valid_out_3 = i_llvm_fpga_push_i1_notexitcond_dfr1_feedback_valid_out;
 
-    // sync_out(GPOUT,10)@2
+    // sync_out(GPOUT,10)@52
     assign out_stall_out = i_llvm_fpga_push_i1_notexitcond_dfr1_stall_out;
 
-    // dupName_0_sync_out_x(GPOUT,13)@2
+    // dupName_0_sync_out_x(GPOUT,13)@52
     assign out_data_out = i_llvm_fpga_push_i1_notexitcond_dfr1_data_out;
     assign out_valid_out = i_llvm_fpga_push_i1_notexitcond_dfr1_valid_out;
 

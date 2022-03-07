@@ -186,6 +186,7 @@ architecture hosted_bladerf of bladerf is
 
     -- DFR HLS IP Core signals
     -- signal dfr_output : std_logic_vector(25 downto 0);
+    signal dfr_clock2x : std_logic := '0';
 
     -- Misc DFR Signals
     signal dfr_busy      : STD_LOGIC := '0';
@@ -198,8 +199,8 @@ architecture hosted_bladerf of bladerf is
     signal dfr_output_count :  std_logic_vector(31 downto 0) := X"00000000";
 
     -- DFR Output RAM Signals
-    signal dfr_ram_din : std_logic_vector(31 downto 0) := X"00000000";
-    signal dfr_ram_dout : std_logic_vector(31 downto 0) := X"00000000";
+    signal dfr_ram_din : std_logic_vector(25 downto 0) := (others => '0');
+    signal dfr_ram_dout : std_logic_vector(25 downto 0) := (others => '0');
 
 begin
 
@@ -208,7 +209,7 @@ begin
             rx_clock               => rx_clock,
             rx_reset               => rx_reset,
 
-            rx_packet_ready        => rx_packet_ready_dfr,
+            rx_packet_ready        => rx_packet_ready,
 
             rx_enable              => rx_enable,
             rx_packet_enable       => packet_en_rx,
@@ -655,7 +656,7 @@ begin
             sample_fifo_rclock     => fx3_pclk_pll,
             sample_fifo_raclr      => not rx_enable_pclk,
             sample_fifo_rreq       => rx_sample_fifo.rreq,
-            sample_fifo_rdata      => dfr_sample_fifo_rdata,
+            sample_fifo_rdata      => Open,
             -- sample_fifo_rempty     => rx_sample_fifo.rempty,
             -- sample_fifo_rfull      => rx_sample_fifo.rfull,
             -- sample_fifo_rused      => rx_sample_fifo.rused,
@@ -705,6 +706,7 @@ begin
         dfr_resetn => dfr_resetn,
         dfr_start => dfr_start,
         dfr_done => dfr_done,
+        dfr_busy => dfr_busy,
         dfr_output_ram_wen => dfr_output_ram_wen,
         dfr_fsm_done => dfr_fsm_done
     );
@@ -716,7 +718,7 @@ begin
             if (dfr_input_count_reset = '1') then
                 dfr_input_count <= (others => '0');
             elsif (dfr_input_count_inc = '1') then
-                dfr_input_count <= std_logic_vector(unsigned(dfr_input_count) + 1)
+                dfr_input_count <= std_logic_vector(unsigned(dfr_input_count) + 1);
             end if;
         end if;
     end process;
@@ -725,23 +727,28 @@ begin
     dfr_rom_addr <= dfr_input_count(12 downto 0);
     
     -- DFR ROM
-    dfr_rom : entity work.dfr_rom
+    dfr_rom : entity work.rom
     port map(
         address => dfr_rom_addr,
         clock => fx3_pclk_pll,
         q => dfr_rom_dout
     );
+
+    -- slow dfr_clk
+    process(fx3_pclk_pll) begin
+        if( rising_edge(fx3_pclk_pll) ) then
+            dfr_clock2x <= NOT dfr_clock2x;
+        end if;
+    end process;
     
     -- DFR IP Core
     spectrum_dfr_core : entity work.dfr
     port map(
         resetn => dfr_resetn,
-        clock => fx3_pclk_pll,
-        clock2x => '0',
+        clock => fx3_pclk_pll, -- this one is the slower clock
         start => dfr_start,
         busy => dfr_busy,
         done => dfr_done,
-        stall => '0',
         returndata => dfr_ram_din,
         i_data => dfr_rom_dout(31 downto 16),
         q_data => dfr_rom_dout(15 downto 0)
@@ -750,10 +757,10 @@ begin
     -- DFR Output RAM
     dfr_ram : entity work.dfr_ram
     port map(
-        write_address => to_integer(dfr_input_count),
-        read_address => to_integer(dfr_output_count),
+        write_address => to_integer(unsigned(dfr_input_count)),
+        read_address => to_integer(unsigned(dfr_output_count)),
         clock => fx3_pclk_pll,
-        we => dfr_ram_wen,
+        we => dfr_output_ram_wen,
         din =>  dfr_ram_din,
         dout => dfr_ram_dout
     );
@@ -763,7 +770,7 @@ begin
     begin
         if (rising_edge(fx3_pclk_pll)) then
             if (rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
-                dfr_output_count <= std_logic_vector(unsigned(dfr_output_count) + 1)
+                dfr_output_count <= std_logic_vector(unsigned(dfr_output_count) + 1);
             else
                 dfr_output_count <= (others => '0');
             end if;
