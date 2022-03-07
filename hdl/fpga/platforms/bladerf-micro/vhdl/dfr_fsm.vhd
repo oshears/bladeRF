@@ -23,7 +23,7 @@ END DFR_FSM;
 
 ARCHITECTURE arch OF DFR_FSM IS
 
-   TYPE STATE_TYPE IS (DFR_FSM_IDLE, DFR_FSM_START, DFR_FSM_WAIT_BUSY, DFR_FSM_WAIT, DFR_FSM_DONE_STATE);
+   TYPE STATE_TYPE IS (DFR_FSM_IDLE, DFR_FSM_START, DFR_FSM_WAIT_BUSY, DFR_FSM_WAIT, DFR_FSM_INPUT_DATA_WAIT, DFR_FSM_DONE_STATE);
 
    SIGNAL state   : STATE_TYPE;
    SIGNAL next_state   : STATE_TYPE;
@@ -91,12 +91,15 @@ ARCHITECTURE arch OF DFR_FSM IS
                   dfr_input_count_inc <= '1';
 
                   -- go to dfr start
-                  next_state <= DFR_FSM_START;
+                  next_state <= DFR_FSM_INPUT_DATA_WAIT;
                end if;
             else
                -- stay in this state otherwise
                next_state <= DFR_FSM_WAIT;
             end if;
+         when DFR_FSM_INPUT_DATA_WAIT =>
+            -- after a one cycle delay for the ROM input data, trigger the start bit
+            next_state <= DFR_FSM_START;
          when DFR_FSM_DONE_STATE =>
             dfr_fsm_done <= '1';
             next_state <= DFR_FSM_DONE_STATE;
