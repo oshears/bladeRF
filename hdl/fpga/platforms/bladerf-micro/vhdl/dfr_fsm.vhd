@@ -15,7 +15,8 @@ ENTITY DFR_FSM IS
       dfr_resetn : OUT STD_LOGIC;
       dfr_start   : OUT   STD_LOGIC;
       dfr_output_ram_wen : OUT STD_LOGIC;
-      dfr_fsm_done : OUT STD_LOGIC
+      dfr_fsm_done : OUT STD_LOGIC;
+      dfr_fsm_waiting : OUT STD_LOGIC
    );
 END DFR_FSM;
 
@@ -47,6 +48,7 @@ ARCHITECTURE arch OF DFR_FSM IS
       dfr_output_ram_wen <= '0';
       dfr_input_count_inc <= '0';
       dfr_fsm_done <= '0';
+      dfr_fsm_waiting <= '0';
 
       CASE state IS
          WHEN DFR_FSM_IDLE =>
@@ -56,7 +58,9 @@ ARCHITECTURE arch OF DFR_FSM IS
             -- reset DFR
             dfr_resetn <= '0';
 
+            -- TODO, DFR IP is stuck in busy for some reason?
             next_state <= DFR_FSM_START;
+            -- next_state <= DFR_FSM_DONE_STATE;
          WHEN DFR_FSM_START =>
             -- start DFR
             dfr_start <= '1';
@@ -70,6 +74,7 @@ ARCHITECTURE arch OF DFR_FSM IS
                next_state <= DFR_FSM_WAIT;
             end if;
          WHEN DFR_FSM_WAIT =>
+            dfr_fsm_waiting <= '1';
             -- if DFR is done
             if (dfr_done = '1') then
 

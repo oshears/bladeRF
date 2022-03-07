@@ -183,6 +183,7 @@ architecture hosted_bladerf of bladerf is
     signal dfr_done        : STD_LOGIC := '0';
     signal dfr_output_ram_wen : std_logic := '0';
     signal dfr_fsm_done : std_logic := '0';
+    signal dfr_fsm_waiting : std_logic := '0';
 
     -- DFR HLS IP Core signals
     -- signal dfr_output : std_logic_vector(25 downto 0);
@@ -708,7 +709,8 @@ begin
         dfr_done => dfr_done,
         dfr_busy => dfr_busy,
         dfr_output_ram_wen => dfr_output_ram_wen,
-        dfr_fsm_done => dfr_fsm_done
+        dfr_fsm_done => dfr_fsm_done,
+        dfr_fsm_waiting => dfr_fsm_waiting
     );
 
     -- dfr input sample counter
@@ -784,9 +786,14 @@ begin
     rx_sample_fifo.rused <= (others => '0');
 
     -- debug LEDS
-    led(1) <= NOT dfr_fsm_done;
-    led(2) <= NOT dfr_busy;
-    led(3) <= NOT dfr_done;
+    -- led(1) <= NOT dfr_fsm_done;
+    -- led(2) <= NOT dfr_busy;
+    -- led(3) <= NOT dfr_done;
+    -- dfr_fsm_waiting
+
+    led(1) <= NOT dfr_start;
+    led(2) <= NOT dfr_fsm_waiting;
+    led(3) <= NOT dfr_fsm_done;
 
     -- rx_sample_fifo.rempty
     -- rx_sample_fifo.rfull
