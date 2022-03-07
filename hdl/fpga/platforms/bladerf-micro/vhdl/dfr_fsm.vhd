@@ -41,6 +41,7 @@ ARCHITECTURE arch OF DFR_FSM IS
 
    process(state,dfr_input_count,dfr_done,dfr_busy)
    begin
+      -- TODO for DEBUG: Try to figure out why it is stuck in reset (none of the start, done or waiting bits are high...)
       
       dfr_input_count_reset <= '0';
       dfr_resetn <= '1';
