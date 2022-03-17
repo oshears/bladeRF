@@ -198,6 +198,7 @@ architecture hosted_bladerf of bladerf is
 
     -- DFR Output Coutner
     signal dfr_output_count :  std_logic_vector(31 downto 0) := X"00000000";
+    signal dfr_output_valid :  std_logic := '0';
 
     -- DFR Output RAM Signals
     signal dfr_ram_din : std_logic_vector(25 downto 0) := (others => '0');
@@ -754,7 +755,7 @@ begin
     spectrum_dfr_core : entity work.dfr
     port map(
         resetn => dfr_resetn,
-        clock => fx3_pclk_pll, -- this one is the slower clock
+        clock => fx3_pclk_pll, 
         start => dfr_start,
         busy => dfr_busy,
         done => dfr_done,
@@ -778,7 +779,7 @@ begin
     process (fx3_pclk_pll)
     begin
         if (rising_edge(fx3_pclk_pll)) then
-            if (rx_sample_fifo.rreq = '1' AND meta_en_rx = '0' AND rx_enable = '1') then
+            if (rx_sample_fifo.rreq = '1' AND rx_enable = '1') then
                 dfr_output_count <= std_logic_vector(unsigned(dfr_output_count) + 1);
             else
                 dfr_output_count <= (others => '0');
@@ -786,10 +787,13 @@ begin
         end if;
     end process;
 
+    -- dfr_output_valid <= rx_sample_fifo.rreq AND NOT(meta_en_rx) AND rx_enable;
+    dfr_output_valid <= '1';
+
     -- signals to GPIF Bridge
     rx_sample_fifo.rdata <= dfr_output_count(3 downto 0) & "00" & dfr_ram_dout;
     rx_sample_fifo.rempty <= '0';
-    rx_sample_fifo.rfull <= dfr_fsm_done;
+    rx_sample_fifo.rfull <= dfr_fsm_done AND dfr_output_valid;
     rx_sample_fifo.rused <= (others => '0');
 
     -- debug LEDS

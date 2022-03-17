@@ -23,7 +23,10 @@ BEGIN
          IF (we = '1') THEN
             ram_block(write_address) <= din;
          END IF;
-         dout <= ram_block(read_address);
       END IF;
+   END PROCESS;
+
+   PROCESS (read_address) BEGIN
+      dout <= ram_block(read_address);
    END PROCESS;
 END rtl;

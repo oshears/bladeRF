@@ -34,7 +34,7 @@ library nuand;
     use nuand.common_dcfifo_p.all;
     use nuand.bladerf_p.all;
 
-entity fx3_gpif_tb is
+entity fx3_gpif_tb_dfr is
     generic (
         -- For bladeRF2 (2x2 MIMO):
         NUM_MIMO_STREAMS            : natural := 2;
@@ -45,7 +45,7 @@ entity fx3_gpif_tb is
     );
 end entity;
 
-architecture arch of fx3_gpif_tb is
+architecture arch of fx3_gpif_tb_dfr is
 
     -- bladerf-hosted uses ad9361.clock (125 MHz) for rx_clock and tx_clock
     constant SYSCLK_HALF_PERIOD     : time  := 1 sec * (1.0/125.0e6/2.0);
@@ -137,6 +137,38 @@ architecture arch of fx3_gpif_tb is
     end function data_gen;
 
     signal rx_packet_ready      :   std_logic;
+
+
+    -- DFR FSM Signals
+    signal dfr_input_count :  std_logic_vector(31 downto 0) := X"00000000";
+    signal dfr_input_count_reset : std_logic := '0';
+    signal dfr_input_count_inc : std_logic := '0';
+    signal dfr_resetn : std_logic := '0';
+    signal dfr_start       : STD_LOGIC := '0';
+    signal dfr_done        : STD_LOGIC := '0';
+    signal dfr_output_ram_wen : std_logic := '0';
+    signal dfr_fsm_done : std_logic := '0';
+    signal dfr_fsm_waiting : std_logic := '0';
+
+    -- DFR HLS IP Core signals
+    -- signal dfr_output : std_logic_vector(25 downto 0);
+    signal dfr_clock2x : std_logic := '0';
+
+    -- Misc DFR Signals
+    signal dfr_busy      : STD_LOGIC := '0';
+
+    -- DFR Input ROM Signals
+    signal dfr_rom_addr : std_logic_vector(12 downto 0) := "0000000000000";
+    signal dfr_rom_dout : std_logic_vector(31 downto 0) := X"00000000";
+
+    -- DFR Output Coutner
+    signal dfr_output_count :  std_logic_vector(31 downto 0) := X"00000000";
+    signal dfr_output_valid :  std_logic := '0';
+
+    -- DFR Output RAM Signals
+    signal dfr_ram_din : std_logic_vector(25 downto 0) := (others => '0');
+    signal dfr_ram_dout : std_logic_vector(25 downto 0) := (others => '0');
+
 
 begin
 
@@ -648,5 +680,26 @@ begin
     assert (rx_sample_fifo.wfull = '0') report "rx_sample_fifo full (write)" severity warning;
     assert (tx_sample_fifo.wfull = '0') report "tx_sample_fifo full (write)" severity warning;
     assert (loopback_fifo.wfull = '0') report "loopback_fifo full (write)" severity warning;
+
+    
+    -- DFR Output RAM Counter for GPIF Bridge
+    process (fx3_pclk_pll)
+    begin
+        if (rising_edge(fx3_pclk_pll)) then
+            if (rx_sample_fifo.rreq = '1' AND fx3_control.rx_enable = '1') then
+                dfr_rom_addr <= std_logic_vector(unsigned(dfr_rom_addr) + 1);
+            else
+            dfr_rom_addr <= (others => '0');
+            end if;
+        end if;
+    end process;
+
+    -- DFR ROM
+    dfr_rom : entity work.rom
+    port map(
+        address => dfr_rom_addr,
+        clock => fx3_pclk_pll,
+        q => dfr_rom_dout
+    );
 
 end architecture;
