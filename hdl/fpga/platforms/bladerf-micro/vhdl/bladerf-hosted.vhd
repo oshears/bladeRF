@@ -700,7 +700,9 @@ begin
     dfr_fsm : entity work.dfr_fsm
     port map(
         clk => fx3_pclk_pll,
-        reset => rx_reset,
+        -- reset => rx_reset,
+        -- reset => sys_reset_pclk,
+        reset => '0',
         dfr_input_count => dfr_input_count,
         dfr_input_count_reset => dfr_input_count_reset,
         dfr_input_count_inc => dfr_input_count_inc,
@@ -710,8 +712,13 @@ begin
         dfr_busy => dfr_busy,
         dfr_output_ram_wen => dfr_output_ram_wen,
         dfr_fsm_done => dfr_fsm_done,
-        dfr_fsm_waiting => dfr_fsm_waiting
+        dfr_fsm_waiting => dfr_fsm_waiting,
+        dfr_fsm_led => led
+        -- dfr_fsm_led => OPEN
     );
+    -- led(3) <= fx3_pclk_pll; 
+    -- led(2) <= NOT sys_reset_pclk; 
+    -- led(1) <= NOT rx_enable; 
 
     -- dfr input sample counter
     process (fx3_pclk_pll)
@@ -791,9 +798,9 @@ begin
     -- led(3) <= NOT dfr_done;
     -- dfr_fsm_waiting
 
-    led(1) <= NOT dfr_start;
-    led(2) <= NOT dfr_fsm_waiting;
-    led(3) <= NOT dfr_fsm_done;
+    -- led(1) <= NOT dfr_start;
+    -- led(2) <= NOT dfr_fsm_waiting;
+    -- led(3) <= NOT dfr_fsm_done;
 
     -- rx_sample_fifo.rempty
     -- rx_sample_fifo.rfull
