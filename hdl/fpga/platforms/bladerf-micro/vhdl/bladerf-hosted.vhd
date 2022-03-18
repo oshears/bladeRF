@@ -779,7 +779,7 @@ begin
     process (fx3_pclk_pll)
     begin
         if (rising_edge(fx3_pclk_pll)) then
-            if (rx_sample_fifo.rreq = '1' AND rx_enable = '1') then
+            if (rx_sample_fifo.rreq = '1' AND rx_meta_fifo.rreq = '0') then
                 dfr_output_count <= std_logic_vector(unsigned(dfr_output_count) + 1);
             else
                 dfr_output_count <= (others => '0');
@@ -791,7 +791,7 @@ begin
     dfr_output_valid <= '1';
 
     -- signals to GPIF Bridge
-    rx_sample_fifo.rdata <= dfr_output_count(3 downto 0) & "00" & dfr_ram_dout;
+    rx_sample_fifo.rdata <= dfr_output_count(5 downto 0) & dfr_ram_dout;
     rx_sample_fifo.rempty <= '0';
     rx_sample_fifo.rfull <= dfr_fsm_done AND dfr_output_valid;
     rx_sample_fifo.rused <= (others => '0');

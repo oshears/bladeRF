@@ -253,7 +253,7 @@ begin
     -- Discrete control signals for fx3_gpif
     fx3_control.usb_speed   <= '0';
     fx3_control.meta_enable <= '1';
-    fx3_control.packet      <= '1';
+    fx3_control.packet      <= '0';
 
     U_pkt_gen : entity nuand.rx_packet_generator
         port map(

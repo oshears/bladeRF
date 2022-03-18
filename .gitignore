@@ -57,3 +57,11 @@ host/misc/windows/scripts/work
 
 hdl/fpga/platforms/common/bladerf/software/bladeRF_nios_bsp
 hdl/quartus/log.txt
+hdl/quartus/build.log
+hdl/fpga/platforms/bladerf-micro/modelsim/rtl_work/
+hdl/fpga/platforms/bladerf-micro/modelsim/rtl_work/_info
+hdl/fpga/platforms/bladerf-micro/modelsim/rtl_work/_lib.qdb
+hdl/fpga/platforms/bladerf-micro/modelsim/rtl_work/_lib1_0.qdb
+hdl/fpga/platforms/bladerf-micro/modelsim/rtl_work/_lib1_0.qpg
+hdl/fpga/platforms/bladerf-micro/modelsim/rtl_work/_lib1_0.qtl
+hdl/fpga/platforms/bladerf-micro/modelsim/rtl_work/_vmake

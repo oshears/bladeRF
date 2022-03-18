@@ -114,7 +114,10 @@ ARCHITECTURE arch OF DFR_FSM IS
             dfr_fsm_led <= "011";
          when DFR_WRITE_RAM_STATE =>
             -- check if counter is equal to 3
-            if (dfr_input_count(2 downto 0) = "011") then
+            if (unsigned(dfr_input_count) = (6102 - 1)) then
+            -- if (dfr_input_count(12 downto 0) = "1011111010110") then
+            -- if (dfr_input_count(12 downto 0) = "0000000000011") then -- good
+            -- if (unsigned(dfr_input_count) = 1000) then
                -- go to done state
                next_state <= DFR_FSM_DONE_STATE;
             else
