@@ -720,11 +720,7 @@ begin
         dfr_fsm_done => dfr_fsm_done,
         dfr_fsm_waiting => dfr_fsm_waiting,
         dfr_fsm_led => led
-        -- dfr_fsm_led => OPEN
     );
-    -- led(3) <= fx3_pclk_pll; 
-    -- led(2) <= NOT sys_reset_pclk; 
-    -- led(1) <= NOT rx_enable; 
 
     -- dfr input sample counter
     process (fx3_pclk_pll)
@@ -792,70 +788,11 @@ begin
         end if;
     end process;
 
-    -- dfr_output_valid <= rx_sample_fifo.rreq AND NOT(meta_en_rx) AND rx_enable;
-    dfr_output_valid <= '1';
-
     -- signals to GPIF Bridge
-    -- rx_sample_fifo.rdata <= dfr_output_count(5 downto 0) & dfr_ram_dout;
-    rx_sample_fifo.rdata <= dfr_output_count(5 downto 0) & dfr_loopback_ram_dout;
+    rx_sample_fifo.rdata <= dfr_output_count(5 downto 0) & dfr_ram_dout;
     rx_sample_fifo.rempty <= '0';
-    rx_sample_fifo.rfull <= dfr_fsm_done AND dfr_output_valid;
+    rx_sample_fifo.rfull <= dfr_fsm_done;
     rx_sample_fifo.rused <= (others => '0');
-
-    
-    -- Digital Loopback Interface
-    -- loopback_fifo_wenabled => tx_loopback_enabled,
-    -- loopback_fifo_wreset   => tx_reset,
-    -- loopback_fifo_wclock   => tx_loopback_fifo.wclock,
-    -- loopback_fifo_wdata    => tx_loopback_fifo.wdata,
-    -- loopback_fifo_wreq     => tx_loopback_fifo.wreq,
-    -- loopback_fifo_wfull    => tx_loopback_fifo.wfull,
-    -- loopback_fifo_wused    => tx_loopback_fifo.wused,
-
-    -- Loopback Counter
-    -- process (fx3_pclk_pll)
-    -- begin
-    --     if (rising_edge(fx3_pclk_pll)) then
-    --         if (tx_loopback_fifo.wreq = '1') then
-    --             dfr_loopback_count <= std_logic_vector(unsigned(dfr_loopback_count) + 1);
-    --         else
-    --             dfr_output_count <= (others => '0');
-    --         end if;
-    --     end if;
-    -- end process;
-
-    -- -- Loopback RAM (consider changing this to a FIFO...)
-    -- dfr_ram : entity work.dfr_ram
-    -- port map(
-    --     write_address => to_integer(unsigned(dfr_loopback_count)),
-    --     read_address => to_integer(unsigned(dfr_output_count)),
-    --     clock => fx3_pclk_pll,
-    --     we => tx_loopback_fifo.wreq,
-    --     din =>  tx_loopback_fifo.wdata(25 downto 0),
-    --     dout => dfr_loopback_ram_dout
-    -- );
-    dfr_loopback_fifo : entity work.lb_fifo
-        generic map (
-            LPM_NUMWORDS        => 1024
-        )
-        port map (
-            aclr                => tx_loopback_fifo.aclr,
-
-            wrclk               => tx_loopback_fifo.wclock,
-            wrreq               => tx_loopback_fifo.wreq,
-            data                => tx_loopback_fifo.wdata,
-            wrempty             => open,
-            wrfull              => tx_loopback_fifo.wfull,
-            wrusedw             => tx_loopback_fifo.wused,
-
-            rdclk               => fx3_pclk_pll,
-            rdreq               => rx_sample_fifo.rreq,
-            q                   => rx_sample_fifo.rdata,
-            rdempty             => OPEN,
-            rdfull              => OPEN,
-            rdusedw             => OPEN
-        );
-
 
     ---------------------------------------------------------
     ---------------- End  DFR IP ----------------------------
